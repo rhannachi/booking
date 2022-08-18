@@ -110,4 +110,4 @@ const RoomSchema: Schema<IRoomModel> = new Schema<IRoomModel>({
   }
 })
 
-export const UserModelMongo = models.Room || model<IRoomModel>('Room', RoomSchema)
+export const RoomMongo = models.Room || model<IRoomModel>('Room', RoomSchema)

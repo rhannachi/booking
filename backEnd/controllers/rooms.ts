@@ -1,15 +1,15 @@
+import { RoomMongo } from 'backEnd/models'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { getError } from './helper'
 
-export const allRooms = (_req: NextApiRequest, res: NextApiResponse): void => {
-  res.status(200).json({
-    success: true,
-    message: 'All Rooms'
-  })
-}
-
-export const newRoom = async (_req: NextApiRequest, res: NextApiResponse) => {
+export const allRooms = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
-    // const room = await UserModelMongo
+    const rooms = await RoomMongo.find()
+
+    res.status(200).json({
+      success: true,
+      rooms
+    })
   } catch (error) {
     res.status(400).json({
       success: false,
@@ -18,9 +18,20 @@ export const newRoom = async (_req: NextApiRequest, res: NextApiResponse) => {
   }
 }
 
-const getError = (error: unknown): string => {
-  if (error instanceof Error) {
-    return error.message
+export const addRoom = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    // TODO add check body params
+
+    const room = await RoomMongo.create(req.body)
+
+    res.status(200).json({
+      success: true,
+      room
+    })
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: getError(error)
+    })
   }
-  return String(error)
 }

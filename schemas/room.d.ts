@@ -1,23 +1,25 @@
-interface IImageRoomModel {
+import { Document } from 'mongoose'
+
+interface IImageRoomModel extends Document {
   public_id: string
   url: string
 }
 
 type CategoryRoomType = 'King' | 'Single' | 'Twins'
 
-interface IReviewRoomModel {
-  user: string // TODO mongoose.Schema.ObjectId,
+interface IReviewRoomModel extends Document<string> {
+  user: IUserModel['_id'] // TODO mongoose.Schema.ObjectId,
   name: string
   rating: number
   comment: string
 }
 
-interface IUserModel {
-  id: string
-  // TODO mongoose.Schema.ObjectId
+interface IUserModel extends Document<string> {
+  name: string
+  // TODO ....
 }
 
-export interface IRoomModel {
+export interface IRoomModel extends Document<string> {
   name: string
   pricePerNight: number
   description: string
@@ -34,6 +36,6 @@ export interface IRoomModel {
   images: IImageRoomModel[]
   category: CategoryRoomType
   reviews: IReviewRoomModel[]
-  user: IUserModel
+  user: IUserModel['_id']
   createdAt: Date
 }
