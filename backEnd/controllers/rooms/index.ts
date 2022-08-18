@@ -1,8 +1,8 @@
+import { getError } from 'backEnd/helpers'
 import { RoomMongo } from 'backEnd/models'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getError } from './helper'
 
-export const allRooms = async (_req: NextApiRequest, res: NextApiResponse) => {
+export const allRooms = async (_req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   try {
     const rooms = await RoomMongo.find()
 
@@ -18,7 +18,7 @@ export const allRooms = async (_req: NextApiRequest, res: NextApiResponse) => {
   }
 }
 
-export const addRoom = async (req: NextApiRequest, res: NextApiResponse) => {
+export const addRoom = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   try {
     // TODO add check body params
 
