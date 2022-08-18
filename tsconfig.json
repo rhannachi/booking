@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@/pages": ["pages"],
-      "@/backEnd": ["backEnd"]
+      "@/backEnd": ["backEnd/"],
+      "@/schemas": ["schemas"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
