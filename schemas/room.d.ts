@@ -1,4 +1,5 @@
 import { Document } from 'mongoose'
+import { IApiResponse } from './http'
 
 interface IImageRoomModel extends Document {
   public_id: string
@@ -38,4 +39,12 @@ export interface IRoomModel extends Document<string> {
   reviews: IReviewRoomModel[]
   user: IUserModel['_id']
   createdAt: Date
+}
+
+/**
+ * API
+ */
+
+export interface IGetRoomApiResponse extends IApiResponse {
+  room?: IRoomModel
 }
