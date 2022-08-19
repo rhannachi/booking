@@ -1,26 +1,24 @@
-import { Document } from 'mongoose'
+import { Document, Types } from 'mongoose'
 import { IApiResponse } from './http'
 
-interface IImageRoomModel extends Document {
+interface IImageRoom extends Document<string> {
   public_id: string
   url: string
 }
 
-type CategoryRoomType = 'King' | 'Single' | 'Twins'
-
-interface IReviewRoomModel extends Document<string> {
-  user: IUserModel['_id'] // TODO mongoose.Schema.ObjectId,
+interface IReviewRoom extends Document<string> {
+  user: Types.ObjectId // TODO mongoose.Schema.ObjectId,
   name: string
   rating: number
   comment: string
 }
 
-interface IUserModel extends Document<string> {
+interface IUser extends Document<string> {
   name: string
   // TODO ....
 }
 
-export interface IRoomModel extends Document<string> {
+export interface IRoom extends Document<string> {
   name: string
   pricePerNight: number
   description: string
@@ -34,11 +32,11 @@ export interface IRoomModel extends Document<string> {
   roomCleaning: boolean
   ratings: number
   numOfReviews: number
-  images: IImageRoomModel[]
-  category: CategoryRoomType
-  reviews: IReviewRoomModel[]
-  user: IUserModel['_id']
-  createdAt: Date
+  images: IImageRoom[]
+  category: 'King' | 'Single' | 'Twins'
+  reviews: IReviewRoom[]
+  user?: Types.ObjectId // IUser['_id']
+  createdAt?: Date
 }
 
 /**
@@ -46,9 +44,9 @@ export interface IRoomModel extends Document<string> {
  */
 
 export interface IRoomApiResponse extends IApiResponse {
-  room?: IRoomModel
+  room?: IRoom
 }
 
 export interface IRoomsApiResponse extends IApiResponse {
-  rooms?: IRoomModel[]
+  rooms?: IRoom[]
 }

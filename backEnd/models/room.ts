@@ -1,7 +1,7 @@
 import { model, models, Schema, Types } from 'mongoose'
-import { IRoomModel } from 'schemas/room'
+import { IRoom } from 'schemas/room'
 
-const RoomSchema: Schema<IRoomModel> = new Schema<IRoomModel>({
+const RoomSchema: Schema<IRoom> = new Schema<IRoom>({
   name: {
     type: String,
     required: [true, 'Please enter room name'],
@@ -110,4 +110,4 @@ const RoomSchema: Schema<IRoomModel> = new Schema<IRoomModel>({
   }
 })
 
-export const RoomMongo = models.Room || model<IRoomModel>('Room', RoomSchema)
+export const RoomMongo = models.Room || model<IRoom>('Room', RoomSchema)
