@@ -1,14 +1,14 @@
 import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 import dbConnect from 'backEnd/infra/db'
-import { allRooms } from 'backEnd/controllers'
-import { IRoomsApiResponse } from 'schemas'
+import { addRooms } from 'backEnd/controllers/seeding'
+import { IApiResponse } from 'schemas'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
 
 dbConnect()
 
-// GET all rooms
-handler.get<IRoomsApiResponse>(allRooms)
+// POST add rooms
+handler.post<IApiResponse>(addRooms)
 
 export default handler
