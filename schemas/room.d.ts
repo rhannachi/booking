@@ -45,6 +45,10 @@ export interface IRoomModel extends Document<string> {
  * API
  */
 
-export interface IGetRoomApiResponse extends IApiResponse {
+export interface IRoomApiResponse extends IApiResponse {
   room?: IRoomModel
+}
+
+export interface IRoomsApiResponse extends IApiResponse {
+  rooms?: IRoomModel[]
 }

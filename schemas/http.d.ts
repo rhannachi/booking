@@ -1,4 +1,4 @@
 export interface IApiResponse {
-  status: number
+  status: 200 | 400 | 404 | 500
   error?: string
 }

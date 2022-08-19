@@ -43,6 +43,48 @@
 					"response": []
 				},
 				{
+					"name": "get Room",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/room/62fea66ef545927726f9df9f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"room",
+								"62fea66ef545927726f9df9f"
+							],
+							"query": [
+								{
+									"key": "sssssss",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Add Room",
 					"request": {
 						"method": "POST",
