@@ -1,5 +1,5 @@
-import { getError } from 'backEnd/helpers'
-import { RoomMongo } from 'backEnd/models'
+import { getError } from '@/backEnd/helpers'
+import { RoomMongo } from '@/backEnd/models'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { IApiResponse } from 'schemas'
 import { rooms } from './mocks'

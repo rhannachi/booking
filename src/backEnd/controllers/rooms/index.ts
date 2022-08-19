@@ -1,9 +1,9 @@
-import { getError } from 'backEnd/helpers'
-import { RoomMongo } from 'backEnd/models'
+import { getError } from '@/backEnd/helpers'
+import { RoomMongo } from '@/backEnd/models'
+import { IRoom, IRoomApiResponse, IRoomsApiResponse } from '@/schemas'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { IRoomApiResponse, IRoom, IRoomsApiResponse } from 'schemas'
 
-export const allRooms = async (_req: NextApiRequest, res: NextApiResponse<IRoomsApiResponse>): Promise<void> => {
+export const getRooms = async (_req: NextApiRequest, res: NextApiResponse<IRoomsApiResponse>): Promise<void> => {
   try {
     const rooms = await RoomMongo.find<IRoom>()
 

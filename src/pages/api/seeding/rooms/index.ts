@@ -1,8 +1,9 @@
 import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
-import dbConnect from 'backEnd/infra/db'
-import { addRooms } from 'backEnd/controllers/seeding'
-import { IApiResponse } from 'schemas'
+
+import { IApiResponse } from '@/schemas'
+import { dbConnect } from '@/backEnd/infra'
+import { addRooms } from '@/backEnd/controllers'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
 
