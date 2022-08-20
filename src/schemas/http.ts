@@ -9,9 +9,11 @@ export type ApiErrorMessageType = typeof API_RESPONSE_STATUS_MESSAGE[keyof typeo
 
 export class ApiError extends Error {
   status: ApiErrorStatusType
-  constructor(status: ApiErrorStatusType, message: string) {
+  extra?: string
+  constructor(status: ApiErrorStatusType, message: string, extra?: string) {
     super(message)
     this.status = status
+    this.extra = extra
     Error.captureStackTrace(this, this.constructor)
   }
 }
