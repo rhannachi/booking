@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import mongoose from 'mongoose'
-import { getEnv } from '../helpers'
+import { getEnv } from '../config'
 
 export const dbConnect = async () => {
   try {
