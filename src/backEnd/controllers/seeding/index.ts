@@ -1,7 +1,7 @@
-import { getError } from '@/backEnd/helpers'
 import { RoomMongo } from '@/backEnd/models'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { IApiResponse } from 'schemas'
+import { makeApiError } from '../makeErrors'
 import { rooms } from './mocks'
 
 export const addRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiResponse>): Promise<void> => {
@@ -12,10 +12,11 @@ export const addRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiRe
     res.status(200).json({
       status: 200
     })
-  } catch (error) {
-    res.status(400).json({
-      status: 400,
-      error: getError(error)
+  } catch (e) {
+    const error = makeApiError(e, 'Controller Seeding addRooms')
+    res.status(error.status).json({
+      status: error.status,
+      error: error.message
     })
   }
 }

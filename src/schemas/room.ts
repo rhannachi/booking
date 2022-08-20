@@ -13,10 +13,10 @@ interface IReviewRoom extends Document<string> {
   comment: string
 }
 
-interface IUser extends Document<string> {
-  name: string
-  // TODO ....
-}
+// interface IUser extends Document<string> {
+//   name: string
+//   // TODO ....
+// }
 
 export interface IRoom extends Document<string> {
   name: string
