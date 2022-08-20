@@ -1,4 +1,4 @@
-import { RoomMongo } from '@/backEnd/models'
+import { RoomMongo } from '@/backEnd/infra'
 import { IRoom, IRoomApiResponse, IRoomsApiResponse } from '@/schemas'
 import { isValidObjectId } from 'mongoose'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -27,7 +27,7 @@ export const getRooms = async (_req: NextApiRequest, res: NextApiResponse<IRooms
   }
 }
 
-export const addRoom = async (req: NextApiRequest, res: NextApiResponse<IRoomApiResponse>): Promise<void> => {
+export const postRoom = async (req: NextApiRequest, res: NextApiResponse<IRoomApiResponse>): Promise<void> => {
   try {
     // TODO check valid params room
     const roomFields = req?.body
@@ -82,7 +82,7 @@ export const getRoom = async (req: NextApiRequest, res: NextApiResponse<IRoomApi
   }
 }
 
-export const setRoom = async (req: NextApiRequest, res: NextApiResponse<IRoomApiResponse>): Promise<void> => {
+export const putRoom = async (req: NextApiRequest, res: NextApiResponse<IRoomApiResponse>): Promise<void> => {
   try {
     const roomId = req.query?.id
     // TODO check valid params room

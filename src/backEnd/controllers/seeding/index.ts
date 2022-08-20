@@ -1,10 +1,10 @@
-import { RoomMongo } from '@/backEnd/models'
+import { RoomMongo } from '@/backEnd/infra'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { IApiResponse } from 'schemas'
 import { makeApiError } from '../makeErrors'
 import { rooms } from './mocks'
 
-export const addRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiResponse>): Promise<void> => {
+export const postRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiResponse>): Promise<void> => {
   try {
     await RoomMongo.deleteMany()
     await RoomMongo.insertMany(rooms)
