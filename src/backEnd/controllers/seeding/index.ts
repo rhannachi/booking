@@ -13,7 +13,7 @@ export const postRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiR
       status: 200
     })
   } catch (e) {
-    const error = makeApiError(e, 'Controller Seeding addRooms')
+    const error = makeApiError(e, 'Controller Seeding POST Rooms')
     res.status(error.status).json({
       status: error.status,
       error: error.message

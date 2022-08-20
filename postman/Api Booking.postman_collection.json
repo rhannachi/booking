@@ -9,7 +9,7 @@
 			"name": "rooms",
 			"item": [
 				{
-					"name": "All Rooms",
+					"name": "GET Rooms",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -43,7 +43,7 @@
 					"response": []
 				},
 				{
-					"name": "get Room",
+					"name": "GET Room",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -85,7 +85,7 @@
 					"response": []
 				},
 				{
-					"name": "Add Room",
+					"name": "POST Room",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -115,7 +115,7 @@
 					},
 					"response": [
 						{
-							"name": "Add Room",
+							"name": "POST Room",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -186,7 +186,39 @@
 					]
 				},
 				{
-					"name": "Set Room",
+					"name": "DELETE Room",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/room/6300c69d8fcddc9ac0642dc9",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"room",
+								"6300c69d8fcddc9ac0642dc9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Room",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -197,7 +229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"The Spa at Base Camp at Kerry Hotel\",\n    \"pricePerNight\": 76,\n    \"description\": \"Our largest room with a queen bed and foldable sofa. Comfortably fits 2-3 adults, four adults maximum. Decorated with Irish-themed colors and arts. It has a private bathroom with a shower, equipped with smart TV, mini-fridge, desk, chairs. Enjoy City views at the sitting area by the window. Located on the 3rd floor with no elevator.\",\n    \"address\": \"3118  Red Hawk Road, Garfield, MN, 56332\",\n    \"guestCapacity\": 2,\n    \"numOfBeds\": 1,\n    \"internet\": true,\n    \"breakfast\": false,\n    \"airConditioned\": true,\n    \"petsAllowed\": false,\n    \"roomCleaning\": true,\n    \"images\": [\n      {\n        \"public_id\": \"bookit/rooms/10_w8w8yi\",\n        \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590840/bookit/rooms/10_w8w8yi.jpg\"\n      }\n    ],\n    \"category\": \"Single\"\n  }",
+							"raw": "{\n    \"name\": \"The Spa at Base Camp at Kerry Hotel\",\n    \"pricePerNight\": 76,\n    \"description\": \"Our largest room with a queen bed and foldable sofa. Comfortably fits 2-3 adults, four adults maximum. Decorated with Irish-themed colors and arts. It has a private bathroom with a shower, equipped with smart TV, mini-fridge, desk, chairs. Enjoy City views at the sitting area by the window. Located on the 3rd floor with no elevator.\",\n    \"address\": \"3118  Red Hawk Road, Garfield, MN, 56332\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -205,21 +237,21 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/room/6300027157f383634c7f59c5",
+							"raw": "{{baseUrl}}/room/6300c69d8fcddc9ac0642dc9",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"room",
-								"6300027157f383634c7f59c5"
+								"6300c69d8fcddc9ac0642dc9"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "Add Room",
+							"name": "PUT Room",
 							"originalRequest": {
-								"method": "POST",
+								"method": "PUT",
 								"header": [
 									{
 										"key": "Accept",
@@ -228,7 +260,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Charming Studio < 10 Miles to Wells' Beaches!\",\n    \"pricePerNight\": 168,\n    \"description\": \"A friendly atmosphere and natural delights await your visit to the town of Wells! Stay at this well-equipped 1-bath studio and enjoy easy access to several beaches, including Wells Beach and Drakes Island Beach, as well as Rachel Carson National Wildlife Refuge - the best spot for wildlife viewing just 8 miles away. Not to mention, with the downtown area just 10 minutes from the vacation rental,\",\n    \"address\": \"4667 Bicetown Street, New York, NY, 10004\",\n    \"guestCapacity\": 1,\n    \"numOfBeds\": 1,\n    \"internet\": true,\n    \"breakfast\": true,\n    \"airConditioned\": false,\n    \"petsAllowed\": false,\n    \"roomCleaning\": true,\n    \"images\": [\n      {\n        \"public_id\": \"bookit/rooms/1_bzynlv\",\n        \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/1_bzynlv.jpg\"\n      },\n      {\n        \"public_id\": \"bookit/rooms/2_s1u52n\",\n        \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590761/bookit/rooms/2_s1u52n.jpg\"\n      }\n    ],\n    \"category\": \"King\"\n  }",
+									"raw": "{\n    \"name\": \"The Spa at Base Camp at Kerry Hotel\",\n    \"pricePerNight\": 76,\n    \"description\": \"Our largest room with a queen bed and foldable sofa. Comfortably fits 2-3 adults, four adults maximum. Decorated with Irish-themed colors and arts. It has a private bathroom with a shower, equipped with smart TV, mini-fridge, desk, chairs. Enjoy City views at the sitting area by the window. Located on the 3rd floor with no elevator.\",\n    \"address\": \"3118  Red Hawk Road, Garfield, MN, 56332\"\n  }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -236,12 +268,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/room",
+									"raw": "{{baseUrl}}/room/6300c69d8fcddc9ac0642dc9",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"room"
+										"room",
+										"6300c69d8fcddc9ac0642dc9"
 									]
 								}
 							},
@@ -255,7 +288,7 @@
 								},
 								{
 									"key": "ETag",
-									"value": "\"rr5gva8jodwo\""
+									"value": "\"rkdd7jv2qgui\""
 								},
 								{
 									"key": "Vary",
@@ -267,7 +300,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 18 Aug 2022 19:25:02 GMT"
+									"value": "Sat, 20 Aug 2022 11:57:36 GMT"
 								},
 								{
 									"key": "Connection",
@@ -283,41 +316,9 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"room\": {\n        \"name\": \"Charming Studio < 10 Miles to Wells' Beaches!\",\n        \"pricePerNight\": 168,\n        \"description\": \"A friendly atmosphere and natural delights await your visit to the town of Wells! Stay at this well-equipped 1-bath studio and enjoy easy access to several beaches, including Wells Beach and Drakes Island Beach, as well as Rachel Carson National Wildlife Refuge - the best spot for wildlife viewing just 8 miles away. Not to mention, with the downtown area just 10 minutes from the vacation rental,\",\n        \"address\": \"4667 Bicetown Street, New York, NY, 10004\",\n        \"guestCapacity\": 1,\n        \"numOfBeds\": 1,\n        \"internet\": true,\n        \"breakfast\": true,\n        \"airConditioned\": false,\n        \"petsAllowed\": false,\n        \"roomCleaning\": true,\n        \"ratings\": 0,\n        \"numOfReviews\": 0,\n        \"images\": [\n            {\n                \"public_id\": \"bookit/rooms/1_bzynlv\",\n                \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/1_bzynlv.jpg\",\n                \"_id\": \"62fe920ed0f91a3e3ab9d01e\"\n            },\n            {\n                \"public_id\": \"bookit/rooms/2_s1u52n\",\n                \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590761/bookit/rooms/2_s1u52n.jpg\",\n                \"_id\": \"62fe920ed0f91a3e3ab9d01f\"\n            }\n        ],\n        \"category\": \"King\",\n        \"_id\": \"62fe920ed0f91a3e3ab9d01d\",\n        \"reviews\": [],\n        \"createdAt\": \"2022-08-18T19:25:02.937Z\",\n        \"__v\": 0\n    }\n}"
+							"body": "{\n    \"status\": 200,\n    \"room\": {\n        \"_id\": \"6300c69d8fcddc9ac0642dc9\",\n        \"name\": \"The Spa at Base Camp at Kerry Hotel\",\n        \"pricePerNight\": 76,\n        \"description\": \"Our largest room with a queen bed and foldable sofa. Comfortably fits 2-3 adults, four adults maximum. Decorated with Irish-themed colors and arts. It has a private bathroom with a shower, equipped with smart TV, mini-fridge, desk, chairs. Enjoy City views at the sitting area by the window. Located on the 3rd floor with no elevator.\",\n        \"address\": \"3118  Red Hawk Road, Garfield, MN, 56332\",\n        \"guestCapacity\": 1,\n        \"numOfBeds\": 1,\n        \"internet\": true,\n        \"breakfast\": true,\n        \"airConditioned\": false,\n        \"petsAllowed\": false,\n        \"roomCleaning\": true,\n        \"ratings\": 0,\n        \"numOfReviews\": 0,\n        \"images\": [\n            {\n                \"public_id\": \"bookit/rooms/1_bzynlv\",\n                \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/1_bzynlv.jpg\",\n                \"_id\": \"6300c69d8fcddc9ac0642dca\"\n            },\n            {\n                \"public_id\": \"bookit/rooms/2_s1u52n\",\n                \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590761/bookit/rooms/2_s1u52n.jpg\",\n                \"_id\": \"6300c69d8fcddc9ac0642dcb\"\n            }\n        ],\n        \"category\": \"King\",\n        \"reviews\": [],\n        \"createdAt\": \"2022-08-20T11:33:49.354Z\",\n        \"__v\": 0\n    }\n}"
 						}
 					]
-				},
-				{
-					"name": "SEEDING Add Rooms",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Charming Studio < 10 Miles to Wells' Beaches!\",\n    \"pricePerNight\": 168,\n    \"description\": \"A friendly atmosphere and natural delights await your visit to the town of Wells! Stay at this well-equipped 1-bath studio and enjoy easy access to several beaches, including Wells Beach and Drakes Island Beach, as well as Rachel Carson National Wildlife Refuge - the best spot for wildlife viewing just 8 miles away. Not to mention, with the downtown area just 10 minutes from the vacation rental,\",\n    \"address\": \"4667 Bicetown Street, New York, NY, 10004\",\n    \"guestCapacity\": 1,\n    \"numOfBeds\": 1,\n    \"internet\": true,\n    \"breakfast\": true,\n    \"airConditioned\": false,\n    \"petsAllowed\": false,\n    \"roomCleaning\": true,\n    \"images\": [\n      {\n        \"public_id\": \"bookit/rooms/1_bzynlv\",\n        \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/1_bzynlv.jpg\"\n      },\n      {\n        \"public_id\": \"bookit/rooms/2_s1u52n\",\n        \"url\": \"https://res.cloudinary.com/bookit/image/upload/v1618590761/bookit/rooms/2_s1u52n.jpg\"\n      }\n    ],\n    \"category\": \"King\"\n  }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/seeding/rooms",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"seeding",
-								"rooms"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -325,7 +326,7 @@
 			"name": "seeding",
 			"item": [
 				{
-					"name": "Add Rooms",
+					"name": "POST Rooms",
 					"request": {
 						"method": "POST",
 						"header": [

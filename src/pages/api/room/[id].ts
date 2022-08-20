@@ -1,8 +1,8 @@
 import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { IRoomApiResponse } from '@/schemas'
-import { getRoom, putRoom } from '@/backEnd/controllers'
+import { IApiDeleteRoomResponse, IApiRoomResponse } from '@/schemas'
+import { deleteRoom, getRoom, putRoom } from '@/backEnd/controllers'
 import { dbConnect } from '@/backEnd/infra'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
@@ -10,8 +10,10 @@ const handler = nextConnect<NextApiRequest, NextApiResponse>()
 dbConnect()
 
 // GET rom
-handler.get<IRoomApiResponse>(getRoom)
+handler.get<IApiRoomResponse>(getRoom)
 // PUT rom
-handler.put<IRoomApiResponse>(putRoom)
+handler.put<IApiRoomResponse>(putRoom)
+// DELETED rom
+handler.delete<IApiDeleteRoomResponse>(deleteRoom)
 
 export default handler

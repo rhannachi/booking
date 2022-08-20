@@ -15,8 +15,7 @@ export const makeApiError = (e: unknown, optionalMessage?: string): ApiError => 
   let message: ApiErrorMessageType | string = 'HTTP Internal Server Error'
   let stack: string | undefined = `${optionalMessage}: ${e instanceof Error ? e?.stack : String(e)}`
 
-  // eslint-disable-next-line no-console
-  console.error('===> Error:', stack)
+  // TODO add save error stack into mongo
 
   if (e instanceof ApiError) {
     status = e.status
@@ -24,7 +23,17 @@ export const makeApiError = (e: unknown, optionalMessage?: string): ApiError => 
     stack = e?.stack
   }
 
-  return new ApiError(status, message, stack)
+  const error = new ApiError(status, message, stack)
+
+  // eslint-disable-next-line no-console
+  console.info('===> Error:', error)
+
+  return error
+}
+
+export const makeErrorInternalServerError = (): ApiError => {
+  const message: ApiErrorMessageType = 'HTTP Internal Server Error'
+  return new ApiError(500, message)
 }
 
 export const makeErrorRoomFieldsInvalid = (): ApiError => {
