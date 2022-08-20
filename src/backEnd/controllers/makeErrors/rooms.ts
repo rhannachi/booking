@@ -10,24 +10,26 @@ type ErrorRoomMessageType =
  * Api Error handler
  */
 
-export const makeApiError = (e: unknown, optionalMessage?: string): ApiError => {
+export const makeApiError = (e: unknown): ApiError => {
   let status: ApiErrorStatusType = 500
   let message: ApiErrorMessageType | string = 'HTTP Internal Server Error'
-  let stack: string | undefined = `${optionalMessage}: ${e instanceof Error ? e?.stack : String(e)}`
 
   // TODO add save error stack into mongo
 
   if (e instanceof ApiError) {
     status = e.status
     message = e.message
-    stack = e?.stack
   }
 
-  const error = new ApiError(status, message, stack)
-
+  const error = new ApiError(status, message)
   // eslint-disable-next-line no-console
-  console.info('===> Error:', error)
-
+  console.dir({
+    error: {
+      status: error.status,
+      message: error?.message,
+      stack: error?.stack
+    }
+  })
   return error
 }
 

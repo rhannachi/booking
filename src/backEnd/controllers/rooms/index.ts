@@ -2,6 +2,7 @@ import { RoomMongo } from '@/backEnd/infra'
 import { IRoom, IApiRoomResponse, IApiRoomsResponse, IApiDeleteRoomResponse } from '@/schemas'
 import { isValidObjectId } from 'mongoose'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { NextHandler } from 'next-connect'
 import {
   makeApiError,
   makeErrorInternalServerError,
@@ -11,7 +12,11 @@ import {
   makeErrorRoomNotFound
 } from '../makeErrors'
 
-export const getRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiRoomsResponse>): Promise<void> => {
+export const getRooms = async (
+  _req: NextApiRequest,
+  res: NextApiResponse<IApiRoomsResponse>,
+  next: NextHandler
+): Promise<void> => {
   try {
     const rooms = await RoomMongo.find<IRoom>()
 
@@ -20,15 +25,15 @@ export const getRooms = async (_req: NextApiRequest, res: NextApiResponse<IApiRo
       rooms
     })
   } catch (e) {
-    const error = makeApiError(e, 'Controller GET Room')
-    res.status(error.status).json({
-      status: error.status,
-      error: error.message
-    })
+    next(makeApiError(e))
   }
 }
 
-export const postRoom = async (req: NextApiRequest, res: NextApiResponse<IApiRoomResponse>): Promise<void> => {
+export const postRoom = async (
+  req: NextApiRequest,
+  res: NextApiResponse<IApiRoomResponse>,
+  next: NextHandler
+): Promise<void> => {
   try {
     // TODO check valid params room
     const roomFields = req?.body
@@ -44,15 +49,15 @@ export const postRoom = async (req: NextApiRequest, res: NextApiResponse<IApiRoo
       room: newRoom
     })
   } catch (e) {
-    const error = makeApiError(e, 'Controller POST Room')
-    res.status(error.status).json({
-      status: error.status,
-      error: error.message
-    })
+    next(makeApiError(e))
   }
 }
 
-export const getRoom = async (req: NextApiRequest, res: NextApiResponse<IApiRoomResponse>): Promise<void> => {
+export const getRoom = async (
+  req: NextApiRequest,
+  res: NextApiResponse<IApiRoomResponse>,
+  next: NextHandler
+): Promise<void> => {
   try {
     const roomId = req.query?.id
 
@@ -75,15 +80,15 @@ export const getRoom = async (req: NextApiRequest, res: NextApiResponse<IApiRoom
       room
     })
   } catch (e) {
-    const error = makeApiError(e, 'Controller GET Room')
-    res.status(error.status).json({
-      status: error.status,
-      error: error.message
-    })
+    next(makeApiError(e))
   }
 }
 
-export const putRoom = async (req: NextApiRequest, res: NextApiResponse<IApiRoomResponse>): Promise<void> => {
+export const putRoom = async (
+  req: NextApiRequest,
+  res: NextApiResponse<IApiRoomResponse>,
+  next: NextHandler
+): Promise<void> => {
   try {
     const roomId = req.query?.id
     // TODO check valid params room
@@ -118,15 +123,15 @@ export const putRoom = async (req: NextApiRequest, res: NextApiResponse<IApiRoom
       room: newRoom
     })
   } catch (e) {
-    const error = makeApiError(e, 'Controller PUT Room')
-    res.status(error.status).json({
-      status: error.status,
-      error: error.message
-    })
+    next(makeApiError(e))
   }
 }
 
-export const deleteRoom = async (req: NextApiRequest, res: NextApiResponse<IApiDeleteRoomResponse>): Promise<void> => {
+export const deleteRoom = async (
+  req: NextApiRequest,
+  res: NextApiResponse<IApiDeleteRoomResponse>,
+  next: NextHandler
+): Promise<void> => {
   try {
     const roomId = req.query?.id
 
@@ -150,15 +155,11 @@ export const deleteRoom = async (req: NextApiRequest, res: NextApiResponse<IApiD
       throw makeErrorInternalServerError()
     }
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       id: deletedRoom?.id
     })
   } catch (e) {
-    const error = makeApiError(e, 'Controller DELETE Room')
-    res.status(error.status).json({
-      status: error.status,
-      error: error.message
-    })
+    next(makeApiError(e))
   }
 }
