@@ -1,8 +1,8 @@
-import { RoomMongo } from '@/backEnd/infra'
+import { RoomMongo } from '@/server/infra'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { NextHandler } from 'next-connect'
 import { IApiResponse } from 'schemas'
-import { makeApiError } from '../makeErrors'
+import { makeApiError } from '../../factories'
 import { rooms } from './mocks'
 
 export const postRooms = async (

@@ -1,4 +1,4 @@
-import { RoomMongo } from '@/backEnd/infra'
+import { RoomMongo } from '@/server/infra'
 import { IRoom, IApiRoomResponse, IApiRoomsResponse, IApiDeleteRoomResponse } from '@/schemas'
 import { isValidObjectId } from 'mongoose'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -10,7 +10,7 @@ import {
   makeErrorRoomIdInvalid,
   makeErrorRoomIdIsRequired,
   makeErrorRoomNotFound
-} from '../makeErrors'
+} from '../../factories'
 
 export const getRooms = async (
   _req: NextApiRequest,
