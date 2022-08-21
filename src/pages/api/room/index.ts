@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { IApiRoomResponse } from 'schemas'
 import { dbConnect } from '@/server/infra'
-import { postRoom } from '@/server/controllers'
+import { postRoom } from '@/server/routes'
 import { nextOnErrorMiddleware } from '@/server/middlewares'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>({ onError: nextOnErrorMiddleware })
