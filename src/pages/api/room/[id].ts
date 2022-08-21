@@ -2,7 +2,7 @@ import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { IApiDeleteRoomResponse, IApiRoomResponse } from '@/schemas'
-import { deleteRoom, getRoom, putRoom } from '@/server/controllers'
+import { deleteRoom, getRoom, putRoom } from '@/server/routes'
 import { dbConnect } from '@/server/infra'
 import { nextOnErrorMiddleware } from '@/server/middlewares'
 
