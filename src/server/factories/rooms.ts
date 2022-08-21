@@ -41,9 +41,9 @@ export const makeErrorInternalServerError = (): ApiError => {
   return new ApiError(500, message)
 }
 
-export const makeErrorRoomFieldsInvalid = (): ApiError => {
+export const makeErrorRoomFieldsInvalid = (cause?: string): ApiError => {
   const message: ApiErrorMessageType = 'HTTP Bad Request'
-  const customMessage: ErrorRoomMessageType = 'Room fields are invalid'
+  const customMessage: ErrorRoomMessageType | string = cause ?? 'Room fields are invalid'
   return new ApiError(400, `${message}, ${customMessage}`)
 }
 

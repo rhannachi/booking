@@ -24,8 +24,13 @@ export const getRooms = nextCatchErrorMiddleware(
 
 export const postRoom = nextCatchErrorMiddleware(
   async (req: NextApiRequest, res: NextApiResponse<IApiRoomResponse>): Promise<void> => {
-    // TODO check valid params room
     const roomFields = req?.body
+    const room: IRoom = new RoomMongo(roomFields)
+    const error = room.validateSync()
+
+    if (error?.message) {
+      throw makeErrorRoomFieldsInvalid(error?.message)
+    }
 
     const newRoom: IRoom = await RoomMongo.create<IRoom>(roomFields)
 
@@ -68,7 +73,6 @@ export const getRoom = nextCatchErrorMiddleware(
 export const putRoom = nextCatchErrorMiddleware(
   async (req: NextApiRequest, res: NextApiResponse<IApiRoomResponse>): Promise<void> => {
     const roomId = req.query?.id
-    // TODO check valid params room
     const roomFields = req?.body
 
     if (!roomId) {
