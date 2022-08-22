@@ -1,24 +1,25 @@
-import { Document, Types } from 'mongoose'
 import { IApiResponse } from './http'
 
-interface IRoomImage extends Document<string> {
+export interface IRoomImage {
+  id: string
   public_id: string
   url: string
 }
 
-interface IReviewRoom extends Document<string> {
-  user: Types.ObjectId // TODO mongoose.Schema.ObjectId,
+interface IReviewRoom {
+  user: string // Types.ObjectId // TODO mongoose.Schema.ObjectId,
   name: string
   rating: number
   comment: string
 }
 
-// interface IUser extends Document<string> {
+// interface IUser  {
 //   name: string
 //   // TODO ....
 // }
 
-export interface IRoom extends Document<string> {
+export interface IRoom {
+  id: string
   name: string
   pricePerNight: number
   description: string
@@ -35,7 +36,7 @@ export interface IRoom extends Document<string> {
   images: IRoomImage[]
   category: 'King' | 'Single' | 'Twins'
   reviews: IReviewRoom[]
-  user?: Types.ObjectId // IUser['_id']
+  user?: string // Types.ObjectId // IUser['_id']
   createdAt?: Date
 }
 

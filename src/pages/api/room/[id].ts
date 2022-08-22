@@ -2,8 +2,8 @@ import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { IApiDeleteRoomResponse, IApiRoomResponse } from '@/schemas'
-import { deleteRoom, getRoom, putRoom } from '@/server/routes'
-import { dbConnect } from '@/server/infra'
+import { deleteRoom, getRoom, putRoom } from '@/server'
+import { dbConnect } from '@/server/repository'
 import { nextOnErrorMiddleware } from '@/server/middlewares'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>({ onError: nextOnErrorMiddleware })

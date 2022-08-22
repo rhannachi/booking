@@ -1,5 +1,16 @@
-import { model, models, Schema, Types } from 'mongoose'
-import { IRoom } from 'schemas/room'
+import { Model, model, models, Schema, Types } from 'mongoose'
+import { IRoom, IRoomImage } from 'schemas/room'
+
+const RoomImageSchema: Schema<IRoomImage> = new Schema<IRoomImage>({
+  public_id: {
+    type: String,
+    required: true
+  },
+  url: {
+    type: String,
+    required: true
+  }
+})
 
 const RoomSchema: Schema<IRoom> = new Schema<IRoom>({
   name: {
@@ -58,18 +69,10 @@ const RoomSchema: Schema<IRoom> = new Schema<IRoom>({
     type: Number,
     default: 0
   },
-  images: [
-    {
-      public_id: {
-        type: String,
-        required: true
-      },
-      url: {
-        type: String,
-        required: true
-      }
-    }
-  ],
+  images: {
+    type: [RoomImageSchema],
+    required: true
+  },
   category: {
     type: String,
     required: [true, 'Please enter room category'],
@@ -110,4 +113,4 @@ const RoomSchema: Schema<IRoom> = new Schema<IRoom>({
   }
 })
 
-export const RoomMongo = models.Room || model<IRoom>('Room', RoomSchema)
+export const RoomModel: Model<IRoom> = models.Room || model<IRoom>('Room', RoomSchema)
