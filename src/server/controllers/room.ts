@@ -1,4 +1,4 @@
-import { IRoom } from '@/schemas'
+import { FieldsType, IRoom, QueryType, ToResearchType } from '@/schemas'
 import {
   makeErrorInternalServerError,
   makeErrorRoomFieldsInvalid,
@@ -9,8 +9,6 @@ import {
 import { RoomService } from '@/server/services'
 import { isValidObjectId } from 'mongoose'
 import { rooms as roomsMocked } from '@/fixtures'
-
-type fieldsType = Record<string, string | boolean | number | object>
 
 export class RoomController {
   readonly roomService: RoomService
@@ -37,11 +35,25 @@ export class RoomController {
     return room
   }
 
-  async getAll(): Promise<IRoom[] | undefined> {
-    return await this.roomService.getRooms()
+  async getAll(query: QueryType): Promise<IRoom[] | undefined> {
+    let toResearch: ToResearchType = { ...query }
+
+    const address = query?.address
+
+    if (typeof address === 'string') {
+      toResearch = {
+        ...toResearch,
+        address: {
+          $regex: address,
+          $options: 'i'
+        }
+      }
+    }
+
+    return this.roomService.getRooms(toResearch)
   }
 
-  async add(fields: fieldsType): Promise<IRoom> {
+  async add(fields: FieldsType): Promise<IRoom> {
     const messageError = this.roomService.hasValidationError(fields)
 
     if (messageError) {
@@ -57,7 +69,7 @@ export class RoomController {
     return newRoom
   }
 
-  async set(id: unknown, fields: fieldsType): Promise<IRoom> {
+  async set(id: unknown, fields: FieldsType): Promise<IRoom> {
     if (!id) {
       throw makeErrorRoomIdIsRequired()
     }
@@ -107,6 +119,6 @@ export class RoomController {
 
   async seeding(): Promise<void> {
     // TODO remove unknown and fix this
-    await this.roomService.seedingRoom(roomsMocked as unknown as IRoom[])
+    return this.roomService.seedingRoom(roomsMocked as unknown as IRoom[])
   }
 }

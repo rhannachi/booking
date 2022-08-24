@@ -1,4 +1,4 @@
-import { IRoom } from '@/schemas'
+import { FieldsType, IRoom, ToResearchType } from '@/schemas'
 import { Model } from 'mongoose'
 import { RoomModel } from '../repository'
 
@@ -30,8 +30,6 @@ import { RoomModel } from '../repository'
 //   createdAt: room.createdAt
 // })
 
-type FieldsType = Record<string, string | boolean | number | object>
-
 export class RoomService {
   readonly roomModel: Model<IRoom>
 
@@ -55,19 +53,13 @@ export class RoomService {
     }
   }
 
-  async getRooms(): Promise<IRoom[] | undefined> {
-    const rooms: IRoom[] = await this.roomModel.find<IRoom>()
-    if (rooms) {
-      return rooms
-    }
+  async getRooms(toResearch: ToResearchType): Promise<IRoom[]> {
+    return this.roomModel.find<IRoom>({ ...toResearch })
   }
 
-  async addRoom(fields: FieldsType): Promise<IRoom | undefined> {
+  async addRoom(fields: FieldsType): Promise<IRoom> {
     const room: IRoom = new RoomModel(fields)
-    const roomAdded: IRoom = await this.roomModel.create<IRoom>(room)
-    if (roomAdded) {
-      return roomAdded
-    }
+    return this.roomModel.create<IRoom>(room)
   }
 
   async updateRoom(id: string, fields: FieldsType): Promise<IRoom | undefined> {
