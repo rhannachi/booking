@@ -1,5 +1,20 @@
 import { IApiResponse } from './http'
 
+export type QueryType = Partial<{
+  [key: string]: string | string[]
+}>
+
+export type ToResearchType =
+  | QueryType
+  | {
+      address: {
+        $regex: string
+        $options: 'i' | 'g'
+      }
+    }
+
+export type FieldsType = Record<string, string | boolean | number | object>
+
 export interface IRoomImage {
   id: string
   public_id: string
