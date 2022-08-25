@@ -5,11 +5,11 @@ import { RoomController } from '@/server/controllers'
 
 export const getRooms = nextCatchErrorMiddleware(
   async (req: NextApiRequest, res: NextApiResponse<IApiRoomsResponse>): Promise<void> => {
-    const rooms = await new RoomController().getAll(req.query)
+    const response = await new RoomController().getAll(req.query)
 
     res.status(200).json({
       status: 200,
-      rooms
+      ...response
     })
   }
 )

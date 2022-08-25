@@ -1,34 +1,17 @@
-import { FieldsType, IRoom, ToResearchType } from '@/schemas'
+import { IRoom } from '@/schemas'
 import { Model } from 'mongoose'
 import { RoomModel } from '../repository'
 
-// const imagesMapper = (image: IRoomImage) => ({
-//   id: image.id,
-//   public_id: image.public_id,
-//   url: image.url
-// })
+export type QueryType = Record<string, string | string[] | undefined>
 
-// const roomMapper = (room: IRoom): IRoom => ({
-//   id: room.id,
-//   name: room.name,
-//   pricePerNight: room.pricePerNight,
-//   description: room.description,
-//   address: room.address,
-//   guestCapacity: room.guestCapacity,
-//   numOfBeds: room.numOfBeds,
-//   internet: room.internet,
-//   breakfast: room.breakfast,
-//   airConditioned: room.airConditioned,
-//   petsAllowed: room.petsAllowed,
-//   roomCleaning: room.roomCleaning,
-//   ratings: room.ratings,
-//   numOfReviews: room.numOfReviews,
-//   images: room.images?.map(imagesMapper),
-//   category: room.category,
-//   reviews: room.reviews,
-//   user: room?.user,
-//   createdAt: room.createdAt
-// })
+export type ToResearchType =
+  | QueryType
+  | {
+      address: {
+        $regex: string
+        $options: 'i' | 'g'
+      }
+    }
 
 export class RoomService {
   readonly roomModel: Model<IRoom>
@@ -37,13 +20,17 @@ export class RoomService {
     this.roomModel = RoomModel
   }
 
-  hasValidationError(fields: FieldsType): string | undefined {
+  hasValidationError(fields: object): string | undefined {
     const error = new RoomModel(fields).validateSync()
     const message = error?.message
 
     if (message) {
       return message
     }
+  }
+
+  async count(): Promise<number> {
+    return this.roomModel.countDocuments()
   }
 
   async getRoom(id: string): Promise<IRoom | undefined> {
@@ -53,17 +40,17 @@ export class RoomService {
     }
   }
 
-  async getRooms(toResearch: ToResearchType): Promise<IRoom[]> {
+  async getRooms(toResearch?: ToResearchType): Promise<IRoom[]> {
     return this.roomModel.find<IRoom>({ ...toResearch })
   }
 
-  async addRoom(fields: FieldsType): Promise<IRoom> {
-    const room: IRoom = new RoomModel(fields)
+  async addRoom(roomInput: Omit<IRoom, 'id' | 'createdAt'>): Promise<IRoom> {
+    const room: IRoom = new RoomModel(roomInput)
     return this.roomModel.create<IRoom>(room)
   }
 
-  async updateRoom(id: string, fields: FieldsType): Promise<IRoom | undefined> {
-    const roomUpdated = await this.roomModel.findByIdAndUpdate<IRoom>(id, fields, {
+  async updateRoom(id: string, roomInput: Partial<Omit<IRoom, 'id' | 'createdAt'>>): Promise<IRoom | undefined> {
+    const roomUpdated = await this.roomModel.findByIdAndUpdate<IRoom>(id, roomInput, {
       new: true,
       runValidators: true,
       useFindAndModify: false

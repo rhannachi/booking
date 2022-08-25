@@ -1,16 +1,14 @@
 import { ApiError, ApiErrorMessageType } from '@/schemas'
 
-type ErrorRoomMessageType =
-  | 'Room not found with this ID'
-  | 'ID Room is required'
-  | 'Room fields are invalid'
-  | 'ID Room is invalid'
+type ErrorRoomMessageType = 'Room not found with this ID' | 'Room fields are invalid' | 'ID Room is invalid'
 
+// ************ 500
 export const makeErrorInternalServerError = (): ApiError => {
   const message: ApiErrorMessageType = 'HTTP Internal Server Error'
   return new ApiError(500, message)
 }
 
+// ************ 400
 export const makeErrorRoomFieldsInvalid = (cause?: string): ApiError => {
   const message: ApiErrorMessageType = 'HTTP Bad Request'
   const customMessage: ErrorRoomMessageType | string = cause ?? 'Room fields are invalid'
@@ -23,12 +21,7 @@ export const makeErrorRoomIdInvalid = (): ApiError => {
   return new ApiError(400, `${message}, ${customMessage}`)
 }
 
-export const makeErrorRoomIdIsRequired = (): ApiError => {
-  const message: ApiErrorMessageType = 'HTTP Bad Request'
-  const customMessage: ErrorRoomMessageType = 'ID Room is required'
-  return new ApiError(400, `${message}, ${customMessage}`)
-}
-
+// ************ 404
 export const makeErrorRoomNotFound = (): ApiError => {
   const message: ApiErrorMessageType = 'HTTP Not Found'
   const customMessage: ErrorRoomMessageType = 'Room not found with this ID'

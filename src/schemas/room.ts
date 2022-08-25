@@ -1,20 +1,5 @@
 import { IApiResponse } from './http'
 
-export type QueryType = Partial<{
-  [key: string]: string | string[]
-}>
-
-export type ToResearchType =
-  | QueryType
-  | {
-      address: {
-        $regex: string
-        $options: 'i' | 'g'
-      }
-    }
-
-export type FieldsType = Record<string, string | boolean | number | object>
-
 export interface IRoomImage {
   id: string
   public_id: string
@@ -22,7 +7,7 @@ export interface IRoomImage {
 }
 
 interface IReviewRoom {
-  user: string // Types.ObjectId // TODO mongoose.Schema.ObjectId,
+  user: string // ObjectId
   name: string
   rating: number
   comment: string
@@ -30,7 +15,7 @@ interface IReviewRoom {
 
 // interface IUser  {
 //   name: string
-//   // TODO ....
+//   // ....
 // }
 
 export interface IRoom {
@@ -51,7 +36,7 @@ export interface IRoom {
   images: IRoomImage[]
   category: 'King' | 'Single' | 'Twins'
   reviews: IReviewRoom[]
-  user?: string // Types.ObjectId // IUser['_id']
+  user?: string // ObjectId
   createdAt?: Date
 }
 
