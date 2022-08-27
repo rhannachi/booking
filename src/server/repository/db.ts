@@ -8,9 +8,12 @@ export const dbConnect = async () => {
       return
     }
 
-    const dbLocalUriEnv = getEnv('DB_LOCAL_URI')
+    const { dbUri } = getEnv()
 
-    await mongoose.connect(dbLocalUriEnv)
+    console.info('===> DB_URI', dbUri)
+
+    await mongoose.connect(dbUri)
+
     console.info('===> database is connected')
   } catch (error: unknown) {
     console.error(error)
