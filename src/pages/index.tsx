@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Welcome to Booking project</h1>
+        <h1>Welcome to Booking project is Preview TEst</h1>
       </main>
 
       <footer></footer>
