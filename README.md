@@ -1,5 +1,11 @@
 # NextJs, Mongoose, Redux, Storybook, Tailwindcss, TypeScript
 
+[![GitHub Actions Vercel Production Deployment](https://github.com/rhannachi/booking/actions/workflows/production.yml/badge.svg?branch=main)](https://github.com/rhannachi/booking/actions/workflows/production.yml)
+
+[![GitHub Actions Vercel Preview Deployment](https://github.com/rhannachi/booking/actions/workflows/preview.yml/badge.svg?branch=dev)](https://github.com/rhannachi/booking/actions/workflows/preview.yml)
+
+[![GitHub Workflow Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
