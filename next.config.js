@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
+  enabled: process.env.ANALYZE === 'true',
+  openAnalyzer: false
 })
 
-module.exports = withPlugins([
-  [withBundleAnalyzer]
-  // your other plugins here
-])
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = withBundleAnalyzer({})
