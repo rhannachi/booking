@@ -1,19 +1,19 @@
-name: Deploy on the Vercel "Production" environment
+name: Deploy on the Vercel "Preview" environment
 
 on:
   push:
-    branches: ['main']
+    branches: ['development']
 
 jobs:
-  deploy-production:
+  deploy-development:
     environment:
-      name: Production
+      name: Development
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       # Github env vars to Vercel
       # https://github.com/dkershner6/vercel-set-env-action
-      - name: Set Github Env Vars (developement) on Vercel Production Project
+      - name: Set Github Env Vars (developement) on Vercel Preview Project
         uses: dkershner6/vercel-set-env-action@v1
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
@@ -21,7 +21,7 @@ jobs:
           envVariableKeys: DB_URI
         env:
           DB_URI: ${{ secrets.DB_URI }}
-          TARGET_DB_URI: production # vercel environment: comma delimited, one of [production, preview, development]
+          TARGET_DB_URI: preview # vercel environment: comma delimited, one of [production, preview, development]
           TYPE_DB_URI: encrypted # one of [plain, encrypted]
 
       # deploy app to vercel
@@ -30,7 +30,7 @@ jobs:
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-args: '--prod' #Optional
+          #vercel-args: '--preview' #Optional
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
 
