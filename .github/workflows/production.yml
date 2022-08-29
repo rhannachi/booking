@@ -1,7 +1,6 @@
 name: Deploy on the Vercel "Production" environment
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 # Allow one concurrent deployment
 concurrency:
