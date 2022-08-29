@@ -4,9 +4,9 @@ name: GitHub Workflows (Lint, Test, Build) Actions
 on: [pull_request, workflow_dispatch]
 
 # Allow one concurrent deployment
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.ref }}
+#   cancel-in-progress: true
 
 jobs:
   install-dependencies:
