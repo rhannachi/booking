@@ -1,8 +1,10 @@
 # NextJs, Mongoose, Redux, Storybook, Tailwindcss, TypeScript
 
-[![Vercel Production Deployment](https://github.com/rhannachi/booking/actions/workflows/production.yml/badge.svg?branch=main)](https://github.com/rhannachi/booking/actions/workflows/production.yml)
+[![Deploy NextJs with Vercel [Production]](https://github.com/rhannachi/booking/actions/workflows/deploy/next-production.yml/badge.svg?branch=main)](https://github.com/rhannachi/booking/actions/workflows/deploy/next-production.yml)
 
-[![Vercel Preview Deployment](https://github.com/rhannachi/booking/actions/workflows/development.yml/badge.svg?branch=development)](https://github.com/rhannachi/booking/actions/workflows/development.yml)
+[![Deploy NextJs with Vercel [Preview]](https://github.com/rhannachi/booking/actions/workflows/deploy/next-development.yml/badge.svg?branch=development)](https://github.com/rhannachi/booking/actions/workflows/deploy/next-development.yml)
+
+[![Deploy Storybook with Chromatic](https://github.com/rhannachi/booking/actions/workflows/deploy/storybook.yml/badge.svg?branch=development)](https://github.com/rhannachi/booking/actions/workflows/deploy/storybook.yml)
 
 [![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)
 

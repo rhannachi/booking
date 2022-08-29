@@ -1,4 +1,4 @@
-name: Deploy on the Vercel "Production" environment
+name: Deploy NextJs with Vercel Production
 
 on: workflow_dispatch
 

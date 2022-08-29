@@ -1,4 +1,4 @@
-name: Deploy on the Vercel "Preview" environment
+name: Deploy NextJs with Vercel Preview
 
 on:
   push:
