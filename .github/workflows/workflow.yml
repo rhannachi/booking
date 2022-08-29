@@ -1,8 +1,7 @@
-name: GitHub Workflow Actions
+name: GitHub Workflows (Lint, Test, Build) Actions
 
 on:
   pull_request:
-    branches: ['development']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -13,34 +12,148 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build lint job
-  build:
+  install-dependencies:
     runs-on: ubuntu-latest
+    name: Install and share dependencies
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "::set-output name=manager::yarn"
-            echo "::set-output name=command::install"
-            echo "::set-output name=runner::yarn"
-            exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "::set-output name=manager::npm"
-            echo "::set-output name=command::ci"
-            echo "::set-output name=runner::npx --no-install"
-            exit 0
-          else
-            echo "Unable to determine packager manager"
-            exit 1
-          fi
-      - name: Setup Node
+      - uses: actions/checkout@v3
+      - name: Step Node
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: zip node_modules
+        run: tar -czf node_modules.tar.gz ./node_modules
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my_node_modules_artifact
+          path: node_modules.tar.gz
+
+  lint:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    name: Lint and check ts
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Step Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+
+      - name: Load artifact node_modules
+        uses: actions/download-artifact@v3
+        with:
+          name: my_node_modules_artifact
+
+      - name: unzip node_modules
+        run: tar -xzf node_modules.tar.gz
+
+      - name: Lint and ts check
+        run: |
+          yarn ts:check
+          yarn lint
+
+  test-api:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    name: Test Api
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Step Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+
+      - name: Load artifact node_modules
+        uses: actions/download-artifact@v3
+        with:
+          name: my_node_modules_artifact
+
+      - name: unzip node_modules
+        run: tar -xzf node_modules.tar.gz
+
+      - name: Test Api
+        run: yarn test:api
+
+  test:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Step Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+
+      - name: Load artifact node_modules
+        uses: actions/download-artifact@v3
+        with:
+          name: my_node_modules_artifact
+
+      - name: unzip node_modules
+        run: tar -xzf node_modules.tar.gz
+
+      - name: Test
+        run: yarn test
+
+  build-storybook:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    name: Build Storybook
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Step Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+
+      - name: Load artifact node_modules
+        uses: actions/download-artifact@v3
+        with:
+          name: my_node_modules_artifact
+
+      - name: unzip node_modules
+        run: tar -xzf node_modules.tar.gz
+
+      - name: Build Storybook
+        run: yarn build:storybook
+
+  build-next:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    name: Build Next.js
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Step Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+
+      - name: Load artifact node_modules
+        uses: actions/download-artifact@v3
+        with:
+          name: my_node_modules_artifact
+
+      - name: unzip node_modules
+        run: tar -xzf node_modules.tar.gz
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
         with:
@@ -49,27 +162,25 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
+
       - name: Restore cache
         uses: actions/cache@v3
         with:
           path: |
             .next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-      - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Check Lint
-        run: ${{ steps.detect-package-manager.outputs.manager }} lint
-      - name: Check Types
-        run: ${{ steps.detect-package-manager.outputs.manager }} ts:check
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Static HTML export with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next export
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./out
+        run: yarn build
+
+      # - name: Static HTML export with Next.js
+      #   run: yarn export
+
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     path: ./out
