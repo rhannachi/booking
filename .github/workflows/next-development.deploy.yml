@@ -1,8 +1,7 @@
 name: Deploy NextJs with Vercel Preview
 
-on:
-  push:
-    branches: ['development']
+# Event for the workflow
+on: workflow_dispatch
 
 # Allow one concurrent deployment
 concurrency:

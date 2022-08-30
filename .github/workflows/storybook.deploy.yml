@@ -1,7 +1,5 @@
-# .github/workflows/chromatic.yml
-
 # Workflow name
-name: 'Chromatic'
+name: Deploy Storybook with Chromatic
 
 # Event for the workflow
 on: workflow_dispatch
