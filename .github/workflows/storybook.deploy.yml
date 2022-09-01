@@ -2,7 +2,7 @@
 name: Deploy Storybook with Chromatic
 
 # Event for the workflow
-on: workflow_dispatch
+on: [workflow_dispatch]
 
 # Allow one concurrent deployment
 concurrency:
@@ -11,18 +11,52 @@ concurrency:
 
 # List of jobs
 jobs:
-  chromatic-deployment:
+  storybook-deployment:
     # Operating System
     runs-on: ubuntu-latest
+
     # Job steps
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+
+      - name: Step Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+
       - name: Install dependencies
-        run: yarn
-        # 👇 Adds Chromatic as a step in the workflow
+        run: |
+          echo CHROMATIC_PROJECT_TOKEN ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          echo GITHUB_TOKEN ${{ secrets.GITHUB_TOKEN }}
+          yarn
+
+      # # 👇 Adds Chromatic as a step in the workflow
+      # - name: Publish to Chromatic
+      #   run: yarn chromatic --project-token=$C_PROJECT_TOKEN --build-script-name='build:storybook' --skip
+      #   env:
+      #     C_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      #     CHROMATIC_BRANCH: ${{ github.head_ref }}
+      #     CHROMATIC_SHA: ${{ github.event.pull_request.head.sha }}
+      #     CHROMATIC_SLUG: ${{ github.repository }}
+
+      # - name: Publish to Chromatic
+      #   uses: chromaui/action@v1
+      #   # Chromatic GitHub Action options
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      #     buildScriptName: 'build:storybook'
+      #     #👇Runs Chromatic with the option to compress the build output.
+      #     zip: true
+      #     skip: true
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
-        # Chromatic GitHub Action options
         with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: build:storybook
