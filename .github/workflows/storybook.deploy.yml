@@ -2,7 +2,7 @@
 name: Deploy Storybook with Chromatic
 
 # Event for the workflow
-on: [workflow_dispatch]
+on: workflow_dispatch
 
 # Allow one concurrent deployment
 concurrency:
@@ -28,10 +28,7 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: |
-          echo CHROMATIC_PROJECT_TOKEN ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          echo GITHUB_TOKEN ${{ secrets.GITHUB_TOKEN }}
-          yarn
+        run: yarn
 
       # # 👇 Adds Chromatic as a step in the workflow
       # - name: Publish to Chromatic
