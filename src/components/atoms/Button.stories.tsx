@@ -3,10 +3,16 @@ import Button, { ButtonProps } from './Button'
 
 export default {
   title: 'Atoms/Button',
-  component: Button
+  component: Button,
+  argTypes: {
+    className: {
+      control: {
+        type: 'text'
+      }
+    }
+  }
 } as Meta<ButtonProps>
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
+const Template: Story<ButtonProps> = (args) => <Button {...args}> Button </Button>
 
 export const ButtonTemplate = Template.bind({})
-ButtonTemplate.args = { title: 'Button' }
