@@ -19,6 +19,9 @@ module.exports = {
     // End PostCSS
   ],
   framework: '@storybook/react',
+  features: {
+    interactionsDebugger: true
+  },
   core: {
     builder: '@storybook/builder-webpack5'
   },

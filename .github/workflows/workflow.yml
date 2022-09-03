@@ -103,6 +103,9 @@ jobs:
       - name: unzip node_modules
         run: tar -xzf node_modules.tar.gz
 
+      - name: Test Storybook
+        run: yarn test:storybook
+
       - name: Test
         run: yarn test
 
