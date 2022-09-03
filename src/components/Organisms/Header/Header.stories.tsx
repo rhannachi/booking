@@ -8,4 +8,4 @@ export default {
 
 const Template: Story<typeof Header> = (args) => <Header {...args} />
 
-export const HeaderTemplate = Template.bind({})
+export const Default = Template.bind({})

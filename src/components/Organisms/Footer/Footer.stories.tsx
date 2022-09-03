@@ -8,4 +8,4 @@ export default {
 
 const Template: Story<typeof Footer> = (args) => <Footer {...args} />
 
-export const FooterTemplate = Template.bind({})
+export const Default = Template.bind({})
