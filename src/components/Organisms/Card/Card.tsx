@@ -16,6 +16,11 @@ type CardHeaderProps = {
   subTitle: string
 }
 
+export type CardTitleProps = {
+  prefix: string
+  suffix: string
+}
+
 export const CardHeader = ({ title, subTitle }: CardHeaderProps) => {
   return (
     <div className="flex flex-col p-4">
@@ -26,19 +31,20 @@ export const CardHeader = ({ title, subTitle }: CardHeaderProps) => {
 }
 
 export const CardMedia = ({ images = [] }: CardMediaProps) => {
+  return <Carousel imageSize="h-80" images={images} />
+}
+
+export const CardTitle = ({ prefix, suffix }: CardTitleProps) => {
   return (
-    <div>
-      <Carousel imageSize="h-80" images={images} />
+    <div className="flex flex-row justify-between px-4 pt-4 text-base">
+      <div>{prefix}</div>
+      <div className="">{suffix}</div>
     </div>
   )
 }
 
-export const CardTitle = ({ children }: CardProps) => {
-  return <div className="px-4 pt-4 text-base text-justify ">{children}</div>
-}
-
 export const CardContent = ({ children }: CardProps) => {
-  return <div className="p-4 text-sm text-justify text-slate-500">{children}</div>
+  return <div className="px-4 pt-2 pb-4 text-sm text-justify text-slate-500">{children}</div>
 }
 
 export const Card = ({ children }: CardProps) => {
