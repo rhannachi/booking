@@ -5,7 +5,7 @@ exports[`Storyshots Atoms/Button Default 1`] = `
   className="py-2 px-5 text-white bg-blue-500 rounded-md "
 >
    
-  Button Title
+  Button
    
 </button>
 `;
