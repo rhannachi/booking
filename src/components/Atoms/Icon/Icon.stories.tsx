@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import Icon, { ICON_COLORS, ICON_WIDTHS, IconProps, ICONS } from './Icon'
+import { Icon, ICON_COLORS, ICON_WIDTHS, IconProps, ICONS } from './Icon'
 
 export default {
   title: 'Atoms/Icon',

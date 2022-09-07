@@ -1,7 +1,5 @@
-// TODO => https://mui.com/material-ui/react-card/
-
-import Carousel from '@/components/Molecules/Carousel'
 import React, { ReactNode } from 'react'
+import { Carousel } from '@/components/Molecules'
 
 type CardProps = {
   children: ReactNode

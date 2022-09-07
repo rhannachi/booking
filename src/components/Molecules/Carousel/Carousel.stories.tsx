@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import Carousel, { CarouselProps, CAROUSEL_HEIGHT } from './Carousel'
+import { Carousel, CarouselProps, CAROUSEL_HEIGHT } from './Carousel'
 
 export default {
   title: 'Molecules/Carousel',
