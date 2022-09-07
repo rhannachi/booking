@@ -1,4 +1,4 @@
-import Button from '@/components/Atoms/Button'
+import Button from '@/components/Atoms/Button/Button'
 import React from 'react'
 
 const Header = ({}) => {
