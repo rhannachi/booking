@@ -24,7 +24,7 @@ const Button = ({ onClick, isDisabled, children }: ButtonProps) => (
   </button>
 )
 
-const Carousel = ({ images, imageSize = 'h-96' }: CarouselProps) => {
+export const Carousel = ({ images, imageSize = 'h-96' }: CarouselProps) => {
   const maxScrollWidth = useRef<number>(0)
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const carousel = useRef<HTMLHeadingElement>(null)
@@ -113,5 +113,3 @@ const Carousel = ({ images, imageSize = 'h-96' }: CarouselProps) => {
     </div>
   )
 }
-
-export default Carousel

@@ -29,8 +29,6 @@ const getSvg = (icon: IconProps['icon']): string => {
   }
 }
 
-const Icon = ({ icon, color, width = 'w-5' }: IconProps) => {
+export const Icon = ({ icon, color, width = 'w-5' }: IconProps) => {
   return <ReactSVG className={clsx(width, color)} src={getSvg(icon)} />
 }
-
-export default Icon
