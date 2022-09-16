@@ -2,7 +2,7 @@
 
 exports[`Storyshots Organisms/CardList Default 1`] = `
 <div
-  className="flex flex-row p-4 "
+  className="flex flex-row"
 >
   <div
     className="flex flex-col max-w-xs shadow-md shadow m-2"
@@ -18,7 +18,7 @@ exports[`Storyshots Organisms/CardList Default 1`] = `
       <div
         className="text-sm text-slate-500"
       >
-        September 14, 2016
+        Shrimp and Chorizo Paella
       </div>
     </div>
     <div
@@ -129,7 +129,7 @@ exports[`Storyshots Organisms/CardList Default 1`] = `
       <div
         className="text-sm text-slate-500"
       >
-        September 14, 2016
+        Shrimp and Chorizo Paella
       </div>
     </div>
     <div

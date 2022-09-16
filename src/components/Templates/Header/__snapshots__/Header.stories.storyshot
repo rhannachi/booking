@@ -8,6 +8,7 @@ exports[`Storyshots Templates/Header Default 1`] = `
     className="flex items-center flex-row justify-between "
   >
     <img
+      alt="booking icon"
       className="w-40"
       src="booking.png"
     />

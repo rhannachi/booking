@@ -1,5 +1,5 @@
-import { Home } from '@/components/Pages'
+// import { Home } from '@/components/Pages'
 
 export const HomeContainer = () => {
-  return <Home></Home>
+  return <></>
 }
