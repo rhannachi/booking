@@ -9,6 +9,7 @@ Array [
       className="flex items-center flex-row justify-between "
     >
       <img
+        alt="booking icon"
         className="w-40"
         src="booking.png"
       />

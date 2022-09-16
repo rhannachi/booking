@@ -9,6 +9,7 @@ Array [
       className="flex items-center flex-row justify-between "
     >
       <img
+        alt="booking icon"
         className="w-40"
         src="booking.png"
       />
@@ -19,7 +20,232 @@ Array [
       </button>
     </nav>
   </header>,
-  "Home",
+  <div
+    className="flex flex-row"
+  >
+    <div
+      className="flex flex-col max-w-xs shadow-md shadow m-2"
+    >
+      <div
+        className="flex flex-col p-4"
+      >
+        <div
+          className="text-base "
+        >
+          Shrimp and Chorizo Paella
+        </div>
+        <div
+          className="text-sm text-slate-500"
+        >
+          Shrimp and Chorizo Paella
+        </div>
+      </div>
+      <div
+        className="relative overflow-hidden"
+      >
+        <div
+          className="absolute flex justify-between w-full h-full "
+        >
+          <button
+            className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:bg-blue-900/75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
+            disabled={true}
+            onClick={[Function]}
+          >
+            <svg
+              className="w-20 h-12 -ml-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 19l-7-7 7-7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:bg-blue-900/75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <svg
+              className="w-20 h-12 -ml-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="relative z-0 flex  gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x"
+        >
+          <div
+            className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-80"
+            style={
+              Object {
+                "backgroundImage": "url(https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg)",
+              }
+            }
+          />
+          <div
+            className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-80"
+            style={
+              Object {
+                "backgroundImage": "url(https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg)",
+              }
+            }
+          />
+          <div
+            className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-80"
+            style={
+              Object {
+                "backgroundImage": "url(https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg)",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="flex flex-row justify-between px-4 pt-4 text-base"
+      >
+        <div>
+          Lazard
+        </div>
+        <div
+          className=""
+        >
+          33 Euro/nuit
+        </div>
+      </div>
+      <div
+        className="px-4 pt-2 pb-4 text-sm text-justify text-slate-500"
+      >
+        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+      </div>
+    </div>
+    <div
+      className="flex flex-col max-w-xs shadow-md shadow m-2"
+    >
+      <div
+        className="flex flex-col p-4"
+      >
+        <div
+          className="text-base "
+        >
+          Shrimp and Chorizo Paella
+        </div>
+        <div
+          className="text-sm text-slate-500"
+        >
+          Shrimp and Chorizo Paella
+        </div>
+      </div>
+      <div
+        className="relative overflow-hidden"
+      >
+        <div
+          className="absolute flex justify-between w-full h-full "
+        >
+          <button
+            className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:bg-blue-900/75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
+            disabled={true}
+            onClick={[Function]}
+          >
+            <svg
+              className="w-20 h-12 -ml-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 19l-7-7 7-7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:bg-blue-900/75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <svg
+              className="w-20 h-12 -ml-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="relative z-0 flex  gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x"
+        >
+          <div
+            className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-80"
+            style={
+              Object {
+                "backgroundImage": "url(https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg)",
+              }
+            }
+          />
+          <div
+            className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-80"
+            style={
+              Object {
+                "backgroundImage": "url(https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg)",
+              }
+            }
+          />
+          <div
+            className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-80"
+            style={
+              Object {
+                "backgroundImage": "url(https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg)",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="flex flex-row justify-between px-4 pt-4 text-base"
+      >
+        <div>
+          Lazard
+        </div>
+        <div
+          className=""
+        >
+          33 Euro/nuit
+        </div>
+      </div>
+      <div
+        className="px-4 pt-2 pb-4 text-sm text-justify text-slate-500"
+      >
+        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+      </div>
+    </div>
+  </div>,
   <footer
     className="container p-16 bg-slate-50 "
   >
