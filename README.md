@@ -1,6 +1,9 @@
 # Booking
-
-[![atomic design system](https://github.com/rhannachi/booking/public/made-with-atomic-design-system.svg)](https://bradfrost.com/blog/post/atomic-design-and-storybook/)
+[![next js](public/made-with-next.js.svg)](https://nextjs.org)\
+[![typescript](public/made-with-typescript.svg)](https://www.typescriptlang.org)\
+[![redux](public/made-with-redux.svg)](https://redux.js.orgorg)\
+[![redux](public/made-with-tailwindcss.svg)](https://tailwindcss.com/)\
+[![atomic design system](public/made-with-storybook-atomic-design.svg)](https://bradfrost.com/blog/post/atomic-design-and-storybook/)
 
 ## CI/CD
 
