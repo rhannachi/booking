@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Header, Footer } from '@/components/Organisms'
+import { Header, Footer } from '@/components/Templates'
 
 type LayoutProps = {
   children: ReactNode

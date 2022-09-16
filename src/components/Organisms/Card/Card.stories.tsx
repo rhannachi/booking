@@ -1,20 +1,14 @@
 import { Meta, Story } from '@storybook/react'
-import { Card, CardContent, CardHeader, CardMedia, CardTitle, CardTitleProps } from './Card'
-
-type CardStorieProps = {
-  images: string[]
-  title: CardTitleProps
-  headerTitle: string
-  headerSubTitle: string
-  content: string
-}
+import { Card, CardContent, CardHeader, CardMedia, CardProps, CardTitle } from '@/components/Organisms'
 
 export default {
   title: 'Organisms/Card',
   component: Card,
   args: {
-    headerTitle: 'Shrimp and Chorizo Paella',
-    headerSubTitle: 'September 14, 2016',
+    header: {
+      title: 'Shrimp and Chorizo Paella',
+      subTitle: 'Shrimp and Chorizo Paella'
+    },
     title: {
       prefix: 'Lazard',
       suffix: '33 Euro/nuit'
@@ -27,11 +21,11 @@ export default {
       'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg'
     ]
   }
-} as Meta<CardStorieProps>
+} as Meta<CardProps>
 
-const Template: Story<CardStorieProps> = (args) => (
+const Template: Story<CardProps> = (args) => (
   <Card>
-    <CardHeader title={args.headerTitle} subTitle={args.headerSubTitle} />
+    <CardHeader title={args.header.title} subTitle={args.header.subTitle} />
     <CardMedia images={args.images} />
     <CardTitle prefix={args.title.prefix} suffix={args.title.suffix} />
     <CardContent>{args.content}</CardContent>

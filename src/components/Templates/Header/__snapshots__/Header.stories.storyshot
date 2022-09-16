@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Templates/Header Default 1`] = `
+<header
+  className="container px-16 py-4 bg-slate-50 drop-shadow "
+>
+  <nav
+    className="flex items-center flex-row justify-between "
+  >
+    <img
+      alt="booking icon"
+      className="w-40"
+      src="booking.png"
+    />
+    <button
+      className="text-sm font-semibold text-white bg-pink-500 py-2 px-5 text-white bg-blue-500 rounded-md "
+    >
+      Login
+    </button>
+  </nav>
+</header>
+`;
