@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import { Card, CardContent, CardHeader, CardMedia, CardTitle, CardTitleProps } from './Card'
 
-type CardStorieProps = {
+export type CardStoriesProps = {
   images: string[]
   title: CardTitleProps
   headerTitle: string
@@ -27,9 +27,9 @@ export default {
       'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg'
     ]
   }
-} as Meta<CardStorieProps>
+} as Meta<CardStoriesProps>
 
-const Template: Story<CardStorieProps> = (args) => (
+const Template: Story<CardStoriesProps> = (args) => (
   <Card>
     <CardHeader title={args.headerTitle} subTitle={args.headerSubTitle} />
     <CardMedia images={args.images} />
