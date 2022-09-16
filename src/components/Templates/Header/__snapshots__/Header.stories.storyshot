@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Organisms/Header Default 1`] = `
+exports[`Storyshots Templates/Header Default 1`] = `
 <header
   className="container px-16 py-4 bg-slate-50 drop-shadow "
 >
@@ -9,7 +9,7 @@ exports[`Storyshots Organisms/Header Default 1`] = `
   >
     <img
       className="w-40"
-      src="/booking.png"
+      src="booking.png"
     />
     <button
       className="text-sm font-semibold text-white bg-pink-500 py-2 px-5 text-white bg-blue-500 rounded-md "

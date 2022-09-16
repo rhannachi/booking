@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Organisms/Footer Default 1`] = `
+exports[`Storyshots Templates/Footer Default 1`] = `
 <footer
   className="container p-16 bg-slate-50 "
 >
