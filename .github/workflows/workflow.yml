@@ -61,12 +61,14 @@ jobs:
           yarn lint
 
       - name: Run Snyk to check for vulnerabilities
+        shell: bash
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          X_X: Ramzi_HANNACHI
         run: |
-          echo "==> ${{env.SNYK_TOKEN}}"
-          yarn snyk auth ${{env.SNYK_TOKEN}}
-          yarn snyk test
+          echo $SNYK_TOKEN
+          echo $X_X
+          yarn snyk auth $SNYK_TOKEN
           yarn snyk monitor
 
 #        uses: snyk/actions/node@master
