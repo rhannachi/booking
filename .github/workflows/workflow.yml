@@ -32,10 +32,12 @@ jobs:
           name: my_node_modules_artifact
           path: node_modules.tar.gz
 
-  lint:
+###########################################################################
+
+  lint-vulnerabilities:
     needs: install-dependencies
     runs-on: ubuntu-latest
-    name: Lint and check ts
+    name: Lint, check ts and vulnerabilities
     steps:
       - uses: actions/checkout@v3
 
@@ -57,6 +59,31 @@ jobs:
         run: |
           yarn ts:check
           yarn lint
+
+      - name: Run Snyk to check for vulnerabilities
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          echo "==> ${{env.SNYK_TOKEN}}"
+          yarn snyk auth ${{env.SNYK_TOKEN}}
+          yarn snyk test
+          yarn snyk monitor
+
+#        uses: snyk/actions/node@master
+#        env:
+#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+#        with:
+#          args: --sarif-file-output=snyk.sarif
+#
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: SARIF
+#          path: snyk.sarif
+#
+#      - name: Upload result to GitHub Code Scanning
+#        uses: github/codeql-action/upload-sarif@v2
+#        with:
+#          sarif_file: snyk.sarif
 
   test-api:
     needs: install-dependencies
@@ -115,8 +142,10 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           flags: unittests
 
+  ###########################################################################
+
   build-storybook:
-    needs: install-dependencies
+    needs: [install-dependencies, lint-vulnerabilities, test, test-api]
     runs-on: ubuntu-latest
     name: Build Storybook
     steps:
@@ -140,7 +169,7 @@ jobs:
         run: yarn build:storybook
 
   build-next:
-    needs: install-dependencies
+    needs: [install-dependencies, lint-vulnerabilities, test, test-api]
     runs-on: ubuntu-latest
     name: Build Next.js
     steps:
