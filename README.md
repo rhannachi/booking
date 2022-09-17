@@ -15,6 +15,9 @@
 
 [![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)
 
+## CodeCov
+[![codecov](https://codecov.io/gh/rhannachi/booking/branch/main/graph/badge.svg?token=1IOJYLLJC9)](https://codecov.io/gh/rhannachi/booking)
+
 ## Getting Started
 
 First, run the development server:
