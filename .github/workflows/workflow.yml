@@ -1,7 +1,7 @@
 name: GitHub Workflows (Lint, Test, Build) Actions
 
 # run workflow manually or during PR
-on: [push, pull_request, workflow_dispatch]
+on: [push, workflow_dispatch]
 
 # Allow one concurrent deployment
 # concurrency:
@@ -9,9 +9,44 @@ on: [push, pull_request, workflow_dispatch]
 #   cancel-in-progress: true
 
 jobs:
+
+  ################################## SECURITY & CODE-COV #########################################
+
+  code-cov:
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+    name: code coverage
+    steps:
+      - name: Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+
+  security:
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true # To make sure that SARIF upload gets called
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk.sarif
+
+  ################################## INSTALL-DEP #########################################
+
   install-dependencies:
     runs-on: ubuntu-latest
-    name: Install and share dependencies
+    name: Install dependencies
     steps:
       - uses: actions/checkout@v3
       - name: Step Node
@@ -32,10 +67,12 @@ jobs:
           name: my_node_modules_artifact
           path: node_modules.tar.gz
 
+################################## LINT & TEST #########################################
+
   lint:
-    needs: install-dependencies
+    needs: [install-dependencies]
     runs-on: ubuntu-latest
-    name: Lint and check ts
+    name: Lint and check TS
     steps:
       - uses: actions/checkout@v3
 
@@ -58,8 +95,9 @@ jobs:
           yarn ts:check
           yarn lint
 
+
   test-api:
-    needs: install-dependencies
+    needs: [install-dependencies]
     runs-on: ubuntu-latest
     name: Test Api
     steps:
@@ -83,7 +121,7 @@ jobs:
         run: yarn test:api
 
   test:
-    needs: install-dependencies
+    needs: [install-dependencies]
     runs-on: ubuntu-latest
     name: Test
     steps:
@@ -109,14 +147,10 @@ jobs:
       - name: Test
         run: yarn test
 
-      - name: Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unittests
+  ###################################### BUILD #####################################
 
   build-storybook:
-    needs: install-dependencies
+    needs: [lint, test, test-api]
     runs-on: ubuntu-latest
     name: Build Storybook
     steps:
@@ -140,7 +174,7 @@ jobs:
         run: yarn build:storybook
 
   build-next:
-    needs: install-dependencies
+    needs: [lint, test, test-api]
     runs-on: ubuntu-latest
     name: Build Next.js
     steps:
