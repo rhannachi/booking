@@ -1,4 +1,11 @@
 # Booking
+
+![image under construction](https://ps.w.org/easy-under-construction/assets/banner-772x250.png?rev=2417171)
+
+### [Storybook library](https://main--630fbaba720a6e9d6481a8d8.chromatic.com)
+
+# Technical Stack
+
 [![next js](public/made-with-next.js.svg)](https://nextjs.org)\
 [![typescript](public/made-with-typescript.svg)](https://www.typescriptlang.org)\
 [![redux](public/made-with-redux.svg)](https://redux.js.orgorg)\
@@ -13,6 +20,7 @@
 [//]: # ()
 [//]: # ([![Deploy Storybook with Chromatic]&#40;https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml/badge.svg&#41;]&#40;https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml&#41;)
 
+#
 
 [![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)\
 [![codecov](https://codecov.io/gh/rhannachi/booking/branch/main/graph/badge.svg?token=1IOJYLLJC9)](https://codecov.io/gh/rhannachi/booking)
