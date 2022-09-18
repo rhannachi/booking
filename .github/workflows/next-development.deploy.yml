@@ -12,6 +12,7 @@ jobs:
   deploy-development:
     environment:
       name: Development
+      url: https://booking-preview.vercel.app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

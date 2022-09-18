@@ -5,17 +5,16 @@
 [![redux](public/made-with-tailwindcss.svg)](https://tailwindcss.com/)\
 [![atomic design system](public/made-with-storybook-atomic-design.svg)](https://bradfrost.com/blog/post/atomic-design-and-storybook/)
 
-## CI/CD
+[//]: # ([![Deploy NextJs with Vercel Production]&#40;https://github.com/rhannachi/booking/actions/workflows/next-production.deploy.yml/badge.svg?branch=main&#41;]&#40;https://github.com/rhannachi/booking/actions/workflows/next-production.deploy.yml&#41;)
 
-[![Deploy NextJs with Vercel Production](https://github.com/rhannachi/booking/actions/workflows/next-production.deploy.yml/badge.svg?branch=main)](https://github.com/rhannachi/booking/actions/workflows/next-production.deploy.yml)
+[//]: # ()
+[//]: # ([![Deploy NextJs with Vercel Preview]&#40;https://github.com/rhannachi/booking/actions/workflows/next-development.deploy.yml/badge.svg?branch=development&#41;]&#40;https://github.com/rhannachi/booking/actions/workflows/next-development.deploy.yml&#41;)
 
-[![Deploy NextJs with Vercel Preview](https://github.com/rhannachi/booking/actions/workflows/next-development.deploy.yml/badge.svg?branch=development)](https://github.com/rhannachi/booking/actions/workflows/next-development.deploy.yml)
+[//]: # ()
+[//]: # ([![Deploy Storybook with Chromatic]&#40;https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml/badge.svg&#41;]&#40;https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml&#41;)
 
-[![Deploy Storybook with Chromatic](https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml)
 
-[![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)
-
-## CodeCov
+[![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)\
 [![codecov](https://codecov.io/gh/rhannachi/booking/branch/main/graph/badge.svg?token=1IOJYLLJC9)](https://codecov.io/gh/rhannachi/booking)
 
 ## Getting Started

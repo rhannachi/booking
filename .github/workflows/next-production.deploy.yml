@@ -11,6 +11,7 @@ jobs:
   deploy-production:
     environment:
       name: Production
+      url: https://booking-prod.vercel.app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
