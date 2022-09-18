@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "booking",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "test:api": "echo TODO",
     "test": "jest",
     "test:coverage": "jest --ci --coverage && codecov",
+    "test:snyk": "snyk test",
     "ts:check": "tsc --noemit",
     "storybook": "start-storybook -p 6006 --no-open",
     "test:storybook": "test-storybook",
