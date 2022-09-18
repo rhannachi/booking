@@ -13,7 +13,7 @@ jobs:
       name: Production
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # Github env vars to Vercel
       # https://github.com/dkershner6/vercel-set-env-action
       - name: Set Github Env Vars (production) on Vercel Production Project
