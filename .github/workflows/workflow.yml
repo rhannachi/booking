@@ -1,7 +1,9 @@
 name: GitHub Workflows (Lint, Test, Build) Actions
 
 # run workflow manually or during PR
-on: [push, pull_request, workflow_dispatch]
+on:
+  pull_request_target:
+    types: [opened, reopened, edited, synchronize]
 
 # Allow one concurrent deployment
 # concurrency:
