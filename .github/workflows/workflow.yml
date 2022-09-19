@@ -10,19 +10,7 @@ on: [push, workflow_dispatch]
 
 jobs:
 
-  ################################## SECURITY & CODE-COV #########################################
-
-  code-cov:
-    runs-on: ubuntu-latest
-    environment:
-      name: Development
-    name: code coverage
-    steps:
-      - name: Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unittests
+  ################################## SECURITY #########################################
 
   security:
     runs-on: ubuntu-latest
@@ -95,33 +83,10 @@ jobs:
           yarn ts:check
           yarn lint
 
-
-  test-api:
-    needs: [install-dependencies]
-    runs-on: ubuntu-latest
-    name: Test Api
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Step Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: yarn
-
-      - name: Load artifact node_modules
-        uses: actions/download-artifact@v3
-        with:
-          name: my_node_modules_artifact
-
-      - name: unzip node_modules
-        run: tar -xzf node_modules.tar.gz
-
-      - name: Test Api
-        run: yarn test:api
-
   test:
     needs: [install-dependencies]
+    environment:
+      name: Development
     runs-on: ubuntu-latest
     name: Test
     steps:
@@ -144,13 +109,37 @@ jobs:
       # - name: Test Storybook
       #  run: yarn test:storybook
 
+      - name: Test Api
+        run: yarn test:api
+
       - name: Test
         run: yarn test
+
+      - name: Test Coverage
+        run: yarn test:coverage
+
+      - name: zip coverage
+        run: tar -czf coverage.tar.gz ./coverage
+
+      - name: Upload artifact coverage
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage_artifact
+          path: coverage.tar.gz
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage/
+          fail_ci_if_error: true
+          files: ./coverage/clover.xml
+          verbose: true
 
   ###################################### BUILD #####################################
 
   build-storybook:
-    needs: [lint, test, test-api]
+    needs: [lint, test]
     runs-on: ubuntu-latest
     name: Build Storybook
     steps:
@@ -174,7 +163,7 @@ jobs:
         run: yarn build:storybook
 
   build-next:
-    needs: [lint, test, test-api]
+    needs: [lint, test]
     runs-on: ubuntu-latest
     name: Build Next.js
     steps:

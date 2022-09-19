@@ -7,11 +7,11 @@ const createJestConfig = nextJest({
 })
 
 const customJestConfig = {
+  roots: ['<rootDir>'],
   coverageDirectory: './coverage/',
   collectCoverage: true,
-  collectCoverageFrom: ['**/*.{ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}', '!<rootDir>/src/**/*.d.ts'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  roots: ['<rootDir>'],
   // stupFiles
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
