@@ -23,7 +23,10 @@
 #
 
 [![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)\
-[![codecov](https://codecov.io/gh/rhannachi/booking/branch/main/graph/badge.svg?token=1IOJYLLJC9)](https://codecov.io/gh/rhannachi/booking)
+[![codecov](https://codecov.io/gh/rhannachi/booking/branch/main/graph/badge.svg?token=1IOJYLLJC9)](https://codecov.io/gh/rhannachi/booking)\
+[![Known Vulnerabilities](https://snyk.io/test/github/rhannachi/booking/badge.svg)](https://snyk.io/test/github/rhannachi/booking)\
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/rhannachi/booking.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/rhannachi/booking/context:javascript)
+
 
 ## Getting Started
 
