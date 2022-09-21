@@ -21,9 +21,11 @@
 [//]: # ([![Deploy Storybook with Chromatic]&#40;https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml/badge.svg&#41;]&#40;https://github.com/rhannachi/booking/actions/workflows/storybook.deploy.yml&#41;)
 
 #
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bda46f072719446d80f0c402601d8a59)](https://www.codacy.com/gh/rhannachi/booking/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rhannachi/booking&amp;utm_campaign=Badge_Grade)\
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/rhannachi/booking.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/rhannachi/booking/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/rhannachi/booking.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/rhannachi/booking/alerts/)
-[![Known Vulnerabilities](https://snyk.io/test/github/rhannachi/booking/badge.svg)](https://snyk.io/test/github/rhannachi/booking)\
+[![Known Vulnerabilities](https://snyk.io/test/github/rhannachi/booking/badge.svg)](https://snyk.io/test/github/rhannachi/booking)
+
 [![GitHub Workflows Actions](https://github.com/rhannachi/booking/actions/workflows/workflow.yml/badge.svg)](https://github.com/rhannachi/booking/actions/workflows/workflow.yml)\
 [![codecov](https://codecov.io/gh/rhannachi/booking/branch/main/graph/badge.svg?token=1IOJYLLJC9)](https://codecov.io/gh/rhannachi/booking)
 
