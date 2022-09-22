@@ -1,7 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useDispatch } from 'react-redux'
+import { setRoomsAction } from '@/store/rooms'
 
 const Home: NextPage = () => {
+  const dispatch = useDispatch()
+
+  const onClick = () => dispatch(setRoomsAction({ rooms: ['ss'] }))
+
   return (
     <div>
       <Head>
@@ -11,7 +17,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Welcome to Booking project is Preview TEst</h1>
+        <h1>Welcome to Booking project </h1>
+        <button onClick={onClick}> click me !</button>
       </main>
 
       <footer></footer>
