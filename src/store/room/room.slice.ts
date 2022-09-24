@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { IRoom } from '@/schemas'
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit'
+import { IRoom } from '@/shared/schemas'
 import { fetchRooms } from '@/store/room'
 import { fetchRoomsPending, fetchRoomsRejected, fetchRoomsFulfilled, setRooms } from '@/store/room/room.actions'
-import { ROOM_SLICE_NAME } from '@/store/constants'
+import { ROOM_SLICE_NAME } from '@/helpers/constants'
 
 export type RoomsStateType = Readonly<{
   isLoading: boolean
@@ -22,10 +22,11 @@ export const roomsSlice = createSlice({
   reducers: {
     setRoomsAction: setRooms
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchRooms.pending, fetchRoomsPending)
-    builder.addCase(fetchRooms.fulfilled, fetchRoomsFulfilled)
-    builder.addCase(fetchRooms.rejected, fetchRoomsRejected)
+  extraReducers: (builder: ActionReducerMapBuilder<RoomsStateType>) => {
+    builder
+      .addCase(fetchRooms.pending, fetchRoomsPending)
+      .addCase(fetchRooms.fulfilled, fetchRoomsFulfilled)
+      .addCase(fetchRooms.rejected, fetchRoomsRejected)
   }
 })
 

@@ -1,7 +1,7 @@
 import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { IApiResponse } from '@/schemas'
+import { IApiResponse } from '@/shared/schemas'
 import { dbConnect } from '@/server/repository'
 import { postRooms } from '@/server'
 import { nextOnErrorMiddleware } from '@/server/middlewares'

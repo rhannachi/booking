@@ -1,4 +1,4 @@
-import { IRoom } from '@/schemas'
+import { IRoom } from '@/shared/schemas'
 import {
   makeErrorInternalServerError,
   makeErrorRoomFieldsInvalid,
@@ -38,7 +38,7 @@ export class RoomController {
     return room
   }
 
-  async getAll(query: QueryType): Promise<GetAllType | undefined> {
+  async getAll(query: QueryType): Promise<GetAllType> {
     if (isEmpty(query)) {
       const all = await this.roomService.count()
       const rooms = await this.roomService.getRooms()
@@ -94,7 +94,7 @@ export class RoomController {
     }
 
     // TODO add check function for fields
-    const fields = body as Omit<IRoom, 'id' | 'createdAt'>
+    const fields = body as Omit<IRoom, '_id' | 'createdAt'>
     const newRoom = await this.roomService.addRoom(fields)
 
     if (!newRoom) {
@@ -120,7 +120,7 @@ export class RoomController {
     }
 
     // TODO add check function for fields
-    const fields = body as Partial<Omit<IRoom, 'id' | 'createdAt'>>
+    const fields = body as Partial<Omit<IRoom, '_id' | 'createdAt'>>
     const roomUpdated = await this.roomService.updateRoom(id, fields)
 
     if (!roomUpdated) {

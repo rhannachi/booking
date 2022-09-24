@@ -1,7 +1,7 @@
 import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { IApiDeleteRoomResponse, IApiRoomResponse } from '@/schemas'
+import { IApiDeleteRoomResponse, IApiRoomResponse } from '@/shared/schemas'
 import { deleteRoom, getRoom, putRoom } from '@/server'
 import { dbConnect } from '@/server/repository'
 import { nextOnErrorMiddleware } from '@/server/middlewares'

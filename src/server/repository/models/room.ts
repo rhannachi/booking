@@ -1,5 +1,5 @@
 import { Model, model, models, Schema, Types } from 'mongoose'
-import { IRoom, IRoomImage } from 'schemas/room'
+import { IRoom, IRoomImage } from '@/shared/schemas'
 
 const RoomImageSchema: Schema<IRoomImage> = new Schema<IRoomImage>({
   public_id: {

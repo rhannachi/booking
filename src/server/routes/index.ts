@@ -1,4 +1,4 @@
-import { IApiRoomResponse, IApiRoomsResponse, IApiDeleteRoomResponse, IApiResponse } from '@/schemas'
+import { IApiRoomResponse, IApiRoomsResponse, IApiDeleteRoomResponse, IApiResponse } from '@/shared/schemas'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { nextCatchErrorMiddleware } from '@/server/middlewares'
 import { RoomController } from '@/server/controllers'
