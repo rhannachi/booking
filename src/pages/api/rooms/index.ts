@@ -2,7 +2,7 @@ import nextConnect from 'next-connect'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { dbConnect } from '@/server/repository'
 import { getRooms } from '@/server'
-import { IApiRoomsResponse } from '@/schemas'
+import { IApiRoomsResponse } from '@/shared/schemas'
 import { nextOnErrorMiddleware } from '@/server/middlewares'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>({ onError: nextOnErrorMiddleware })

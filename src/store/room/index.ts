@@ -1,2 +1,2 @@
-export * from './room.reducer'
-export * from './room.service'
+export * from './room.slice'
+export * from './room.thunk'
