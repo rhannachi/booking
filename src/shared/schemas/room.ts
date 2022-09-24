@@ -19,7 +19,7 @@ interface IReviewRoom {
 // }
 
 export interface IRoom {
-  id: string
+  _id: string
   name: string
   pricePerNight: number
   description: string
@@ -45,13 +45,13 @@ export interface IRoom {
  */
 
 export interface IApiRoomResponse extends IApiResponse {
-  room?: IRoom
+  room: IRoom
 }
 
 export interface IApiRoomsResponse extends IApiResponse {
-  rooms?: IRoom[]
+  rooms: IRoom[]
 }
 
 export interface IApiDeleteRoomResponse extends IApiResponse {
-  id?: string
+  id: string
 }

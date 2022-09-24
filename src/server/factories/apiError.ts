@@ -1,4 +1,4 @@
-import { ApiError, ApiErrorMessageType, ApiErrorStatusType } from '@/schemas'
+import { ApiError, ApiErrorMessageType, ApiErrorStatusType } from '@/shared/schemas'
 
 export const makeApiError = (e: unknown): ApiError => {
   let status: ApiErrorStatusType = 500

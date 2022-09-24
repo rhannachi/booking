@@ -1,6 +1,7 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
-import { roomsSlice, RoomsStateType } from './room.reducer'
-import { IRoom } from '@/schemas'
+import { roomsSlice, RoomsStateType } from './room.slice'
+import { IRoom } from '@/shared/schemas'
+import { FetchRoomsErrorType } from '@/store/room'
 
 /***
  *  SET ROOMS ACTION
@@ -14,25 +15,26 @@ export const setRooms = (state: Draft<RoomsStateType>, action: PayloadAction<Set
 }
 
 /***
- *  FETCH ROOMS PENDING
+ *  FETCH ROOMS
  */
+// PENDING
 export const fetchRoomsPending = (state: Draft<RoomsStateType>) => {
   state.rooms = []
   state.isLoading = false
 }
-
-/***
- *  FETCH ROOMS SUCCESS
- */
+// SUCCESS
 export const fetchRoomsFulfilled = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsActionPayloadType>) => {
   roomsSlice.caseReducers.setRoomsAction(state, action)
 }
-
-/***
- *  FETCH ROOMS REJECTED
- */
-export const fetchRoomsRejected = (state: Draft<RoomsStateType>, action: any) => {
+// REJECTED
+export const fetchRoomsRejected = (
+  state: Draft<RoomsStateType>,
+  action: PayloadAction<FetchRoomsErrorType | undefined>
+) => {
   state.rooms = []
-  state.error = action.error.message
+  state.error = action?.payload?.error
   state.isLoading = false
 }
+/***
+ *  FETCH ....
+ */

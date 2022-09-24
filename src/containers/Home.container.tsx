@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
-import { IRoom } from '@/schemas'
+import { IRoom } from '@/shared/schemas'
 import { setRoomsAction } from '@/store/room'
 
 export type HomeContainerStateType = {
@@ -15,8 +15,6 @@ type HomeContainerType = HomeContainerDispatchType & HomeContainerStateType
 
 const HomeContainer: NextPage<HomeContainerType> = ({ setRoomsAction, isLoading, rooms }) => {
   const onClick = () => setRoomsAction({ rooms: [] })
-
-  console.log('isLoading', isLoading)
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import { ApiError, ApiErrorMessageType } from '@/schemas'
+import { ApiError, ApiErrorMessageType } from '@/shared/schemas'
 
 type ErrorRoomMessageType = 'Room not found with this ID' | 'Room fields are invalid' | 'ID Room is invalid'
 
