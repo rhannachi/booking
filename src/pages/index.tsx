@@ -1,22 +1,27 @@
-import { wrapper } from '@/store/store'
+import { wrapper } from '@/store'
 import absoluteUrl from 'next-absolute-url'
 import HomeContainer from '@/containers'
 import { connect } from 'react-redux'
 import { HomeContainerDispatchType, HomeContainerStateType } from '@/containers/Home.container'
 import { StateType } from '@/store/rootReducer'
 import { fetchRooms, setRoomsAction } from '@/store/room'
-import { ROOM_SLICE_NAME } from '@/store/constants'
+import { ROOM_SLICE_NAME } from '@/helpers/constants'
+import { GetServerSideProps, PreviewData } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req }) => {
-  // console.log('store state on the server before dispatch', store.getState())
+type getServerSidePropsType = GetServerSideProps<HomeContainerStateType, ParsedUrlQuery, PreviewData>
 
+export const getServerSideProps: getServerSidePropsType = wrapper.getServerSideProps((store) => async ({ req }) => {
   const { origin } = absoluteUrl(req)
   await store.dispatch(fetchRooms({ origin }))
 
-  // console.log('store state on the server after dispatch', store.getState())
-
-  // TODO remove this ???
-  return { props: '' }
+  return {
+    props: {
+      isLoading: false,
+      rooms: [],
+      error: ''
+    }
+  }
 })
 
 const mapStateToProps = (state: StateType): HomeContainerStateType => ({
