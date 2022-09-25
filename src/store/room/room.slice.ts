@@ -10,15 +10,15 @@ export type RoomsStateType = Readonly<{
   rooms: IRoom[]
 }>
 
-const initialState: RoomsStateType = {
+export const roomInitialState: RoomsStateType = {
   rooms: [],
   error: '',
   isLoading: false
 }
 
-export const roomsSlice = createSlice({
+export const roomSlice = createSlice({
   name: ROOM_SLICE_NAME,
-  initialState,
+  initialState: roomInitialState,
   reducers: {
     setRoomsAction: setRooms
   },
@@ -30,4 +30,4 @@ export const roomsSlice = createSlice({
   }
 })
 
-export const { setRoomsAction } = roomsSlice.actions
+export const { setRoomsAction } = roomSlice.actions

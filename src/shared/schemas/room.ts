@@ -1,7 +1,7 @@
 import { IApiResponse } from './http'
 
 export interface IRoomImage {
-  id: string
+  _id: string
   public_id: string
   url: string
 }
@@ -50,6 +50,9 @@ export interface IApiRoomResponse extends IApiResponse {
 
 export interface IApiRoomsResponse extends IApiResponse {
   rooms: IRoom[]
+  all: number
+  count: number
+  limit: number
 }
 
 export interface IApiDeleteRoomResponse extends IApiResponse {

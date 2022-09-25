@@ -1,7 +1,7 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
-import { roomsSlice, RoomsStateType } from './room.slice'
+import { roomSlice, RoomsStateType } from './room.slice'
+import { FetchRoomsErrorType, FetchRoomsType } from '@/store/room'
 import { IRoom } from '@/shared/schemas'
-import { FetchRoomsErrorType } from '@/store/room'
 
 /***
  *  SET ROOMS ACTION
@@ -9,7 +9,8 @@ import { FetchRoomsErrorType } from '@/store/room'
 type SetRoomsActionPayloadType = Readonly<{
   rooms: IRoom[]
 }>
-export const setRooms = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsActionPayloadType>): void => {
+
+export const setRooms = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsActionPayloadType>) => {
   state.rooms = action.payload.rooms
   state.isLoading = false
 }
@@ -22,9 +23,17 @@ export const fetchRoomsPending = (state: Draft<RoomsStateType>) => {
   state.rooms = []
   state.isLoading = false
 }
+
 // SUCCESS
-export const fetchRoomsFulfilled = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsActionPayloadType>) => {
-  roomsSlice.caseReducers.setRoomsAction(state, action)
+export const fetchRoomsFulfilled = (state: Draft<RoomsStateType>, action: PayloadAction<FetchRoomsType>) => {
+  const newAction: Readonly<PayloadAction<SetRoomsActionPayloadType>> = {
+    ...action,
+    payload: {
+      rooms: action.payload.rooms
+    }
+  }
+
+  roomSlice.caseReducers.setRoomsAction(state, newAction)
 }
 // REJECTED
 export const fetchRoomsRejected = (
