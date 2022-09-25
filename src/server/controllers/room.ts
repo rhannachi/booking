@@ -1,4 +1,4 @@
-import { IRoom } from '@/shared/schemas'
+import { IApiDeleteRoomResponse, IApiRoomResponse, IApiRoomsResponse, IRoom } from '@/shared/schemas'
 import {
   makeErrorInternalServerError,
   makeErrorRoomFieldsInvalid,
@@ -7,15 +7,8 @@ import {
 } from '@/server/factories'
 import { QueryType, RoomService, ToResearchType } from '@/server/services'
 import { isValidObjectId } from 'mongoose'
-import { rooms as roomsMocked } from '@/fixtures'
+import { roomsMocked } from '@/mocks/fixtures'
 import { isEmpty, toNumber } from '../helpers'
-
-type GetAllType = {
-  all: number
-  count: number
-  limit: number
-  rooms: IRoom[]
-}
 
 export class RoomController {
   readonly roomService: RoomService
@@ -24,7 +17,7 @@ export class RoomController {
     this.roomService = new RoomService()
   }
 
-  async get(id: unknown): Promise<IRoom> {
+  async get(id: unknown): Promise<IApiRoomResponse> {
     if (!isValidObjectId(id) || !(typeof id === 'string')) {
       throw makeErrorRoomIdInvalid()
     }
@@ -35,14 +28,18 @@ export class RoomController {
       throw makeErrorRoomNotFound()
     }
 
-    return room
+    return {
+      status: 200,
+      room
+    }
   }
 
-  async getAll(query: QueryType): Promise<GetAllType> {
+  async getAll(query: QueryType): Promise<IApiRoomsResponse> {
     if (isEmpty(query)) {
       const all = await this.roomService.count()
       const rooms = await this.roomService.getRooms()
       return {
+        status: 200,
         all,
         count: all,
         limit: all,
@@ -76,6 +73,7 @@ export class RoomController {
     const roomsSlice = rooms.slice(skip, skip + limit)
 
     return {
+      status: 200,
       all: rooms.length,
       count: roomsSlice?.length,
       limit,
@@ -83,7 +81,7 @@ export class RoomController {
     }
   }
 
-  async add(body: unknown): Promise<IRoom> {
+  async add(body: unknown): Promise<IApiRoomResponse> {
     if (!body || typeof body !== 'object') {
       throw makeErrorRoomFieldsInvalid()
     }
@@ -101,10 +99,13 @@ export class RoomController {
       throw makeErrorRoomFieldsInvalid()
     }
 
-    return newRoom
+    return {
+      status: 200,
+      room: newRoom
+    }
   }
 
-  async set(id: unknown, body: unknown): Promise<IRoom> {
+  async set(id: unknown, body: unknown): Promise<IApiRoomResponse> {
     if (!isValidObjectId(id) || !(typeof id === 'string')) {
       throw makeErrorRoomIdInvalid()
     }
@@ -127,10 +128,13 @@ export class RoomController {
       throw makeErrorRoomFieldsInvalid()
     }
 
-    return roomUpdated
+    return {
+      status: 200,
+      room: roomUpdated
+    }
   }
 
-  async delete(id: unknown): Promise<string> {
+  async delete(id: unknown): Promise<IApiDeleteRoomResponse> {
     if (!isValidObjectId(id) || !(typeof id === 'string')) {
       throw makeErrorRoomIdInvalid()
     }
@@ -147,11 +151,35 @@ export class RoomController {
       throw makeErrorInternalServerError()
     }
 
-    return roomIdDeleted
+    return {
+      status: 200,
+      id: roomIdDeleted
+    }
   }
 
   async seeding(): Promise<void> {
-    // TODO remove unknown and fix this
-    return this.roomService.seedingRoom(roomsMocked as unknown as IRoom[])
+    // TODO !!!!!!!!!!! remove the disgusting code !!!!!!!!!!!
+    const rooms = roomsMocked.map((room) => {
+      let newRoom = { ...room }
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      delete newRoom._id
+      const newImages = newRoom?.images.map((image) => {
+        const newImage = { ...image }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        delete newImage._id
+        return newImage
+      })
+      if (newImages) {
+        newRoom = {
+          ...newRoom,
+          images: newImages
+        }
+      }
+      return newRoom
+    })
+
+    return this.roomService.seedingRoom(rooms)
   }
 }

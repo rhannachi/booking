@@ -1,30 +1,43 @@
-export const rooms = [
+import { IRoom, IRoomImage } from '@/shared/schemas'
+
+const images: IRoomImage[] = [
   {
+    _id: '',
+    public_id: 'booking/rooms/yyyyyy',
+    url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+  },
+  {
+    _id: '',
+    public_id: 'booking/rooms/xxxxxx',
+    url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+  }
+]
+
+// TODO remove _id !!!!! for post seeeding
+
+export const roomsMocked: IRoom[] = [
+  {
+    _id: '',
     name: "Charming Studio < 10 Miles to Wells' Beaches!",
     pricePerNight: 168,
     description:
       'A friendly atmosphere and natural delights await your visit to the town of Wells! Stay at this well-equipped 1-bath studio and enjoy easy access to several beaches, including Wells Beach and Drakes Island Beach, as well as Rachel Carson National Wildlife Refuge - the best spot for wildlife viewing just 8 miles away. Not to mention, with the downtown area just 10 minutes from the vacation rental,',
     address: '4667 Bicetown Street, New York, NY, 10004',
-    guestCapacity: 1,
     numOfBeds: 1,
+    guestCapacity: 1,
     internet: true,
     breakfast: true,
     airConditioned: false,
     petsAllowed: false,
     roomCleaning: true,
-    images: [
-      {
-        public_id: 'bookit/rooms/1_bzynlv',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/1_bzynlv.jpg'
-      },
-      {
-        public_id: 'bookit/rooms/2_s1u52n',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590761/bookit/rooms/2_s1u52n.jpg'
-      }
-    ],
-    category: 'King'
+    images,
+    category: 'King',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'Picturesque 2-Story Farmhouse w/Private Hot Tub',
     pricePerNight: 242,
     description:
@@ -37,15 +50,14 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images: [
-      {
-        public_id: 'bookit/rooms/3_quuli7.jpg',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/3_quuli7.jpg'
-      }
-    ],
-    category: 'Twins'
+    images,
+    category: 'Twins',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'Downtown Portsmouth Private Getaway! Hot Tub',
     pricePerNight: 85,
     description:
@@ -58,15 +70,14 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: true,
     roomCleaning: false,
-    images: [
-      {
-        public_id: 'bookit/rooms/4_sju0ql',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590765/bookit/rooms/4_sju0ql.jpg'
-      }
-    ],
-    category: 'King'
+    images,
+    category: 'King',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'Spacious Suite in a quiet Boston neighborhood.',
     pricePerNight: 95,
     description:
@@ -79,19 +90,14 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images: [
-      {
-        public_id: 'bookit/rooms/5_jmydt6',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590762/bookit/rooms/5_jmydt6.jpg'
-      },
-      {
-        public_id: 'bookit/rooms/6_nwmr5f',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590764/bookit/rooms/6_nwmr5f.jpg'
-      }
-    ],
-    category: 'Single'
+    images,
+    category: 'Single',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'Shangri-La Hotel, Washington',
     pricePerNight: 105,
     description:
@@ -104,15 +110,14 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images: [
-      {
-        public_id: 'bookit/rooms/7_hshhzq',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590764/bookit/rooms/7_hshhzq.jpg'
-      }
-    ],
-    category: 'King'
+    images,
+    category: 'King',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'Hotel Chimayo de Santa Fe Rooms',
     pricePerNight: 36,
     description:
@@ -125,15 +130,14 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images: [
-      {
-        public_id: 'bookit/rooms/8_crn0xy',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590765/bookit/rooms/8_crn0xy.jpg'
-      }
-    ],
-    category: 'Twins'
+    images,
+    category: 'Twins',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'Hotel Garni Ischgl ☆ 4 star room comfort',
     pricePerNight: 82,
     description:
@@ -146,15 +150,14 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: false,
-    images: [
-      {
-        public_id: 'bookit/rooms/9_konrjf',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590849/bookit/rooms/9_konrjf.jpg'
-      }
-    ],
-    category: 'Single'
+    images,
+    category: 'Single',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   },
   {
+    _id: '',
     name: 'The Spa at Base Camp at Kerry Hotel',
     pricePerNight: 76,
     description:
@@ -167,12 +170,10 @@ export const rooms = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images: [
-      {
-        public_id: 'bookit/rooms/10_w8w8yi',
-        url: 'https://res.cloudinary.com/bookit/image/upload/v1618590840/bookit/rooms/10_w8w8yi.jpg'
-      }
-    ],
-    category: 'Single'
+    images,
+    category: 'Single',
+    ratings: 3,
+    numOfReviews: 0,
+    reviews: []
   }
 ]

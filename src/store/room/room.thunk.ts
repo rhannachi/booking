@@ -1,15 +1,14 @@
-import { IApiRoomsResponse, IRoom } from '@/shared/schemas'
+import { IApiRoomsResponse } from '@/shared/schemas'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ROOM_SLICE_NAME } from '@/helpers/constants'
 import { API_GET_ROOMS } from '@/helpers'
 import { get } from '@/helpers/http'
 
-type FetchRoomsPayloadType = {
+export type FetchRoomsPayloadType = {
   origin: string
 }
-type FetchRoomsType = {
-  rooms: IRoom[]
-}
+export type FetchRoomsType = Omit<IApiRoomsResponse, 'status'>
+
 export type FetchRoomsErrorType = {
   error: string
 }
@@ -23,7 +22,13 @@ export const fetchRooms = createAsyncThunk<FetchRoomsType, FetchRoomsPayloadType
     const result = await get<IApiRoomsResponse>(origin, API_GET_ROOMS)
 
     if (result.status === 'OK') {
-      return { rooms: result.response.rooms }
+      const { rooms, all, count, limit } = result.response
+      return {
+        rooms,
+        all,
+        count,
+        limit
+      }
     }
 
     return thunkAPI.rejectWithValue({ error: result.error.error })

@@ -1,9 +1,9 @@
 import { AnyAction, combineReducers } from '@reduxjs/toolkit'
-import { roomsSlice } from './room'
+import { roomSlice } from './room'
 import { HYDRATE } from 'next-redux-wrapper'
 
 const combinedReducer = combineReducers({
-  [roomsSlice.name]: roomsSlice.reducer
+  [roomSlice.name]: roomSlice.reducer
 })
 
 const reducer = (state: StateType | undefined, action: AnyAction) => {
