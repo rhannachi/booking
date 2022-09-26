@@ -1,8 +1,7 @@
 plugins:
   eslint:
     enabled: true
-    config:
-      config: .eslintrc.json
+    channel: "eslint-6"
   duplication:
     enabled: true
     config:
