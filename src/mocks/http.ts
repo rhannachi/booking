@@ -4,7 +4,7 @@ import { API_GET_ROOMS } from '@/helpers'
 import { roomsMocked } from '@/mocks/fixtures'
 import { IApiRoomsResponse } from '@/shared/schemas'
 
-const fetchRoomsMocked: IApiRoomsResponse = {
+const fetchRoomsMockedResponse: IApiRoomsResponse = {
   status: 200,
   all: 8,
   count: 8,
@@ -14,7 +14,7 @@ const fetchRoomsMocked: IApiRoomsResponse = {
 
 export const mockNetWorkResponse = () => {
   const mock = new MockAdapter(axios)
-  mock.onGet(`${API_GET_ROOMS}`).reply(200, fetchRoomsMocked)
+  mock.onGet(`${API_GET_ROOMS}`).reply(200, fetchRoomsMockedResponse)
   // mock.onGet(`/users/`).reply(200, getUserListResponse);
   // mock.onPost(`/users/`).reply(200, getCreateUserResponse);
   // mock.onPut(`/users/${userId}`).reply(200, getUserUpdateResponse);
