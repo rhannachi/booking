@@ -37,7 +37,6 @@ describe('List all rooms', () => {
     expect(rooms).toEqual(roomsMocked)
 
     const state = store.getState().roomReducer
-
     expect(state.rooms).toEqual(roomsMocked)
   })
 })
