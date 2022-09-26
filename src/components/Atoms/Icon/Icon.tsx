@@ -1,8 +1,6 @@
 import clsx from 'clsx'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ReactSVG } from 'react-svg'
-import starSvg from './svgs/star.svg'
-import userSvg from './svgs/user.svg'
 
 export const ICONS = ['star', 'user'] as const
 export const ICON_COLORS = ['fill-red-50', 'fill-red-100', 'fill-red-200', 'fill-black', 'fill-white'] as const
@@ -18,17 +16,17 @@ export type IconProps = {
   color: IconColorType
 }
 
-const getSvg = (icon: IconProps['icon']): string => {
-  switch (icon) {
-    case 'star':
-      return starSvg.toString()
-    case 'user':
-      return userSvg.toString()
-    default:
-      return ''
-  }
-}
+export const Icon = ({ icon = 'user', color, width = 'w-5' }: IconProps) => {
+  const [iconSrc, setIconSrc] = useState<string>('')
 
-export const Icon = ({ icon, color, width = 'w-5' }: IconProps) => {
-  return <ReactSVG className={clsx(width, color)} src={getSvg(icon)} />
+  useEffect(() => {
+    const importIcon = async (): Promise<string> => {
+      return (await import(`./svgs/${icon}.svg`)).default
+    }
+    importIcon()
+      .then((iconResponse) => setIconSrc(iconResponse))
+      .catch(() => setIconSrc(''))
+  }, [icon])
+
+  return <ReactSVG className={clsx(width, color)} src={iconSrc} />
 }

@@ -160,19 +160,15 @@ export class RoomController {
   async seeding(): Promise<void> {
     // TODO !!!!!!!!!!! remove the disgusting code !!!!!!!!!!!
     const rooms = roomsMocked.map((room) => {
-      let newRoom = { ...room }
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      delete newRoom._id
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { _id, ...newRoom } = room
       const newImages = newRoom?.images.map((image) => {
-        const newImage = { ...image }
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        delete newImage._id
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { _id, ...newImage } = image
         return newImage
       })
       if (newImages) {
-        newRoom = {
+        return {
           ...newRoom,
           images: newImages
         }
@@ -180,6 +176,8 @@ export class RoomController {
       return newRoom
     })
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return this.roomService.seedingRoom(rooms)
   }
 }
