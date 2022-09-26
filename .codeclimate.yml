@@ -1,0 +1,23 @@
+plugins:
+  eslint:
+    enabled: true
+    config:
+      config: .eslintrc.json
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - javascript:
+## other configuration excluded from example...
+exclude_patterns:
+  - ".next/"
+  - ".storybook/"
+  - ".swc/"
+  - ".vercel/"
+  - "__mocks__/"
+  - "coverage/"
+  - "postman/"
+  - "public/"
+  - "storybook-static/"
+  - "**/fixtures/"
+
