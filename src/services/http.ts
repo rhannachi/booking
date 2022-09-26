@@ -3,7 +3,6 @@ import { IApiError } from '@/shared/schemas'
 
 type OK<T> = { status: 'OK'; response: T }
 type KO = { status: 'KO'; error: IApiError }
-type Result<T> = OK<T> | KO
 
 const api = (baseURL: string) =>
   axios.create({
@@ -30,7 +29,7 @@ const koTransform = (err: AxiosError<IApiError>): KO => {
  * @param baseUrl
  * @param url
  */
-export const get = async <T>(baseUrl: string, url: string): Promise<Result<T>> => {
+export const get = async <T>(baseUrl: string, url: string): Promise<OK<T> | KO> => {
   return new Promise((resolve) => {
     api(baseUrl)
       .get<T>(url)

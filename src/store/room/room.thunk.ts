@@ -2,7 +2,7 @@ import { IApiRoomsResponse } from '@/shared/schemas'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ROOM_SLICE_NAME } from '@/helpers/constants'
 import { API_GET_ROOMS } from '@/helpers'
-import { get } from '@/helpers/http'
+import { get } from '@/services'
 
 export type FetchRoomsPayloadType = {
   origin: string
