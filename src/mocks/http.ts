@@ -1,8 +1,8 @@
-import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
 import { API_GET_ROOMS } from '@/helpers'
 import { roomsMockResponse } from '@/mocks/fixtures'
 import { IApiRoomsResponse } from '@/shared/schemas'
+import MockAdapter from 'axios-mock-adapter'
 
 const fetchRoomsMockResponse: IApiRoomsResponse = {
   status: 200,

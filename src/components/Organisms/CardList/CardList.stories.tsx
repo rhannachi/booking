@@ -1,14 +1,6 @@
 import { Meta, Story } from '@storybook/react'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardList,
-  CardListProps,
-  cardListFixture
-} from '@/components/Organisms'
+import { Card, CardContent, CardHeader, CardMedia, CardTitle } from '@/components/Organisms/Card'
+import { CardList, cardListFixture, CardListProps } from '@/components/Organisms/CardList'
 
 export default {
   title: 'Organisms/CardList',
