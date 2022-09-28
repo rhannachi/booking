@@ -1,6 +1,7 @@
 import { IRoom } from '@/shared/schemas'
 import { Model } from 'mongoose'
 import { RoomModel } from '../repository'
+import { roomsMockPayload } from '@/mocks/fixtures'
 
 export type QueryType = Record<string, string | string[] | undefined>
 
@@ -66,8 +67,8 @@ export class RoomService {
     return roomDeleted?._id
   }
 
-  async seedingRoom(rooms: IRoom[]): Promise<void> {
+  async seedingRoom(): Promise<void> {
     await this.roomModel.deleteMany()
-    await this.roomModel.insertMany(rooms)
+    await this.roomModel.insertMany(roomsMockPayload)
   }
 }

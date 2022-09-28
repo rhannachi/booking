@@ -13,9 +13,8 @@ export type HomeContainerDispatchType = {
 }
 type HomeContainerType = HomeContainerDispatchType & HomeContainerStateType
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const HomeContainer: NextPage<HomeContainerType> = ({ setRoomsAction, isLoading, rooms }) => {
-  const onClick = () => setRoomsAction({ rooms: [] })
-
   return (
     <div>
       <Head>
@@ -26,10 +25,9 @@ const HomeContainer: NextPage<HomeContainerType> = ({ setRoomsAction, isLoading,
 
       <main>
         <h1>Welcome to Booking project </h1>
-        <button onClick={onClick}> click me !</button>
       </main>
 
-      {!isLoading && JSON.stringify(rooms)}
+      {!isLoading && JSON.stringify(rooms, null, 2)}
 
       <footer></footer>
     </div>

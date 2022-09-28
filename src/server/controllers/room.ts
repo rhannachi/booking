@@ -7,7 +7,6 @@ import {
 } from '@/server/factories'
 import { QueryType, RoomService, ToResearchType } from '@/server/services'
 import { isValidObjectId } from 'mongoose'
-import { roomsMocked } from '@/mocks/fixtures'
 import { isEmpty, toNumber } from '../helpers'
 
 export class RoomController {
@@ -158,26 +157,6 @@ export class RoomController {
   }
 
   async seeding(): Promise<void> {
-    // TODO !!!!!!!!!!! remove the disgusting code !!!!!!!!!!!
-    const rooms = roomsMocked.map((room) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { _id, ...newRoom } = room
-      const newImages = newRoom?.images.map((image) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { _id, ...newImage } = image
-        return newImage
-      })
-      if (newImages) {
-        return {
-          ...newRoom,
-          images: newImages
-        }
-      }
-      return newRoom
-    })
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return this.roomService.seedingRoom(rooms)
+    return this.roomService.seedingRoom()
   }
 }

@@ -2,7 +2,7 @@ import { roomInitialState, roomSlice } from './room.slice'
 import { store } from '@/store'
 import { mockNetWorkResponse } from '@/mocks'
 import { fetchRooms, FetchRoomsType } from '@/store/room/room.thunk'
-import { roomsMocked } from '@/mocks/fixtures'
+import { roomsMockResponse } from '@/mocks/fixtures'
 import { ROOM_SLICE_NAME } from '@/helpers'
 import { PayloadAction } from '@reduxjs/toolkit'
 
@@ -34,9 +34,9 @@ describe('List all rooms', () => {
     } = (await store.dispatch(fetchRooms({ origin: '' }))) as PayloadAction<FetchRoomsType>
 
     expect(type).toBe(`${ROOM_SLICE_NAME}/fetchRooms/fulfilled`)
-    expect(rooms).toEqual(roomsMocked)
+    expect(rooms).toEqual(roomsMockResponse)
 
     const state = store.getState().roomReducer
-    expect(state.rooms).toEqual(roomsMocked)
+    expect(state.rooms).toEqual(roomsMockResponse)
   })
 })

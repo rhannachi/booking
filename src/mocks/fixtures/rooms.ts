@@ -1,23 +1,8 @@
-import { IRoom, IRoomImage } from '@/shared/schemas'
+import { IRoom } from '@/shared/schemas'
 
-const images: IRoomImage[] = [
+export const roomsMockResponse: IRoom[] = [
   {
-    _id: '',
-    public_id: 'booking/rooms/yyyyyy',
-    url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
-  },
-  {
-    _id: '',
-    public_id: 'booking/rooms/xxxxxx',
-    url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
-  }
-]
-
-// TODO remove _id !!!!! for post seeeding
-
-export const roomsMocked: IRoom[] = [
-  {
-    _id: '',
+    _id: '6fe6ef4b55a86974c8d163',
     name: "Charming Studio < 10 Miles to Wells' Beaches!",
     pricePerNight: 168,
     description:
@@ -30,14 +15,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: false,
     petsAllowed: false,
     roomCleaning: true,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'King',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fe6ef4b55qsdf974c8d163',
     name: 'Picturesque 2-Story Farmhouse w/Private Hot Tub',
     pricePerNight: 242,
     description:
@@ -50,14 +46,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'Twins',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fe6etyjqs4b55a86974c8d163',
     name: 'Downtown Portsmouth Private Getaway! Hot Tub',
     pricePerNight: 85,
     description:
@@ -70,14 +77,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: true,
     roomCleaning: false,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'King',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fazhhhsf4b55a86974c8d163',
     name: 'Spacious Suite in a quiet Boston neighborhood.',
     pricePerNight: 95,
     description:
@@ -90,14 +108,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'Single',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fe6ef4b55assssqsdf63',
     name: 'Shangri-La Hotel, Washington',
     pricePerNight: 105,
     description:
@@ -110,14 +139,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'King',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fe6ef455a864c163',
     name: 'Hotel Chimayo de Santa Fe Rooms',
     pricePerNight: 36,
     description:
@@ -130,14 +170,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'Twins',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fe6ef364574a86974c8d163',
     name: 'Hotel Garni Ischgl ☆ 4 star room comfort',
     pricePerNight: 82,
     description:
@@ -150,14 +201,25 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: false,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'Single',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   },
   {
-    _id: '',
+    _id: '6fe6ef4b55a86974c8d12372263',
     name: 'The Spa at Base Camp at Kerry Hotel',
     pricePerNight: 76,
     description:
@@ -170,10 +232,38 @@ export const roomsMocked: IRoom[] = [
     airConditioned: true,
     petsAllowed: false,
     roomCleaning: true,
-    images,
+    images: [
+      {
+        _id: '',
+        public_id: 'booking/rooms/yyyyyy',
+        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+      },
+      {
+        _id: '',
+        public_id: 'booking/rooms/xxxxxx',
+        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+      }
+    ],
     category: 'Single',
     ratings: 3,
     numOfReviews: 0,
     reviews: []
   }
 ]
+
+export const roomsMockPayload = roomsMockResponse.map((room) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { _id, ...newRoom } = room
+  const newImages = newRoom?.images.map((image) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { _id, ...newImage } = image
+    return newImage
+  })
+  if (newImages) {
+    return {
+      ...newRoom,
+      images: newImages
+    }
+  }
+  return newRoom
+})
