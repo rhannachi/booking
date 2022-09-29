@@ -58,5 +58,5 @@ export const Card = ({
 }: CardContentProps & {
   className?: string
 }) => {
-  return <div className={clsx('flex flex-col max-w-xs shadow-md shadow', className)}>{children}</div>
+  return <div className={clsx('flex flex-col max-w-xs shadow-md shadow w-72', className)}>{children}</div>
 }

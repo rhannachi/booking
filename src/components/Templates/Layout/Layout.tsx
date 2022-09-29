@@ -10,7 +10,9 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />
-      {children}
+      <div className="mt-32 mb-20 flex items-center justify-center">
+        <div className="container">{children}</div>
+      </div>
       <Footer />
     </>
   )

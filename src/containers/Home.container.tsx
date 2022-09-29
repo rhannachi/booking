@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { IRoom } from '@/shared/schemas'
+import { Home } from '@/components/Pages'
+import { CardProps } from '@/components/Organisms'
+import { Layout } from '@/components/Templates'
 
 export type HomeContainerStateType = {
   isLoading: boolean
@@ -12,7 +15,31 @@ export type HomeContainerStateType = {
 // }
 type HomeContainerType = HomeContainerStateType
 
+// TODO remove this
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms }) => {
+  // TODO remove this
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const cardListProps: CardProps[] = rooms.map((room) => {
+    return {
+      header: {
+        title: 'Shrimp and Chorizo Paella',
+        subTitle: 'Shrimp and Chorizo Paella'
+      },
+      title: {
+        prefix: 'Lazard',
+        suffix: '33 Euro/nuit'
+      },
+      content:
+        'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+      images: [
+        'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg',
+        'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg',
+        'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg'
+      ]
+    }
+  })
+
   return (
     <div>
       <Head>
@@ -22,10 +49,10 @@ const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms }) => {
       </Head>
 
       <main>
-        <h1>Welcome to Booking project </h1>
+        <Layout>
+          <Home cardList={cardListProps} />
+        </Layout>
       </main>
-
-      {!isLoading && JSON.stringify(rooms, null, 2)}
 
       <footer></footer>
     </div>

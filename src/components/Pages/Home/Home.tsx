@@ -1,12 +1,13 @@
 import React from 'react'
-import { Layout } from '@/components/Templates'
 import { Card, CardContent, CardHeader, CardList, CardListProps, CardMedia, CardTitle } from '@/components/Organisms'
 
 export type HomeProps = CardListProps
 
 export const Home = ({ cardList }: HomeProps) => {
   return (
-    <Layout>
+    <>
+      <h1 className="font-bold text-3xl text-pink-500 md:mb-10">All Rooms</h1>
+      {/*<hr />*/}
       <CardList>
         {cardList?.map(({ header, images, title, content }, index) => (
           <Card key={`${index}-${header.title}`}>
@@ -17,6 +18,6 @@ export const Home = ({ cardList }: HomeProps) => {
           </Card>
         ))}
       </CardList>
-    </Layout>
+    </>
   )
 }
