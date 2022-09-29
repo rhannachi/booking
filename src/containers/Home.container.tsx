@@ -1,20 +1,18 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { IRoom } from '@/shared/schemas'
-import { setRoomsAction } from '@/store/room'
 
 export type HomeContainerStateType = {
   isLoading: boolean
   error?: string
   rooms: IRoom[]
 }
-export type HomeContainerDispatchType = {
-  setRoomsAction: typeof setRoomsAction
-}
-type HomeContainerType = HomeContainerDispatchType & HomeContainerStateType
+// export type HomeContainerDispatchType = {
+//   setRoomsAction: typeof setRoomsAction
+// }
+type HomeContainerType = HomeContainerStateType
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const HomeContainer: NextPage<HomeContainerType> = ({ setRoomsAction, isLoading, rooms }) => {
+const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms }) => {
   return (
     <div>
       <Head>

@@ -1,8 +1,7 @@
 import { roomInitialState, roomSlice } from './room.slice'
 import { store } from '@/store'
-import { mockNetWorkResponse } from '@/mocks'
+import { fetchRoomsMockResponse, mockNetWorkResponse } from '@/mocks'
 import { fetchRooms, FetchRoomsType } from '@/store/room/room.thunk'
-import { roomsMockResponse } from '@/mocks/fixtures'
 import { ROOM_SLICE_NAME } from '@/helpers'
 import { PayloadAction } from '@reduxjs/toolkit'
 
@@ -28,15 +27,26 @@ describe('List all rooms', () => {
 
   it('Should be able to fetch the room list', async () => {
     // TODO remove type casting
+    const fetchRoomsResponse = (await store.dispatch(fetchRooms({ origin: '' }))) as PayloadAction<FetchRoomsType>
     const {
-      payload: { rooms },
+      payload: { rooms, all, count, limit },
       type
-    } = (await store.dispatch(fetchRooms({ origin: '' }))) as PayloadAction<FetchRoomsType>
+    } = fetchRoomsResponse
+
+    const { rooms: roomsMock, all: allMock, count: countMock, limit: limitMock } = fetchRoomsMockResponse
 
     expect(type).toBe(`${ROOM_SLICE_NAME}/fetchRooms/fulfilled`)
-    expect(rooms).toEqual(roomsMockResponse)
+    // check api result
+    expect(rooms).toEqual(roomsMock)
+    expect(all).toEqual(allMock)
+    expect(count).toEqual(countMock)
+    expect(limit).toEqual(limitMock)
 
     const state = store.getState().roomReducer
-    expect(state.rooms).toEqual(roomsMockResponse)
+    // check store change
+    expect(state.rooms).toEqual(roomsMock)
+    expect(state.all).toEqual(allMock)
+    expect(state.count).toEqual(countMock)
+    expect(state.limit).toEqual(limitMock)
   })
 })

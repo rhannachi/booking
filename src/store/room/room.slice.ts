@@ -8,28 +8,44 @@ import { ROOM_SLICE_NAME } from '@/helpers/constants'
  */
 type SetRoomsActionPayloadType = Readonly<{
   rooms: IRoom[]
+  all: number
+  count: number
+  limit: number
 }>
 
 const setRooms = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsActionPayloadType>) => {
-  state.rooms = action.payload.rooms
+  const { rooms, all, count, limit } = action.payload
+
+  state.rooms = rooms
+  state.all = all
+  state.count = count
+  state.limit = limit
+  state.error = ''
   state.isLoading = false
 }
 
 /***
  *  FETCH ROOMS
  */
+
 // PENDING
 const fetchRoomsPending = (state: Draft<RoomsStateType>) => {
   state.rooms = []
+  state.all = 0
+  state.count = 0
+  state.limit = 0
   state.isLoading = false
 }
-
 // SUCCESS
-const fetchRoomsFulfilled = (state: Draft<RoomsStateType>, action: PayloadAction<FetchRoomsType>) => {
+const fetchRoomsSuccess = (state: Draft<RoomsStateType>, action: PayloadAction<FetchRoomsType>) => {
+  const { rooms, all, count, limit } = action.payload
   const newAction: Readonly<PayloadAction<SetRoomsActionPayloadType>> = {
     ...action,
     payload: {
-      rooms: action.payload.rooms
+      rooms,
+      all,
+      count,
+      limit
     }
   }
   roomSlice.caseReducers.setRoomsAction(state, newAction)
@@ -37,7 +53,10 @@ const fetchRoomsFulfilled = (state: Draft<RoomsStateType>, action: PayloadAction
 // REJECTED
 const fetchRoomsRejected = (state: Draft<RoomsStateType>, action: PayloadAction<FetchRoomsErrorType | undefined>) => {
   state.rooms = []
-  state.error = action?.payload?.error
+  state.all = 0
+  state.count = 0
+  state.limit = 0
+  state.error = action?.payload?.error ?? ''
   state.isLoading = false
 }
 
@@ -46,12 +65,18 @@ const fetchRoomsRejected = (state: Draft<RoomsStateType>, action: PayloadAction<
  */
 type RoomsStateType = Readonly<{
   isLoading: boolean
-  error?: string
+  error: string
   rooms: IRoom[]
+  all: number
+  count: number
+  limit: number
 }>
 
 export const roomInitialState: RoomsStateType = {
   rooms: [],
+  all: 0,
+  count: 0,
+  limit: 0,
   error: '',
   isLoading: false
 }
@@ -64,7 +89,7 @@ export const roomSlice = createSlice({
   extraReducers: (builder: ActionReducerMapBuilder<RoomsStateType>) => {
     builder
       .addCase(fetchRooms.pending, fetchRoomsPending)
-      .addCase(fetchRooms.fulfilled, fetchRoomsFulfilled)
+      .addCase(fetchRooms.fulfilled, fetchRoomsSuccess)
       .addCase(fetchRooms.rejected, fetchRoomsRejected)
   }
 })
