@@ -4,7 +4,7 @@ import { roomsMockResponse } from '@/mocks/fixtures'
 import { IApiRoomsResponse } from '@/shared/schemas'
 import MockAdapter from 'axios-mock-adapter'
 
-const fetchRoomsMockResponse: IApiRoomsResponse = {
+export const fetchRoomsMockResponse: IApiRoomsResponse = {
   status: 200,
   all: 8,
   count: 8,
