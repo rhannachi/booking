@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
-import { Header, Footer } from '@/components/Templates'
+import { Footer } from '@/components/Templates/Footer'
+import { Header } from '@/components/Templates/Header'
 
 type LayoutProps = {
   children: ReactNode

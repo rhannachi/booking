@@ -82,6 +82,8 @@ jobs:
         run: |
           yarn ts:check
           yarn lint
+      - name: Dependency validation
+        run: yarn dependency:validation
 
   test:
     needs: [install-dependencies]

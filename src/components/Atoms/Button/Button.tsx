@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from 'react'
 import clsx from 'clsx'
+import React, { PropsWithChildren } from 'react'
 
 export type ButtonProps = {
   className?: string

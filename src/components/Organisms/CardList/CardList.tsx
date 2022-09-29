@@ -1,5 +1,5 @@
 import React, { ReactNode, cloneElement, Children, isValidElement } from 'react'
-import { CardProps } from '@/components/Organisms'
+import { CardProps } from '@/components/Organisms/Card'
 
 export type CardListProps = {
   cardList: CardProps[]
