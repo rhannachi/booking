@@ -2,10 +2,10 @@
 
 exports[`Storyshots Organisms/CardList Default 1`] = `
 <div
-  className="flex flex-row"
+  className="flex flex-wrap flex-row lg:justify-start justify-center"
 >
   <div
-    className="flex flex-col max-w-xs shadow-md shadow m-2"
+    className="flex flex-col max-w-xs shadow-md shadow w-72 m-2"
   >
     <div
       className="flex flex-col p-4"
@@ -116,7 +116,7 @@ exports[`Storyshots Organisms/CardList Default 1`] = `
     </div>
   </div>
   <div
-    className="flex flex-col max-w-xs shadow-md shadow m-2"
+    className="flex flex-col max-w-xs shadow-md shadow w-72 m-2"
   >
     <div
       className="flex flex-col p-4"
