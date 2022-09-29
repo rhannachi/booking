@@ -1,6 +1,7 @@
-import { IRoom } from '@/schemas'
+import { IRoom } from '@/shared/schemas'
 import { Model } from 'mongoose'
 import { RoomModel } from '../repository'
+import { roomsMockPayload } from '@/mocks/fixtures'
 
 export type QueryType = Record<string, string | string[] | undefined>
 
@@ -44,12 +45,12 @@ export class RoomService {
     return this.roomModel.find<IRoom>({ ...toResearch })
   }
 
-  async addRoom(roomInput: Omit<IRoom, 'id' | 'createdAt'>): Promise<IRoom> {
+  async addRoom(roomInput: Omit<IRoom, '_id' | 'createdAt'>): Promise<IRoom> {
     const room: IRoom = new RoomModel(roomInput)
     return this.roomModel.create<IRoom>(room)
   }
 
-  async updateRoom(id: string, roomInput: Partial<Omit<IRoom, 'id' | 'createdAt'>>): Promise<IRoom | undefined> {
+  async updateRoom(id: string, roomInput: Partial<Omit<IRoom, '_id' | 'createdAt'>>): Promise<IRoom | undefined> {
     const roomUpdated = await this.roomModel.findByIdAndUpdate<IRoom>(id, roomInput, {
       new: true,
       runValidators: true,
@@ -63,11 +64,11 @@ export class RoomService {
 
   async deleteRoom(id: string): Promise<string | undefined> {
     const roomDeleted = await this.roomModel.findByIdAndDelete<IRoom>(id)
-    return roomDeleted?.id
+    return roomDeleted?._id
   }
 
-  async seedingRoom(rooms: IRoom[]): Promise<void> {
+  async seedingRoom(): Promise<void> {
     await this.roomModel.deleteMany()
-    await this.roomModel.insertMany(rooms)
+    await this.roomModel.insertMany(roomsMockPayload)
   }
 }

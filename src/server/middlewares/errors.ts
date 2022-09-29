@@ -1,4 +1,4 @@
-import { ApiError, IApiResponse } from '@/schemas'
+import { ApiError, IApiResponse } from '@/shared/schemas'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { NextHandler } from 'next-connect'
 import { makeApiError } from '@/server/factories'

@@ -7,9 +7,11 @@
     "start": "next start",
     "lint": "next lint",
     "test:api": "echo TODO",
-    "test": "jest",
+    "test": "jest  --silent --noStackTrace --runInBand",
     "test:coverage": "jest --ci --coverage",
     "ts:check": "tsc --noemit",
+    "dependency:validation": "depcruise --config .dependency-cruiser.js src",
+    "dependency:build": "depcruise --config .dependency-cruiser.js --output-type dot src --include-only \"^src\" | dot -T png > assets/dependencies.png",
     "storybook": "start-storybook -p 6006 --no-open",
     "test:storybook": "test-storybook",
     "build:storybook": "build-storybook",
@@ -18,11 +20,19 @@
     "export": "next export"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "@storybook/react": "^6.5.12",
+    "axios": "^0.27.2",
+    "axios-mock-adapter": "^1.21.2",
+    "clsx": "^1.2.1",
     "mongoose": "^6.5.2",
     "next": "12.2.5",
+    "next-absolute-url": "^1.2.2",
     "next-connect": "^0.13.0",
+    "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.0.2",
     "react-svg": "^15.1.7"
   },
   "engines": {
@@ -44,7 +54,6 @@
     "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.10",
-    "@storybook/react": "^6.5.10",
     "@storybook/test-runner": "^0.7.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -59,8 +68,8 @@
     "babel-jest": "^29.0.2",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.8.0",
-    "clsx": "^1.2.1",
     "css-loader": "^6.7.1",
+    "dependency-cruiser": "^11.16.1",
     "eslint": "^8.22.0",
     "eslint-config-next": "12.2.5",
     "eslint-config-prettier": "^8.5.0",
@@ -79,6 +88,7 @@
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.1.8",
     "ts-node": "^10.9.1",
+    "ts-unused-exports": "^8.0.0",
     "typescript": "4.7.4"
   }
 }

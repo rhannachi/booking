@@ -1,4 +1,4 @@
-import { CardProps } from '@/components/Organisms'
+import { CardProps } from '@/components/Organisms/Card'
 
 export const cardListFixture: CardProps[] = [
   {
