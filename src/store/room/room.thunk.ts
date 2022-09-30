@@ -1,11 +1,10 @@
 import { IApiRoomsResponse } from '@/shared/schemas'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ROOM_SLICE_NAME } from '@/helpers/constants'
-import { API_GET_ROOMS } from '@/helpers'
-import { get } from '@/services'
+import { ROOM_SLICE_NAME } from '@/helpers'
+import { fetchRoomsService } from '@/services'
 
-export type FetchRoomsPayloadType = {
-  origin: string
+type FetchRoomsPayloadType = {
+  baseUrl: string
 }
 export type FetchRoomsType = Omit<IApiRoomsResponse, 'status'>
 
@@ -18,8 +17,8 @@ type FetchRoomsRejectType = {
 
 export const fetchRooms = createAsyncThunk<FetchRoomsType, FetchRoomsPayloadType, FetchRoomsRejectType>(
   `${ROOM_SLICE_NAME}/fetchRooms`,
-  async ({ origin }, thunkAPI) => {
-    const result = await get<IApiRoomsResponse>(origin, API_GET_ROOMS)
+  async ({ baseUrl }, thunkAPI) => {
+    const result = await fetchRoomsService(baseUrl)
 
     if (result.status === 'OK') {
       const { rooms, all, count, limit } = result.response

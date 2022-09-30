@@ -1,8 +1,8 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { IApiError } from '@/shared/schemas'
 
-type OK<T> = { status: 'OK'; response: T }
-type KO = { status: 'KO'; error: IApiError }
+export type OK<T> = { status: 'OK'; response: T }
+export type KO = { status: 'KO'; error: IApiError }
 
 const api = (baseURL: string) =>
   axios.create({

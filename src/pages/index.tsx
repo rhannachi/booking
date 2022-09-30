@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import { HomeContainerStateType } from '@/containers/Home.container'
 import { StateType } from '@/store/rootReducer'
 import { fetchRooms } from '@/store/room'
-import { ROOM_SLICE_NAME } from '@/helpers/constants'
+import { ROOM_SLICE_NAME } from '@/helpers'
 import { GetServerSideProps, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
 type getServerSidePropsType = GetServerSideProps<HomeContainerStateType, ParsedUrlQuery, PreviewData>
 
 export const getServerSideProps: getServerSidePropsType = wrapper.getServerSideProps((store) => async ({ req }) => {
-  const { origin } = absoluteUrl(req)
-  await store.dispatch(fetchRooms({ origin }))
+  const { origin: baseUrl } = absoluteUrl(req)
+  await store.dispatch(fetchRooms({ baseUrl }))
 
   return {
     props: {

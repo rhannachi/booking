@@ -1,7 +1,7 @@
 import { ActionReducerMapBuilder, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
 import { IRoom } from '@/shared/schemas'
 import { fetchRooms, FetchRoomsErrorType, FetchRoomsType } from '@/store/room/room.thunk'
-import { ROOM_SLICE_NAME } from '@/helpers/constants'
+import { ROOM_SLICE_NAME } from '@/helpers'
 
 /**
  *  SET ROOMS ACTION
