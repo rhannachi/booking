@@ -1,6 +1,6 @@
 import { roomInitialState, roomSlice } from './room.slice'
 import { store } from '@/store'
-import { fetchRoomsMockResponse, mockNetWorkResponse } from '@/mocks'
+import { fetchRoomsServiceMock, mockApi } from '@/mocks'
 import { fetchRooms, FetchRoomsType } from '@/store/room/room.thunk'
 import { ROOM_SLICE_NAME } from '@/helpers'
 import { PayloadAction } from '@reduxjs/toolkit'
@@ -22,18 +22,18 @@ test('Should return initial state', () => {
 
 describe('List all rooms', () => {
   beforeAll(() => {
-    mockNetWorkResponse()
+    mockApi()
   })
 
   it('Should be able to fetch the room list', async () => {
     // TODO remove type casting
-    const fetchRoomsResponse = (await store.dispatch(fetchRooms({ origin: '' }))) as PayloadAction<FetchRoomsType>
+    const fetchRoomsResponse = (await store.dispatch(fetchRooms({ baseUrl: '' }))) as PayloadAction<FetchRoomsType>
     const {
       payload: { rooms, all, count, limit },
       type
     } = fetchRoomsResponse
 
-    const { rooms: roomsMock, all: allMock, count: countMock, limit: limitMock } = fetchRoomsMockResponse
+    const { rooms: roomsMock, all: allMock, count: countMock, limit: limitMock } = fetchRoomsServiceMock
 
     expect(type).toBe(`${ROOM_SLICE_NAME}/fetchRooms/fulfilled`)
     // check api result
