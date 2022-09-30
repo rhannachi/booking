@@ -120,6 +120,13 @@ jobs:
       - name: Test Coverage
         run: yarn test:coverage
 
+      # TODO FIX this
+#      - name: Test Lighthouse
+#        run: |
+#          yarn global add @lhci/cli@0.8.x
+#          yarn build
+#          lhci autorun --collect.url=https://www.google.com/ --assert.preset=lighthouse:recommended
+
       - name: zip coverage
         run: tar -czf coverage.tar.gz ./coverage
 
