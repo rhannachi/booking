@@ -2,6 +2,6 @@
 
 exports[`Storyshots Atoms/Icon Default 1`] = `
 <div
-  className="w-6 fill-black"
+  className="fill-red-500 w-7"
 />
 `;
