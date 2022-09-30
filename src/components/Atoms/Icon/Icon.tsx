@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { ReactSVG } from 'react-svg'
+// import userSvg from './svgs/user.svg'
 
 export const SIZES_ICON = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'] as const
 export type sizeIconType = typeof SIZES_ICON[number]
@@ -21,6 +22,10 @@ export type IconProps = {
   size: sizeIconType
   color: colorIconType
   className?: string
+}
+
+const importIcon = async (icon: IconType): Promise<string | { src: string }> => {
+  return (await import(`./svgs/${icon}.svg`)).default
 }
 
 const getColor = (color: colorIconType) => {
@@ -61,11 +66,14 @@ export const Icon = ({ icon = 'user', color, size = 'base', className = '' }: Ic
   const [iconSrc, setIconSrc] = useState<string>('')
 
   useEffect(() => {
-    const importIcon = async (): Promise<string> => {
-      return (await import(`./svgs/${icon}.svg`)).default
-    }
-    importIcon()
-      .then((iconResponse) => setIconSrc(iconResponse))
+    importIcon(icon)
+      .then((iconResponse) => {
+        if (typeof iconResponse === 'string') {
+          setIconSrc(iconResponse)
+        } else {
+          setIconSrc(iconResponse.src)
+        }
+      })
       .catch(() => setIconSrc(''))
   }, [icon])
 
