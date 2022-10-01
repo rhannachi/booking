@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardHeader, CardList, CardListProps, CardMedia, CardTitle } from '@/components/Organisms'
+import { Card, CardContent, CardHeader, CardList, CardListProps, CardMedia, CardElement } from '@/components/Organisms'
 
 export type HomeProps = CardListProps
 
@@ -13,7 +13,7 @@ export const Home = ({ cardList }: HomeProps) => {
           <Card key={`${index}-${header.title}`}>
             <CardHeader title={header.title} subTitle={header.subTitle} />
             <CardMedia images={images} />
-            <CardTitle prefix={title.prefix} suffix={title.suffix} />
+            <CardElement prefix={title.prefix} suffix={title.suffix} />
             <CardContent>{content}</CardContent>
           </Card>
         ))}

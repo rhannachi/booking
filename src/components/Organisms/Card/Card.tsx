@@ -3,27 +3,30 @@ import React, { ReactNode } from 'react'
 import { Carousel } from '@/components/Molecules'
 
 export type CardProps = CardMediaProps & {
-  title: CardTitleProps
-  header: CardHeaderProps
+  elements: CardElementProps[]
+  header?: CardHeaderProps
   content: string
 }
 
 type CardMediaProps = {
   images: string[]
+  className?: string
 }
 
 type CardHeaderProps = {
   title: string
-  subTitle: string
+  subTitle: string | JSX.Element
 }
 
-export type CardTitleProps = {
-  prefix: string
-  suffix: string
+export type CardElementProps = {
+  prefix: string | JSX.Element
+  suffix?: string | JSX.Element
+  className?: string
 }
 
 type CardContentProps = {
   children: ReactNode
+  className?: string
 }
 
 export const CardHeader = ({ title, subTitle }: CardHeaderProps) => {
@@ -35,28 +38,29 @@ export const CardHeader = ({ title, subTitle }: CardHeaderProps) => {
   )
 }
 
-export const CardMedia = ({ images = [] }: CardMediaProps) => {
-  return <Carousel imageSize="h-80" images={images} />
+export const CardMedia = ({ images = [], className }: CardMediaProps) => {
+  return <Carousel className={className} imageSize="h-80" images={images} />
 }
 
-export const CardTitle = ({ prefix, suffix }: CardTitleProps) => {
+export const CardElement = ({ prefix, suffix = '', className }: CardElementProps) => {
   return (
-    <div className="flex flex-row justify-between px-4 pt-4 text-base">
-      <div>{prefix}</div>
-      <div className="">{suffix}</div>
+    <div className={clsx('flex flex-row justify-between  ', className)}>
+      <div className="basis-3/4 truncate pr-2 text-base">{prefix}</div>
+      <div className="basis-1/4 truncate text-right text-sm	">{suffix}</div>
     </div>
   )
 }
 
-export const CardContent = ({ children }: CardContentProps) => {
-  return <div className="px-4 pt-2 pb-4 text-sm text-justify text-slate-500">{children}</div>
+export const CardContent = ({ children, className }: CardContentProps) => {
+  return (
+    <div
+      className={clsx('pt-2 mb-4  text-sm text-justify text-slate-500 overflow-hidden text-ellipsis h-16', className)}
+    >
+      {children}
+    </div>
+  )
 }
 
-export const Card = ({
-  children,
-  className
-}: CardContentProps & {
-  className?: string
-}) => {
-  return <div className={clsx('flex flex-col max-w-xs shadow-md shadow w-72', className)}>{children}</div>
+export const Card = ({ children, className }: CardContentProps) => {
+  return <div className={clsx('flex flex-col w-xs w-72', className)}>{children}</div>
 }

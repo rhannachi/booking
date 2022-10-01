@@ -19,12 +19,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'King',
@@ -50,12 +50,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'Twins',
@@ -81,12 +81,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'King',
@@ -112,12 +112,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'Single',
@@ -143,12 +143,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'King',
@@ -174,12 +174,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'Twins',
@@ -205,12 +205,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'Single',
@@ -236,12 +236,12 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://i.pinimg.com/originals/6f/e6/ef/6fe6ef4b55a86974c8d1638adac582b5.jpg'
+        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://i.pinimg.com/originals/bf/9b/71/bf9b714048f126ba6af0ee4b66fd8318.jpg'
+        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
       }
     ],
     category: 'Single',

@@ -6,6 +6,7 @@ export const CAROUSEL_HEIGHT = ['h-60', 'h-64', 'h-72', 'h-80', 'h-96'] as const
 export type CarouselProps = {
   images: string[]
   imageSize?: typeof CAROUSEL_HEIGHT[number]
+  className?: string
 }
 
 type ButtonProps = {
@@ -24,7 +25,7 @@ const Button = ({ onClick, isDisabled, children }: ButtonProps) => (
   </button>
 )
 
-export const Carousel = ({ images, imageSize = 'h-96' }: CarouselProps) => {
+export const Carousel = ({ images, imageSize = 'h-96', className = '' }: CarouselProps) => {
   const maxScrollWidth = useRef<number>(0)
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const carousel = useRef<HTMLHeadingElement>(null)
@@ -64,7 +65,7 @@ export const Carousel = ({ images, imageSize = 'h-96' }: CarouselProps) => {
   }, [])
 
   return (
-    <div className="relative overflow-hidden">
+    <div className={clsx('relative overflow-hidden', className)}>
       <div className="absolute flex justify-between w-full h-full ">
         {/*  */}
         <Button onClick={movePrev} isDisabled={isDisabled('prev')}>
