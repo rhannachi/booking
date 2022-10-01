@@ -13,7 +13,7 @@ const Template: Story<CardProps> = (args) => (
     {args.header && <CardHeader title={args.header.title} subTitle={args.header.subTitle} />}
     <CardMedia images={args.images} />
     <CardElement className="px-4 pt-4" prefix={args.elements[0].prefix} suffix={args.elements[0].suffix} />
-    <CardContent className="px-4">{args.content}</CardContent>
+    <CardContent className="px-4 mb-4 h-16">{args.content}</CardContent>
   </Card>
 )
 

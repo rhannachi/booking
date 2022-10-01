@@ -19,6 +19,7 @@ export default {
     }
   },
   args: {
+    imageSize: 'h-72',
     images: imagesCarouselMock
   }
 } as Meta<CarouselProps>

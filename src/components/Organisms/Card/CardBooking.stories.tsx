@@ -10,10 +10,10 @@ export default {
 
 const Template: Story<CardProps> = (args) => (
   <Card>
-    <CardMedia className="rounded-lg" images={args.images} />
+    <CardMedia className="rounded-2xl" images={args.images} />
     <CardElement className="pt-4" prefix={args.elements[0].prefix} suffix={args.elements[0].suffix} />
     <CardElement prefix={args.elements[1].prefix} />
-    <CardContent>{args.content}</CardContent>
+    <CardContent className="h-12">{args.content}</CardContent>
   </Card>
 )
 

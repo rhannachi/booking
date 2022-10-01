@@ -32,30 +32,28 @@ type CardContentProps = {
 export const CardHeader = ({ title, subTitle }: CardHeaderProps) => {
   return (
     <div className="flex flex-col p-4">
-      <div className="text-base ">{title}</div>
-      <div className="text-sm text-slate-500">{subTitle}</div>
+      <div>{title}</div>
+      <div className="text-slate-500">{subTitle}</div>
     </div>
   )
 }
 
 export const CardMedia = ({ images = [], className }: CardMediaProps) => {
-  return <Carousel className={className} imageSize="h-80" images={images} />
+  return <Carousel className={className} imageSize="h-72" images={images} />
 }
 
 export const CardElement = ({ prefix, suffix = '', className }: CardElementProps) => {
   return (
-    <div className={clsx('flex flex-row justify-between  ', className)}>
-      <div className="basis-3/4 truncate pr-2 text-base">{prefix}</div>
-      <div className="basis-1/4 truncate text-right text-sm	">{suffix}</div>
+    <div className={clsx('flex flex-row justify-between', className)}>
+      <div className="basis-2/3 truncate pr-2">{prefix}</div>
+      <div className="basis-1/3 truncate text-right">{suffix}</div>
     </div>
   )
 }
 
 export const CardContent = ({ children, className }: CardContentProps) => {
   return (
-    <div
-      className={clsx('pt-2 mb-4  text-sm text-justify text-slate-500 overflow-hidden text-ellipsis h-16', className)}
-    >
+    <div className={clsx('pt-1 text-sm text-justify text-slate-500 overflow-hidden text-ellipsis', className)}>
       {children}
     </div>
   )

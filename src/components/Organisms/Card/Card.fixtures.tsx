@@ -6,14 +6,14 @@ export const cardBookingMock = {
     {
       prefix: 'Bicetown Street, New York, NY, 10004',
       suffix: (
-        <span className="text-slate-500">
+        <span className="text-slate-500 text-base">
           <Icon icon="star-full" color="black" size="xs" /> 4,9
         </span>
       )
     },
     {
       prefix: (
-        <div className="text-sm">
+        <div className="text-base">
           33 <span className="text-slate-500"> €/Night </span>
         </div>
       )
@@ -30,7 +30,7 @@ export const cardDefaultMock = {
       <div className="flex flex-nowrap flex-row">
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <div className="basis-3/4">At Amanda's</div>
-        <div className="basis-1/4 text-end">
+        <div className="basis-1/4 text-end text-base">
           <Icon icon="star-full" color="black" size="xs" /> 4,9
         </div>
       </div>
@@ -39,7 +39,11 @@ export const cardDefaultMock = {
   elements: [
     {
       prefix: 'Bicetown Street, New York',
-      suffix: '33 €/Night'
+      suffix: (
+        <div className="text-base">
+          33 <span className="text-slate-500"> €/Night </span>
+        </div>
+      )
     }
   ],
   content:

@@ -17,7 +17,7 @@ const Template: Story<CardListProps> = ({ cardList }) => (
         {header && <CardHeader title={header.title} subTitle={header.subTitle} />}
         <CardMedia images={images} />
         <CardElement className="px-4 pt-4" prefix={elements[0].prefix} suffix={elements[0].suffix} />
-        <CardContent className="px-4">{content}</CardContent>
+        <CardContent className="px-4 mb-4 h-16">{content}</CardContent>
       </Card>
     ))}
   </CardList>

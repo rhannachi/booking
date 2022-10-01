@@ -19,16 +19,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-5264493/original/10d2c21f-84c2-46c5-b20b-b51d1c2c971a.jpeg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/c579efd0-3a7a-4132-8bbb-cf7eeadc9806.jpg?im_w=720'
       }
     ],
     category: 'King',
-    ratings: 3,
+    ratings: 3.1,
     numOfReviews: 0,
     reviews: []
   },
@@ -50,16 +50,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/2d8fd134-8d7c-4b69-a37e-17558908c426.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/56467892-0d23-4ab1-8302-9c3d0d5e52cd.jpg?im_w=720'
       }
     ],
     category: 'Twins',
-    ratings: 3,
+    ratings: 2.2,
     numOfReviews: 0,
     reviews: []
   },
@@ -81,16 +81,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-656456202599059844/original/f44a2a6b-954a-46e7-89d8-ccc47c4bff20.jpeg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/1ad4d83f-9209-4e34-850e-9996c69f8845.jpg?im_w=720'
       }
     ],
     category: 'King',
-    ratings: 3,
+    ratings: 5.0,
     numOfReviews: 0,
     reviews: []
   },
@@ -112,16 +112,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/6c7dd06f-7bc2-4e8d-9dd4-990942888f6d.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/25774e5d-77ef-4453-a143-d414ebe0e0e6.jpg?im_w=720'
       }
     ],
     category: 'Single',
-    ratings: 3,
+    ratings: 3.7,
     numOfReviews: 0,
     reviews: []
   },
@@ -143,16 +143,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/80385d19-c9dc-4dda-9d80-e16e55a8a6fd.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/46ded2b4-9ce1-4a3f-a71a-b6746fdcd452.jpg?im_w=720'
       }
     ],
     category: 'King',
-    ratings: 3,
+    ratings: 3.1,
     numOfReviews: 0,
     reviews: []
   },
@@ -174,16 +174,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/69220a45-915f-42db-b172-30b69b430754.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/4bdba83e-b4cd-4ac0-9eb0-64bdad1cb260.jpg?im_w=720'
       }
     ],
     category: 'Twins',
-    ratings: 3,
+    ratings: 2.5,
     numOfReviews: 0,
     reviews: []
   },
@@ -205,16 +205,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-34113796/original/f4f7b242-db33-46fc-9080-c3d6a6fd55ec.jpeg?im_w=720'
       }
     ],
     category: 'Single',
-    ratings: 3,
+    ratings: 4.2,
     numOfReviews: 0,
     reviews: []
   },
@@ -236,16 +236,16 @@ export const roomsMockResponse: IRoom[] = [
       {
         _id: '',
         public_id: 'booking/rooms/yyyyyy',
-        url: 'https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/00370466-e3f6-4213-aaff-10b2a51a7e15.jpg?im_w=720'
       },
       {
         _id: '',
         public_id: 'booking/rooms/xxxxxx',
-        url: 'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720'
+        url: 'https://a0.muscache.com/im/pictures/1819cdaf-4580-43e4-ab0c-a6ac04a69a03.jpg?im_w=720'
       }
     ],
     category: 'Single',
-    ratings: 3,
+    ratings: 3.5,
     numOfReviews: 0,
     reviews: []
   }

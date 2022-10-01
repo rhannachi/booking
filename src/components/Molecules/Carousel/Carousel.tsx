@@ -18,7 +18,7 @@ type ButtonProps = {
 const Button = ({ onClick, isDisabled, children }: ButtonProps) => (
   <button
     onClick={onClick}
-    className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:bg-blue-900/75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
+    className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
     disabled={isDisabled}
   >
     {children}
