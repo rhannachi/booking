@@ -4,6 +4,7 @@ import { IRoom } from '@/shared/schemas'
 import { Home } from '@/components/Pages'
 import { CardProps } from '@/components/Organisms'
 import { Layout } from '@/components/Templates'
+import { roomCardMapper } from '@/containers/helpers/home.mapper'
 
 export type HomeContainerStateType = {
   isLoading: boolean
@@ -15,30 +16,12 @@ export type HomeContainerStateType = {
 // }
 type HomeContainerType = HomeContainerStateType
 
-// TODO remove this
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms }) => {
-  // TODO remove this
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const cardListProps: CardProps[] = rooms.map((room) => {
-    return {
-      header: {
-        title: 'Shrimp and Chorizo Paella',
-        subTitle: 'Shrimp and Chorizo Paella'
-      },
-      title: {
-        prefix: 'Lazard',
-        suffix: '33 Euro/nuit'
-      },
-      content:
-        'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
-      images: [
-        'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg',
-        'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg',
-        'https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg'
-      ]
-    }
-  })
+const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms = [] }) => {
+  let cardListProps: CardProps[] = []
+
+  if (!isLoading) {
+    cardListProps = rooms.map(roomCardMapper)
+  }
 
   return (
     <div>
@@ -49,9 +32,7 @@ const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms }) => {
       </Head>
 
       <main>
-        <Layout>
-          <Home cardList={cardListProps} />
-        </Layout>
+        <Layout>{isLoading ? <div>is loading ...</div> : <Home cardList={cardListProps} />}</Layout>
       </main>
 
       <footer></footer>

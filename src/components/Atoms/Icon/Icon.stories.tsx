@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import { Icon, ICON_COLORS, ICON_WIDTHS, IconProps, ICONS } from './Icon'
+import { Icon, COLORS_ICON, SIZES_ICON, IconProps, ICONS } from './Icon'
 
 export default {
   title: 'Atoms/Icon',
@@ -10,18 +10,18 @@ export default {
       control: 'select'
     },
     color: {
-      options: ICON_COLORS,
+      options: COLORS_ICON,
       control: 'select'
     },
-    width: {
-      options: ICON_WIDTHS,
+    size: {
+      options: SIZES_ICON,
       control: 'select'
     }
   },
   args: {
     icon: 'star',
-    width: 'w-6',
-    color: 'fill-black'
+    size: 'base',
+    color: 'red'
   }
 } as Meta<IconProps>
 
