@@ -8,7 +8,7 @@ export const roomCardMapper = (room: IRoom): CardProps => ({
       prefix: room.address,
       suffix: (
         <span className="text-slate-500 text-base">
-          <Icon icon="star-full" color="black" size="xs" /> {room.ratings}
+          <Icon icon="star-full" color="fill-black" size="xs" /> {room.ratings}
         </span>
       )
     },

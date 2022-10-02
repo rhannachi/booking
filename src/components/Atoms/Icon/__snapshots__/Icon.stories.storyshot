@@ -4,7 +4,7 @@ exports[`Storyshots Atoms/Icon Default 1`] = `
 <span>
   current text ...
   <svg
-    className="fill-red-500 w-5 h-5 inline"
+    className="fill-black w-5 h-5 inline"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   />
