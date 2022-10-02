@@ -2,7 +2,7 @@
 
 exports[`Storyshots Organisms/CardList Default 1`] = `
 <div
-  className="flex flex-wrap flex-row lg:justify-start justify-center"
+  className="flex flex-wrap flex-row justify-center"
 >
   <div
     className="flex flex-col w-xs w-72 m-2 shadow-md shadow"

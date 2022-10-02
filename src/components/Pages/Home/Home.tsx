@@ -6,7 +6,7 @@ export type HomeProps = CardListProps
 export const Home = ({ cardList }: HomeProps) => {
   return (
     <>
-      <h1 className="font-bold text-3xl text-pink-500 md:mb-10">All Rooms</h1>
+      {/*<h1 className="font-bold text-3xl text-pink-500 md:mb-10">All Rooms</h1>*/}
       {/*<hr />*/}
       <CardList>
         {cardList.map(({ images, elements, content }, index) => (

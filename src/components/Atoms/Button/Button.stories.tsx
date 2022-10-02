@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import { Button, ButtonProps } from './Button'
 
-type ButtonStorieProps = ButtonProps & {
+type ButtonStoriesProps = ButtonProps & {
   title: string
 }
 
@@ -9,9 +9,9 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   args: {
-    className: '',
+    className: 'text-white bg-cyan-400',
     title: 'Button'
   }
-} as Meta<ButtonStorieProps>
+} as Meta<ButtonStoriesProps>
 
-export const Default: Story<ButtonStorieProps> = (args) => <Button className={args.className}> {args.title} </Button>
+export const Default: Story<ButtonStoriesProps> = (args) => <Button className={args.className}> {args.title} </Button>

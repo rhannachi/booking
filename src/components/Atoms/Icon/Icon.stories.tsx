@@ -22,7 +22,7 @@ export default {
   args: {
     icon: 'star',
     size: 'base',
-    color: 'red'
+    color: 'red-500'
   }
 } as Meta<IconProps>
 
