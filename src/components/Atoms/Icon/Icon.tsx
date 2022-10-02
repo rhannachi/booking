@@ -25,12 +25,12 @@ export const ICONS = ['star', 'star-full', 'user', 'loader', 'calendar', 'chevro
 type IconType = typeof ICONS[number]
 
 export const COLORS_ICON = ['cyan-400', 'red-500', 'amber-500', 'blue-500', 'black', 'white'] as const
-export type colorIconType = typeof COLORS_ICON[number]
+export type ColorIconType = typeof COLORS_ICON[number]
 
 export type IconProps = {
   icon: IconType
   size: SizeIconType
-  color?: colorIconType
+  color?: ColorIconType
   className?: string
 }
 
@@ -38,7 +38,7 @@ const importIcon = async (icon: IconType): Promise<string | { src: string }> => 
   return (await import(`./svgs/${icon}.svg`)).default
 }
 
-const getColor = (color: colorIconType) => `fill-${color}`
+const getColor = (color: ColorIconType) => `fill-${color}`
 
 const getSize = (size: SizeIconType): SizeIconCustomType => {
   const index = SIZES_ICON.findIndex((item) => item === size)
