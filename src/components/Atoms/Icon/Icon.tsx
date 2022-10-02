@@ -21,7 +21,16 @@ const SIZES_ICON_CUSTOM = [
 type SizeIconCustomType = typeof SIZES_ICON_CUSTOM[number]
 
 // to be able to change the size of the Icon, add  viewBox="0 0 25 25" to svg component
-export const ICONS = ['star', 'star-full', 'user', 'loader', 'calendar', 'chevron-down'] as const
+export const ICONS = [
+  'star',
+  'search',
+  'search-bold',
+  'star-full',
+  'user',
+  'loader',
+  'calendar',
+  'chevron-down'
+] as const
 type IconType = typeof ICONS[number]
 
 export const COLORS_ICON = [
