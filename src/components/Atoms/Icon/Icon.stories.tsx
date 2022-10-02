@@ -1,5 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 import { Icon, COLORS_ICON, SIZES_ICON, IconProps, ICONS } from './Icon'
+import React from 'react'
 
 export default {
   title: 'Atoms/Icon',
@@ -21,8 +22,14 @@ export default {
   args: {
     icon: 'star',
     size: 'base',
-    color: 'red'
+    color: 'red-500'
   }
 } as Meta<IconProps>
 
-export const Default: Story<IconProps> = (args) => <Icon {...args} />
+export const Default: Story<IconProps> = (args) => (
+  <span>
+    current text ...
+    <Icon {...args} />
+    ....
+  </span>
+)

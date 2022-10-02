@@ -7,10 +7,10 @@ export type CardListProps = {
 
 export const CardList = ({ children }: { children: ReactNode[] }) => {
   return (
-    <div className="flex flex-wrap flex-row lg:justify-start justify-center">
+    <div className="flex flex-wrap flex-row justify-center">
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
-          return cloneElement(child, { className: 'm-2' })
+          return cloneElement(child, { className: `m-2 ${child.props.className}` })
         }
         return null
       })}

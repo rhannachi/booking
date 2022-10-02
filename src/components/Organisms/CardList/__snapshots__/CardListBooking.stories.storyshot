@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Pages/Home Default 1`] = `
+exports[`Storyshots Organisms/CardList Booking 1`] = `
 <div
   className="flex flex-wrap flex-row justify-center"
 >

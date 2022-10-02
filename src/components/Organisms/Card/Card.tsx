@@ -3,60 +3,62 @@ import React, { ReactNode } from 'react'
 import { Carousel } from '@/components/Molecules'
 
 export type CardProps = CardMediaProps & {
-  title: CardTitleProps
-  header: CardHeaderProps
+  elements: CardElementProps[]
+  header?: CardHeaderProps
   content: string
 }
 
 type CardMediaProps = {
   images: string[]
+  className?: string
 }
 
 type CardHeaderProps = {
   title: string
-  subTitle: string
+  subTitle: string | JSX.Element
 }
 
-export type CardTitleProps = {
-  prefix: string
-  suffix: string
+export type CardElementProps = {
+  prefix: string | JSX.Element
+  suffix?: string | JSX.Element
+  className?: string
 }
 
 type CardContentProps = {
   children: ReactNode
+  className?: string
 }
 
 export const CardHeader = ({ title, subTitle }: CardHeaderProps) => {
   return (
     <div className="flex flex-col p-4">
-      <div className="text-base ">{title}</div>
-      <div className="text-sm text-slate-500">{subTitle}</div>
+      <div>{title}</div>
+      <div className="text-slate-500">{subTitle}</div>
     </div>
   )
 }
 
-export const CardMedia = ({ images = [] }: CardMediaProps) => {
-  return <Carousel imageSize="h-80" images={images} />
+export const CardMedia = ({ images = [], className }: CardMediaProps) => {
+  return <Carousel className={className} imageSize="h-72" images={images} />
 }
 
-export const CardTitle = ({ prefix, suffix }: CardTitleProps) => {
+export const CardElement = ({ prefix, suffix = '', className }: CardElementProps) => {
   return (
-    <div className="flex flex-row justify-between px-4 pt-4 text-base">
-      <div>{prefix}</div>
-      <div className="">{suffix}</div>
+    <div className={clsx('flex flex-row justify-between', className)}>
+      <div className="basis-2/3 truncate pr-2">{prefix}</div>
+      <div className="basis-1/3 truncate text-right">{suffix}</div>
     </div>
   )
 }
 
-export const CardContent = ({ children }: CardContentProps) => {
-  return <div className="px-4 pt-2 pb-4 text-sm text-justify text-slate-500">{children}</div>
+export const CardContent = ({ children, className }: CardContentProps) => {
+  return (
+    <div className={clsx('pt-1 text-sm text-justify text-slate-500 overflow-hidden text-ellipsis', className)}>
+      {children}
+    </div>
+  )
 }
 
-export const Card = ({
-  children,
-  className
-}: CardContentProps & {
-  className?: string
-}) => {
-  return <div className={clsx('flex flex-col max-w-xs shadow-md shadow w-72', className)}>{children}</div>
+export const Card = ({ children, className }: CardContentProps) => {
+  return <div className={clsx('flex flex-col w-xs w-72', className)}>{children}</div>
 }

@@ -1,12 +1,12 @@
 import { Meta, Story } from '@storybook/react'
 import { Home, HomeProps } from '@/components/Pages'
-import { cardListFixture } from '@/components/Organisms'
+import { cardListBookingFixture } from '@/components/Organisms'
 
 export default {
   title: 'Pages/Home',
   component: Home,
   args: {
-    cardList: cardListFixture
+    cardList: cardListBookingFixture
   }
 } as Meta<HomeProps>
 

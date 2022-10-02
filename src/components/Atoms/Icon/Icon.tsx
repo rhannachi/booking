@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { ReactSVG } from 'react-svg'
-// import userSvg from './svgs/user.svg'
 
-export const SIZES_ICON = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'] as const
-export type sizeIconType = typeof SIZES_ICON[number]
-
-// export const COLORS_ICON = ['fill-red-500', 'fill-amber-500', 'fill-blue-500', 'fill-black', 'fill-white'] as const
-const SIZES = ['w-5', 'w-6', 'w-7', 'w-8', 'w-9', 'w-10', 'w-11', 'w-12', 'w-14', 'w-16'] as const
-type sizeType = typeof SIZES[number]
+export const SIZES_ICON = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'] as const
+type SizeIconType = typeof SIZES_ICON[number]
+const SIZES_ICON_CUSTOM = [
+  'w-3 h-3',
+  'w-4 h-4',
+  'w-5 h-5',
+  'w-6 h-6',
+  'w-7 h-7',
+  'w-8 h-8',
+  'w-9 h-9',
+  'w-10 h-10',
+  'w-11 h-11',
+  'w-12 h-12',
+  'w-14 h-14',
+  'w-16 h-16'
+] as const
+type SizeIconCustomType = typeof SIZES_ICON_CUSTOM[number]
 
 // to be able to change the size of the Icon, add  viewBox="0 0 25 25" to svg component
-export const ICONS = ['star', 'user', 'loader', 'calendar', 'chevron-down'] as const
+export const ICONS = ['star', 'star-full', 'user', 'loader', 'calendar', 'chevron-down'] as const
 type IconType = typeof ICONS[number]
 
-export const COLORS_ICON = ['red', 'amber', 'blue', 'black', 'white'] as const
+export const COLORS_ICON = ['cyan-400', 'red-500', 'amber-500', 'blue-500', 'black', 'white'] as const
 export type colorIconType = typeof COLORS_ICON[number]
 
 export type IconProps = {
   icon: IconType
-  size: sizeIconType
-  color: colorIconType
+  size: SizeIconType
+  color?: colorIconType
   className?: string
 }
 
@@ -28,41 +38,14 @@ const importIcon = async (icon: IconType): Promise<string | { src: string }> => 
   return (await import(`./svgs/${icon}.svg`)).default
 }
 
-const getColor = (color: colorIconType) => {
-  if (color === 'black' || color === 'white') {
-    return `fill-${color}`
-  }
-  return `fill-${color}-500`
+const getColor = (color: colorIconType) => `fill-${color}`
+
+const getSize = (size: SizeIconType): SizeIconCustomType => {
+  const index = SIZES_ICON.findIndex((item) => item === size)
+  return SIZES_ICON_CUSTOM[index]
 }
 
-const getSize = (size: sizeIconType): sizeType => {
-  switch (size) {
-    case 'xs':
-      return 'w-5'
-    case 'sm':
-      return 'w-6'
-    case 'base':
-      return 'w-7'
-    case 'lg':
-      return 'w-8'
-    case 'xl':
-      return 'w-9'
-    case '2xl':
-      return 'w-10'
-    case '3xl':
-      return 'w-11'
-    case '4xl':
-      return 'w-12'
-    case '5xl':
-      return 'w-14'
-    case '6xl':
-      return 'w-16'
-    default:
-      return 'w-6'
-  }
-}
-
-export const Icon = ({ icon = 'user', color, size = 'base', className = '' }: IconProps) => {
+export const Icon = ({ icon = 'user', color = 'black', size = 'base', className = '' }: IconProps) => {
   const [iconSrc, setIconSrc] = useState<string>('')
 
   useEffect(() => {
@@ -79,7 +62,8 @@ export const Icon = ({ icon = 'user', color, size = 'base', className = '' }: Ic
 
   return (
     <ReactSVG
-      className={clsx(getColor(color), getSize(size), className)}
+      className={clsx(getColor(color), getSize(size), className, 'inline')} //
+      wrapper="svg"
       // loading={() => <span>is loading ...</span>}
       src={iconSrc}
     />
