@@ -1,7 +1,8 @@
 import { Icon } from '@/components/Atoms'
 import { imagesCarouselMock } from '@/components/Molecules'
+import { CardProps } from '@/components/Organisms'
 
-export const cardBookingMock = {
+export const cardBookingMock: CardProps = {
   elements: [
     {
       prefix: 'Bicetown Street, New York, NY, 10004',
@@ -23,7 +24,7 @@ export const cardBookingMock = {
   images: imagesCarouselMock
 }
 
-export const cardDefaultMock = {
+export const cardDefaultMock: CardProps = {
   header: {
     title: 'Tiny house',
     subTitle: (

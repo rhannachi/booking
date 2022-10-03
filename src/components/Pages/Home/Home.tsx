@@ -14,8 +14,8 @@ export const Home = ({ cardList }: HomeProps) => {
       </div>
 
       <CardList>
-        {cardList.map(({ images, elements, content }, index) => (
-          <Card key={`${index}-card-booking`}>
+        {cardList.map(({ images, elements, content, href }, index) => (
+          <Card key={`${index}-card-booking`} href={href} className="h-96">
             <CardMedia className="rounded-2xl" images={images} />
             <CardElement className="pt-4" prefix={elements[0].prefix} suffix={elements[0].suffix} />
             <CardElement prefix={elements[1].prefix} />
