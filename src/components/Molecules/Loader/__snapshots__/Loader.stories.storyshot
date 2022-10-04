@@ -5,7 +5,7 @@ exports[`Storyshots Molecules/Loader Default 1`] = `
   className="inline-flex items-center"
 >
   <svg
-    className="fill-cyan-400 w-5 h-5 inline-block animate-spin  inline"
+    className="fill-red-500 w-5 h-5 inline-block animate-spin  inline"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   />

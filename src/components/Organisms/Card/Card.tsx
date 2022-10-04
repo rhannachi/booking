@@ -1,14 +1,12 @@
 import clsx from 'clsx'
 import React, { ReactNode } from 'react'
 import { Carousel } from '@/components/Molecules'
-import Link from 'next/link'
 
-export type CardProps = CardMediaProps &
-  Pick<CardContentProps, 'href'> & {
-    elements: CardElementProps[]
-    header?: CardHeaderProps
-    content: string
-  }
+export type CardProps = CardMediaProps & {
+  elements: CardElementProps[]
+  header?: CardHeaderProps
+  content: string
+}
 
 type CardMediaProps = {
   images: string[]
@@ -27,7 +25,6 @@ export type CardElementProps = {
 }
 
 type CardContentProps = {
-  href?: string
   children: ReactNode
   className?: string
 }
@@ -62,17 +59,6 @@ export const CardContent = ({ children, className }: CardContentProps) => {
   )
 }
 
-export const Card = ({ children, href, className }: CardContentProps) => {
-  return (
-    <div className={clsx('flex flex-col w-72', className)}>
-      {href && (
-        <Link href={href}>
-          <a>
-            <div className=" w-72 h-96 absolute z-10" />
-          </a>
-        </Link>
-      )}
-      {children}
-    </div>
-  )
+export const Card = ({ children, className }: CardContentProps) => {
+  return <div className={clsx('flex flex-col w-xs w-72', className)}>{children}</div>
 }

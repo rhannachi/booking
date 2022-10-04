@@ -22,8 +22,14 @@ export default {
   args: {
     icon: 'star',
     size: 'base',
-    color: 'fill-black'
+    color: 'red-500'
   }
 } as Meta<IconProps>
 
-export const Default: Story<IconProps> = (args) => <Icon {...args} />
+export const Default: Story<IconProps> = (args) => (
+  <span>
+    current text ...
+    <Icon {...args} />
+    ....
+  </span>
+)

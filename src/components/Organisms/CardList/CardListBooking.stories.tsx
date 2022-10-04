@@ -13,7 +13,7 @@ export default {
 const Template: Story<CardListProps> = ({ cardList }) => (
   <CardList>
     {cardList.map(({ images, elements, content }, index) => (
-      <Card key={`${index}-card-booking`} className="h-96">
+      <Card key={`${index}-card-booking`}>
         <CardMedia className="rounded-2xl" images={images} />
         <CardElement className="pt-4" prefix={elements[0].prefix} suffix={elements[0].suffix} />
         <CardElement prefix={elements[1].prefix} />

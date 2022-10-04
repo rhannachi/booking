@@ -2,7 +2,7 @@
 
 exports[`Storyshots Organisms/Card Default 1`] = `
 <div
-  className="flex flex-col w-72 shadow-md shadow"
+  className="flex flex-col w-xs w-72 shadow-md shadow"
 >
   <div
     className="flex flex-col p-4"

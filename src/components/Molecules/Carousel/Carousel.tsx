@@ -106,7 +106,6 @@ export const Carousel = ({ images, imageSize = 'h-96', className = '' }: Carouse
                 ' relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding',
                 `${imageSize}`
               )}
-              // TODO use next/image
               style={{ backgroundImage: `url(${url})` }}
             />
           )
