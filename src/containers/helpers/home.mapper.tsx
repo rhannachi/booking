@@ -3,6 +3,7 @@ import { CardProps } from '@/components/Organisms'
 import { Icon } from '@/components/Atoms'
 
 export const roomCardMapper = (room: IRoom): CardProps => ({
+  href: `/room/${room._id}`,
   elements: [
     {
       prefix: room.address,
