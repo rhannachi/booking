@@ -29,7 +29,8 @@ export const ICONS = [
   'user',
   'loader',
   'calendar',
-  'chevron-down'
+  'chevron-left',
+  'chevron-right'
 ] as const
 type IconType = typeof ICONS[number]
 

@@ -1,5 +1,7 @@
 import clsx from 'clsx'
+import Image from 'next/image'
 import { useState, useRef, useEffect, ReactNode } from 'react'
+import { Icon } from '@/components/Atoms'
 
 export const CAROUSEL_HEIGHT = ['h-60', 'h-64', 'h-72', 'h-80', 'h-96'] as const
 
@@ -67,31 +69,11 @@ export const Carousel = ({ images, imageSize = 'h-96', className = '' }: Carouse
   return (
     <div className={clsx('relative overflow-hidden', className)}>
       <div className="absolute flex justify-between w-full h-full ">
-        {/*  */}
         <Button onClick={movePrev} isDisabled={isDisabled('prev')}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-20 h-12 -ml-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
+          <Icon icon="chevron-left" size="5xl" color="fill-white" />
         </Button>
-
         <Button onClick={moveNext} isDisabled={isDisabled('next')}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-20 h-12 -ml-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
+          <Icon icon="chevron-right" size="5xl" color="fill-white" />
         </Button>
       </div>
       <div
@@ -106,9 +88,16 @@ export const Carousel = ({ images, imageSize = 'h-96', className = '' }: Carouse
                 ' relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding',
                 `${imageSize}`
               )}
-              // TODO use next/image
-              style={{ backgroundImage: `url(${url})` }}
-            />
+            >
+              <Image
+                //loader={} TODO add loader
+                className="h-full"
+                src={url}
+                layout="fill"
+                objectFit="fill"
+                alt="Carousel picture"
+              />
+            </div>
           )
         })}
       </div>
