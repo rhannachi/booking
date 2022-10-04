@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/SearchField Default 1`] = `
+<div
+  className="flex flex-nowrap justify-between border rounded-3xl pl-3 pr-1 py-1 "
+>
+  <input
+    className="text-gray-700 text-sm focus:outline-none w-full"
+    placeholder="Veuillez taper une dresse..."
+    type="text"
+  />
+  <button
+    className="p-1 w-9 h-9 rounded-full bg-cyan-400"
+  >
+    <svg
+      className="fill-white w-4 h-4 inline"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    />
+  </button>
+</div>
+`;
