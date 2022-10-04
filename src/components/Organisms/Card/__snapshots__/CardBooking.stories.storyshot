@@ -16,10 +16,19 @@ exports[`Storyshots Organisms/Card Booking 1`] = `
         onClick={[Function]}
       >
         <svg
-          className="fill-white w-11 h-11 inline"
+          className="w-20 h-12 -ml-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-        />
+        >
+          <path
+            d="M15 19l-7-7 7-7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
       <button
         className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
@@ -27,10 +36,19 @@ exports[`Storyshots Organisms/Card Booking 1`] = `
         onClick={[Function]}
       >
         <svg
-          className="fill-white w-11 h-11 inline"
+          className="w-20 h-12 -ml-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-        />
+        >
+          <path
+            d="M9 5l7 7-7 7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
     </div>
     <div
@@ -38,92 +56,68 @@ exports[`Storyshots Organisms/Card Booking 1`] = `
     >
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/8efb200c-6dcb-460d-a367-caa511506077.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/8efb200c-6dcb-460d-a367-caa511506077.jpg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/ae1b48e9-24e9-43fb-93f5-1c683d76259a.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/ae1b48e9-24e9-43fb-93f5-1c683d76259a.jpg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/e3ebda9a-3268-4ec8-9903-98f85f0bf767.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/e3ebda9a-3268-4ec8-9903-98f85f0bf767.jpg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/fd08b331-2b46-4fb6-8f57-63687c4b2377.jpg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/miso/Hosting-5264493/original/bc9fdbba-a126-4357-946b-4d5f5581ca0f.jpeg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/miso/Hosting-5264493/original/bc9fdbba-a126-4357-946b-4d5f5581ca0f.jpeg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/82c577ee-3422-4fda-ae09-6716d76e8bef.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/82c577ee-3422-4fda-ae09-6716d76e8bef.jpg?im_w=720)",
+          }
+        }
+      />
       <div
         className=" relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding h-72"
-      >
-        <img
-          alt="Carousel picture"
-          className="h-full"
-          layout="fill"
-          objectFit="fill"
-          src="https://a0.muscache.com/im/pictures/4568c35b-bb8c-4367-b828-8f17bcea5934.jpg?im_w=720"
-        />
-      </div>
+        style={
+          Object {
+            "backgroundImage": "url(https://a0.muscache.com/im/pictures/4568c35b-bb8c-4367-b828-8f17bcea5934.jpg?im_w=720)",
+          }
+        }
+      />
     </div>
   </div>
   <div
