@@ -2,7 +2,7 @@
 
 exports[`Storyshots Organisms/Card Booking 1`] = `
 <div
-  className="flex flex-col w-72 h-96"
+  className="flex flex-col w-xs w-72"
 >
   <div
     className="relative overflow-hidden rounded-2xl"

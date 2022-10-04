@@ -1,14 +1,13 @@
 import { Icon } from '@/components/Atoms'
 import { imagesCarouselMock } from '@/components/Molecules'
-import { CardProps } from '@/components/Organisms'
 
-export const cardBookingMock: CardProps = {
+export const cardBookingMock = {
   elements: [
     {
       prefix: 'Bicetown Street, New York, NY, 10004',
       suffix: (
         <span className="text-slate-500 text-base">
-          <Icon icon="star-full" color="fill-black" size="xs" /> 4,9
+          <Icon icon="star-full" color="black" size="xs" /> 4,9
         </span>
       )
     },
@@ -24,7 +23,7 @@ export const cardBookingMock: CardProps = {
   images: imagesCarouselMock
 }
 
-export const cardDefaultMock: CardProps = {
+export const cardDefaultMock = {
   header: {
     title: 'Tiny house',
     subTitle: (
@@ -32,7 +31,7 @@ export const cardDefaultMock: CardProps = {
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <div className="basis-3/4">At Amanda's</div>
         <div className="basis-1/4 text-end text-base">
-          <Icon icon="star-full" color="fill-black" size="xs" /> 4,9
+          <Icon icon="star-full" color="black" size="xs" /> 4,9
         </div>
       </div>
     )

@@ -17,7 +17,7 @@ export default {
   },
   args: {
     size: 'base',
-    color: 'fill-cyan-400'
+    color: 'red-500'
   }
 } as Meta<LoaderProps>
 
