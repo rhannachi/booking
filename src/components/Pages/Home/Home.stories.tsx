@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react'
-import { Home, HomeProps } from '@/components/Pages'
+import Home, { HomeProps } from '@/components/Pages'
 import { cardListBookingFixture } from '@/components/Organisms'
 
 export default {
