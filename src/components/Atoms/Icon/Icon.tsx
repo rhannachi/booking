@@ -31,7 +31,7 @@ export const ICONS = [
   'calendar',
   'chevron-down'
 ] as const
-type IconType = typeof ICONS[number]
+export type IconType = typeof ICONS[number]
 
 export const COLORS_ICON = [
   'fill-cyan-400',
