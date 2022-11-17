@@ -1,9 +1,11 @@
 import { Meta, Story } from '@storybook/react'
-import { POSITION_TOAST, Toast, ToastProps, ToastType } from './Toast'
+import { POSITION_TOAST, Toast, Toasts, ToastsProps, ToastType } from './Toast'
 import { toastListFixture } from './Toast.fixtures'
-import { Button } from '@/components/Atoms'
-import { useEffect, useState } from 'react'
-import clsx from 'clsx'
+import { useState } from 'react'
+
+type TemplateProps = Pick<ToastsProps, 'isAutoDelete' | 'position' | 'autoDeleteTime'> & {
+  toastsMocks: ToastType[]
+}
 
 export default {
   title: 'Organisms/Toast',
@@ -16,60 +18,45 @@ export default {
   },
   args: {
     isAutoDelete: false,
-    toastList: toastListFixture,
+    toastsMocks: toastListFixture,
     autoDeleteTime: 3000,
     position: 'top-left'
   }
-} as Meta<ToastProps>
+} as Meta<TemplateProps>
 
-const Template: Story<ToastProps> = (args) => {
+const Template: Story<TemplateProps> = ({ toastsMocks, position, isAutoDelete, autoDeleteTime }) => {
   const [list, setList] = useState<ToastType[]>([])
 
-  const showToast = (type: ToastType['type']) => {
-    const toast = toastListFixture.find((toast) => toast.type === type)
-    toast && setList([...list, toast])
+  const addToast = (type: ToastType['type']) => {
+    const toast = toastsMocks.find((toast) => toast.type === type)
+    if (toast) {
+      setList([
+        ...list,
+        {
+          ...toast,
+          id: String(Math.floor(Math.random() * 10000 + 1))
+        }
+      ])
+    }
   }
 
-  useEffect(() => {
-    setList([])
-  }, [args.isAutoDelete, args.autoDeleteTime, args.toastList])
+  const deleteToast = (id?: string): void => {
+    if (id) {
+      setList(list.filter((item) => item.id !== id))
+    } else {
+      setList(list.slice(1))
+    }
+  }
 
   return (
-    <>
-      <div className="flex flex-nowrap justify-center flex-row  ">
-        <Button
-          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-green-500')}
-          onClick={() => showToast('success')}
-        >
-          Success
-        </Button>
-        <Button
-          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-red-500')}
-          onClick={() => showToast('danger')}
-        >
-          Danger
-        </Button>
-        <Button
-          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-blue-500')}
-          onClick={() => showToast('info')}
-        >
-          Info
-        </Button>
-        <Button
-          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-yellow-500')}
-          onClick={() => showToast('warning')}
-        >
-          Warning
-        </Button>
-      </div>
-
-      <Toast
-        toastList={list}
-        position={args.position}
-        isAutoDelete={args.isAutoDelete}
-        autoDeleteTime={args.autoDeleteTime}
-      />
-    </>
+    <Toasts
+      toasts={list}
+      position={position}
+      isAutoDelete={isAutoDelete}
+      autoDeleteTime={autoDeleteTime}
+      deleteToast={deleteToast}
+      addToast={addToast}
+    />
   )
 }
 
