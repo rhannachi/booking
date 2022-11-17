@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { Icon, IconType } from '@/components/Atoms'
+import { Button, Icon, IconType } from '@/components/Atoms'
 import clsx from 'clsx'
+import { useEffect } from 'react'
 
 export const POSITION_TOAST = ['top-right', 'top-left', 'bottom-left', 'bottom-right'] as const
 type PositionToastType = typeof POSITION_TOAST[number]
@@ -15,23 +15,22 @@ export type ToastType = {
 }
 
 export type ToastProps = {
-  toastList: ToastType[]
+  toasts: ToastType[]
   position: PositionToastType
-  isAutoDelete: boolean
-  autoDeleteTime: number
+  deleteToast: (id?: string) => void
 }
 
-export const Toast = ({ toastList, position, isAutoDelete, autoDeleteTime }: ToastProps) => {
-  const [list, setList] = useState(toastList)
+export type ToastsProps = ToastProps & {
+  autoDeleteTime: number
+  isAutoDelete: boolean
+  addToast: (type: ToastType['type']) => void
+}
 
-  useEffect(() => {
-    setList([...toastList])
-  }, [toastList])
-
+export const Toasts = ({ toasts, isAutoDelete, autoDeleteTime, position, addToast, deleteToast }: ToastsProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
-      if (isAutoDelete && toastList.length && list.length) {
-        deleteToast(toastList[0].id)
+      if (isAutoDelete && toasts.length) {
+        deleteToast()
       }
     }, autoDeleteTime)
 
@@ -40,16 +39,43 @@ export const Toast = ({ toastList, position, isAutoDelete, autoDeleteTime }: Toa
     }
 
     // eslint-disable-next-line
-  }, [toastList, isAutoDelete, autoDeleteTime, list])
+  }, [toasts, isAutoDelete, autoDeleteTime])
 
-  const deleteToast = (id: string): void => {
-    const listItemIndex = list.findIndex((e) => e.id === id)
-    const toastListItem = toastList.findIndex((e) => e.id === id)
-    list.splice(listItemIndex, 1)
-    toastList.splice(toastListItem, 1)
-    setList([...list])
-  }
+  return (
+    <>
+      <div className="flex flex-nowrap justify-center flex-row  ">
+        <Button
+          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-green-500')}
+          onClick={() => addToast('success')}
+        >
+          Success
+        </Button>
+        <Button
+          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-red-500')}
+          onClick={() => addToast('danger')}
+        >
+          Danger
+        </Button>
+        <Button
+          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-blue-500')}
+          onClick={() => addToast('info')}
+        >
+          Info
+        </Button>
+        <Button
+          className={clsx('text-center basis-32 mx-2 w-full', 'text-white bg-yellow-500')}
+          onClick={() => addToast('warning')}
+        >
+          Warning
+        </Button>
+      </div>
 
+      <Toast deleteToast={deleteToast} toasts={toasts} position={position} />
+    </>
+  )
+}
+
+export const Toast = ({ deleteToast, toasts, position }: ToastProps) => {
   return (
     <div
       className={clsx(
@@ -60,7 +86,7 @@ export const Toast = ({ toastList, position, isAutoDelete, autoDeleteTime }: Toa
         position === 'bottom-left' && 'bottom-0 left-0'
       )}
     >
-      {list.map((toast, i) => (
+      {toasts.map((toast, i) => (
         <div
           key={i}
           className={clsx(
