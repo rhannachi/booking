@@ -4,7 +4,7 @@ import { SearchField } from '@/components/Molecules'
 
 export type HomeProps = CardListProps
 
-export const Home = ({ cardList }: HomeProps) => {
+const Home = ({ cardList }: HomeProps) => {
   return (
     <>
       {/*<h1 className="font-bold text-3xl text-pink-500 md:mb-10">All Rooms</h1>*/}
@@ -26,3 +26,5 @@ export const Home = ({ cardList }: HomeProps) => {
     </>
   )
 }
+
+export default Home

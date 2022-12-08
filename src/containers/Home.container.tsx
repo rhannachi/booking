@@ -1,10 +1,15 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { IRoom } from '@/shared/schemas'
-import { Home } from '@/components/Pages'
 import { CardProps } from '@/components/Organisms'
 import { Layout } from '@/components/Templates'
 import { roomCardMapper } from '@/containers/helpers/home.mapper'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
+const Home = dynamic(() => import('@/components/Pages/Home'), {
+  suspense: true
+})
 
 export type HomeContainerStateType = {
   isLoading: boolean
@@ -32,7 +37,11 @@ const HomeContainer: NextPage<HomeContainerType> = ({ isLoading, rooms = [] }) =
       </Head>
 
       <main>
-        <Layout>{isLoading ? <div>is loading ...</div> : <Home cardList={cardListProps} />}</Layout>
+        <Layout>
+          <Suspense fallback="Loading...">
+            <Home cardList={cardListProps} />
+          </Suspense>
+        </Layout>
       </main>
 
       <footer></footer>
