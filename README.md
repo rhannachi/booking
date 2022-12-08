@@ -47,4 +47,114 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Architecture
+
+```
+src/
+├── components
+│   ├── Atoms
+│   │   ├── Button
+│   │   │   ├── Button.stories.tsx
+│   │   │   └── Button.tsx
+│   │   ├── Checkbox
+│   │   └── Icon
+│   │       ├── Icon.stories.tsx
+│   │       ├── Icon.tsx
+│   │       └── svgs
+│   ├── Molecules
+│   │   ├── Carousel
+│   │   │   ├── Carousel.fixture.ts
+│   │   │   ├── Carousel.stories.tsx
+│   │   │   └── Carousel.tsx
+│   │   ├── Loader
+│   │   │   ├── Loader.stories.tsx
+│   │   │   └── Loader.tsx
+│   │   └── SearchField
+│   │       ├── SearchField.stories.tsx
+│   │       └── SearchField.tsx
+│   ├── Organisms
+│   │   ├── Card
+│   │   │   ├── CardBooking.stories.tsx
+│   │   │   ├── CardDefault.stories.tsx
+│   │   │   ├── Card.fixtures.tsx
+│   │   │   └── Card.tsx
+│   │   ├── CardList
+│   │   │   ├── CardListBooking.stories.tsx
+│   │   │   ├── CardListDefault.stories.tsx
+│   │   │   ├── CardList.fixtures.tsx
+│   │   │   └── CardList.tsx
+│   │   └── Toast
+│   │       ├── Toast.fixtures.tsx
+│   │       ├── Toast.stories.tsx
+│   │       └── Toast.tsx
+│   ├── Pages
+│   │   └── Home
+│   │       ├── Home.stories.tsx
+│   │       └── Home.tsx
+│   └── Templates
+│       ├── Footer
+│       │   ├── Footer.stories.tsx
+│       │   └── Footer.tsx
+│       ├── Header
+│       │   ├── Header.stories.tsx
+│       │   └── Header.tsx
+│       └── Layout
+│           ├── Layout.stories.tsx
+│           └── Layout.tsx
+├── containers
+│   ├── helpers
+│   │   └── home.mapper.tsx
+│   └── Home.container.tsx
+├── helpers
+│   └── constants.ts
+├── mocks
+│   ├── fixtures
+│   │   └── rooms.ts
+│   └── http.ts
+├── pages
+│   ├── api
+│   │   ├── room
+│   │   │   └── [id].ts
+│   │   ├── rooms
+│   │   └── seeding
+│   │       └── rooms
+│   ├── _app.tsx
+│   ├── _document.tsx
+│   └── index.tsx
+├── server
+│   ├── config
+│   │   └── env.ts
+│   ├── controllers
+│   │   └── room.ts
+│   ├── factories
+│   │   ├── apiError.ts
+│   │   └── roomErrors.ts
+│   ├── helpers
+│   ├── middlewares
+│   │   └── errors.ts
+│   ├── repository
+│   │   ├── db.ts
+│   │   └── models
+│   │       └── room.ts
+│   ├── routes
+│   └── services
+│       └── room.ts
+├── services
+│   ├── http.ts
+│   └── room.service.ts
+├── shared
+│   └── schemas
+│       ├── errors.ts
+│       ├── http.ts
+│       └── room.ts
+├── store
+│   ├── room
+│   │   ├── room.slice.ts
+│   │   └── room.thunk.ts
+│   ├── rootReducer.ts
+│   └── store.ts
+└── styles
+    └── globals.scss
+```
+
+
 ![Architecture](/assets/dependencies.png)
