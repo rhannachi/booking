@@ -15,7 +15,7 @@
     "test:storybook": "test-storybook",
     "build:storybook": "build-storybook",
     "build": "next build",
-    "buld:analyze": "ANALYZE=true yarn build",
+    "buld:analyze": "ANALYZE=true pnpm build",
     "export": "next export"
   },
   "dependencies": {

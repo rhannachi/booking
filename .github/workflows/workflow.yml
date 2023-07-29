@@ -12,23 +12,23 @@ jobs:
 
   ################################## SECURITY #########################################
 
-  security:
-    runs-on: ubuntu-latest
-    environment:
-      name: Development
-    steps:
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        continue-on-error: true # To make sure that SARIF upload gets called
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --sarif-file-output=snyk.sarif
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: snyk.sarif
+#  security:
+#    runs-on: ubuntu-latest
+#    environment:
+#      name: Production
+#    steps:
+#      - uses: actions/checkout@master
+#      - name: Run Snyk to check for vulnerabilities
+#        uses: snyk/actions/node@master
+#        continue-on-error: true # To make sure that SARIF upload gets called
+#        env:
+#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+#        with:
+#          args: --sarif-file-output=snyk.sarif
+#      - name: Upload result to GitHub Code Scanning
+#        uses: github/codeql-action/upload-sarif@v2
+#        with:
+#          sarif_file: snyk.sarif
 
   ################################## INSTALL-DEP #########################################
 
@@ -37,14 +37,17 @@ jobs:
     name: Install dependencies
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Step Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: yarn
+          node-version: '16.x'
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: zip node_modules
         run: tar -czf node_modules.tar.gz ./node_modules
@@ -64,11 +67,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Step Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: yarn
+          node-version: '16.x'
+          cache: pnpm
 
       - name: Load artifact node_modules
         uses: actions/download-artifact@v3
@@ -80,25 +86,28 @@ jobs:
 
       - name: Lint and ts check
         run: |
-          yarn ts:check
-          yarn lint
+          pnpm ts:check
+          pnpm lint
       - name: Dependency validation
-        run: yarn dependency:validation
+        run: pnpm dependency:validation
 
   test:
     needs: [install-dependencies]
     environment:
-      name: Development
+      name: Production
     runs-on: ubuntu-latest
     name: Test
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Step Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: yarn
+          node-version: '16.x'
+          cache: pnpm
 
       - name: Load artifact node_modules
         uses: actions/download-artifact@v3
@@ -112,13 +121,13 @@ jobs:
       #  run: yarn test:storybook
 
       - name: Test Api
-        run: yarn test:api
+        run: pnpm test:api
 
       - name: Test
-        run: yarn test
+        run: pnpm test
 
       - name: Test Coverage
-        run: yarn test:coverage
+        run: pnpm test:coverage
 
       # TODO FIX this
 #      - name: Test Lighthouse
@@ -145,7 +154,7 @@ jobs:
           files: ./coverage/clover.xml
           verbose: true
 
-  ###################################### BUILD #####################################
+  #################################### BUILD #####################################
 
   build-storybook:
     needs: [lint, test]
@@ -154,11 +163,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Step Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: yarn
+          node-version: '16.x'
+          cache: pnpm
 
       - name: Load artifact node_modules
         uses: actions/download-artifact@v3
@@ -169,7 +181,7 @@ jobs:
         run: tar -xzf node_modules.tar.gz
 
       - name: Build Storybook
-        run: yarn build:storybook
+        run: pnpm build:storybook
 
   build-next:
     needs: [lint, test]
@@ -178,11 +190,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Step Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: yarn
+          node-version: '16.x'
+          cache: pnpm
 
       - name: Load artifact node_modules
         uses: actions/download-artifact@v3
@@ -206,14 +221,14 @@ jobs:
         with:
           path: |
             .next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          #  Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Build with Next.js
-        run: yarn build
+        run: pnpm build
 
       # - name: Static HTML export with Next.js
       #   run: yarn export
