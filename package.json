@@ -1,7 +1,6 @@
 {
   "name": "booking",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "start": "next start",
@@ -16,7 +15,7 @@
     "test:storybook": "test-storybook",
     "build:storybook": "build-storybook",
     "build": "next build",
-    "buld:analyze": "ANALYZE=true yarn build",
+    "buld:analyze": "ANALYZE=true pnpm build",
     "export": "next export"
   },
   "dependencies": {
@@ -36,8 +35,8 @@
     "react-svg": "^15.1.7"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=16.0.0"
+    "npm": ">=8.19.3",
+    "node": ">=16.19.1"
   },
   "resolutions": {
     "react-test-renderer": "18.1.0"
