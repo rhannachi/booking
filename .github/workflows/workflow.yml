@@ -156,32 +156,32 @@ jobs:
 
   #################################### BUILD #####################################
 
-  build-storybook:
-    needs: [lint, test]
-    runs-on: ubuntu-latest
-    name: Build Storybook
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Step Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: pnpm
-
-      - name: Load artifact node_modules
-        uses: actions/download-artifact@v3
-        with:
-          name: my_node_modules_artifact
-
-      - name: unzip node_modules
-        run: tar -xzf node_modules.tar.gz
-
-      - name: Build Storybook
-        run: pnpm build:storybook
+#  build-storybook:
+#    needs: [lint, test]
+#    runs-on: ubuntu-latest
+#    name: Build Storybook
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - uses: pnpm/action-setup@v2
+#        with:
+#          version: 8
+#      - name: Step Node
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: '16.x'
+#          cache: pnpm
+#
+#      - name: Load artifact node_modules
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: my_node_modules_artifact
+#
+#      - name: unzip node_modules
+#        run: tar -xzf node_modules.tar.gz
+#
+#      - name: Build Storybook
+#        run: pnpm build:storybook
 
   build-next:
     needs: [lint, test]
@@ -237,3 +237,37 @@ jobs:
       #   uses: actions/upload-pages-artifact@v1
       #   with:
       #     path: ./out
+
+  deploy-production:
+    needs: [ build-next ]
+    name: "Deploy Prod"
+    environment:
+      name: Production
+      url: https://booking-prod.vercel.app
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      # Github env vars to Vercel
+      # https://github.com/dkershner6/vercel-set-env-action
+      - name: Set Github Env Vars (production) on Vercel Production Project
+        uses: dkershner6/vercel-set-env-action@v1
+        with:
+          token: ${{ secrets.VERCEL_TOKEN }}
+          projectName: booking # project name in Vercel
+          envVariableKeys: DB_URI
+        env:
+          DB_URI: ${{ secrets.DB_URI }}
+          TARGET_DB_URI: production # vercel environment: comma delimited, one of [production, preview, development]
+          TYPE_DB_URI: encrypted # one of [plain, encrypted]
+
+      # deploy app to vercel
+      # https://github.com/amondnet/vercel-action
+      - name: deploy site to vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          vercel-args: '--prod' #Optional
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
+
