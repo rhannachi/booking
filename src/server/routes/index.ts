@@ -1,4 +1,9 @@
-import { IApiRoomResponse, IApiRoomsResponse, IApiDeleteRoomResponse, IApiResponse } from '@/shared/schemas'
+import {
+  IApiRoomResponse,
+  IApiRoomsResponse,
+  IApiDeleteRoomResponse,
+  IApiResponse,
+} from '@/shared/schemas'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { nextCatchErrorMiddleware } from '@/server/middlewares'
 import { RoomController } from '@/server/controllers'
@@ -8,7 +13,7 @@ export const getRooms = nextCatchErrorMiddleware(
     const response = await new RoomController().getAll(req.query)
 
     res.status(200).json(response)
-  }
+  },
 )
 
 export const postRoom = nextCatchErrorMiddleware(
@@ -16,7 +21,7 @@ export const postRoom = nextCatchErrorMiddleware(
     const response = await new RoomController().add(req?.body)
 
     res.status(200).json(response)
-  }
+  },
 )
 
 export const getRoom = nextCatchErrorMiddleware(
@@ -24,7 +29,7 @@ export const getRoom = nextCatchErrorMiddleware(
     const response = await new RoomController().get(req.query?.id)
 
     res.status(200).json(response)
-  }
+  },
 )
 
 export const putRoom = nextCatchErrorMiddleware(
@@ -32,7 +37,7 @@ export const putRoom = nextCatchErrorMiddleware(
     const response = await new RoomController().set(req.query?.id, req?.body)
 
     return res.status(200).json(response)
-  }
+  },
 )
 
 export const deleteRoom = nextCatchErrorMiddleware(
@@ -40,7 +45,7 @@ export const deleteRoom = nextCatchErrorMiddleware(
     const response = await new RoomController().delete(req.query?.id)
 
     res.status(200).json(response)
-  }
+  },
 )
 
 export const postRooms = nextCatchErrorMiddleware(
@@ -48,7 +53,7 @@ export const postRooms = nextCatchErrorMiddleware(
     await new RoomController().seeding()
 
     res.status(200).json({
-      status: 200
+      status: 200,
     })
-  }
+  },
 )

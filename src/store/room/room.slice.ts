@@ -13,7 +13,10 @@ type SetRoomsActionPayloadType = Readonly<{
   limit: number
 }>
 
-const setRooms = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsActionPayloadType>) => {
+const setRooms = (
+  state: Draft<RoomsStateType>,
+  action: PayloadAction<SetRoomsActionPayloadType>,
+) => {
   const { rooms, all, count, limit } = action.payload
 
   state.rooms = rooms
@@ -24,7 +27,7 @@ const setRooms = (state: Draft<RoomsStateType>, action: PayloadAction<SetRoomsAc
   state.isLoading = false
 }
 
-/***
+/** *
  *  FETCH ROOMS
  */
 
@@ -45,13 +48,16 @@ const fetchRoomsSuccess = (state: Draft<RoomsStateType>, action: PayloadAction<F
       rooms,
       all,
       count,
-      limit
-    }
+      limit,
+    },
   }
   roomSlice.caseReducers.setRoomsAction(state, newAction)
 }
 // REJECTED
-const fetchRoomsRejected = (state: Draft<RoomsStateType>, action: PayloadAction<FetchRoomsErrorType | undefined>) => {
+const fetchRoomsRejected = (
+  state: Draft<RoomsStateType>,
+  action: PayloadAction<FetchRoomsErrorType | undefined>,
+) => {
   state.rooms = []
   state.all = 0
   state.count = 0
@@ -60,7 +66,7 @@ const fetchRoomsRejected = (state: Draft<RoomsStateType>, action: PayloadAction<
   state.isLoading = false
 }
 
-/***
+/** *
  * SLICE ROOM
  */
 type RoomsStateType = Readonly<{
@@ -78,20 +84,20 @@ export const roomInitialState: RoomsStateType = {
   count: 0,
   limit: 0,
   error: '',
-  isLoading: false
+  isLoading: false,
 }
 export const roomSlice = createSlice({
   name: ROOM_SLICE_NAME,
   initialState: roomInitialState,
   reducers: {
-    setRoomsAction: setRooms
+    setRoomsAction: setRooms,
   },
   extraReducers: (builder: ActionReducerMapBuilder<RoomsStateType>) => {
     builder
       .addCase(fetchRooms.pending, fetchRoomsPending)
       .addCase(fetchRooms.fulfilled, fetchRoomsSuccess)
       .addCase(fetchRooms.rejected, fetchRoomsRejected)
-  }
+  },
 })
 
 export const { setRoomsAction } = roomSlice.actions

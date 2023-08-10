@@ -6,7 +6,7 @@ interface EnvType {
 
 export const getEnv = (): EnvType => {
   let env: EnvType = {
-    dbUri: ''
+    dbUri: '',
   }
 
   try {
@@ -47,12 +47,11 @@ export const getEnv = (): EnvType => {
     // }
 
     env = {
-      dbUri
+      dbUri,
     }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error)
-  } finally {
-    return env
   }
+  return env
 }

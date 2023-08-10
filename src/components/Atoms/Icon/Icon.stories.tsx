@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react'
 import { Icon, COLORS_ICON, SIZES_ICON, IconProps, ICONS } from './Icon'
-import React from 'react'
 
 export default {
   title: 'Atoms/Icon',
@@ -8,22 +7,22 @@ export default {
   argTypes: {
     icon: {
       options: ICONS,
-      control: 'select'
+      control: 'select',
     },
     color: {
       options: COLORS_ICON,
-      control: 'select'
+      control: 'select',
     },
     size: {
       options: SIZES_ICON,
-      control: 'select'
-    }
+      control: 'select',
+    },
   },
   args: {
     icon: 'star',
     size: 'base',
-    color: 'fill-black'
-  }
+    color: 'fill-black',
+  },
 } as Meta<IconProps>
 
 export const Default: Story<IconProps> = (args) => <Icon {...args} />

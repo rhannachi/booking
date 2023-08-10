@@ -3,14 +3,14 @@ import { roomSlice } from './room'
 import { HYDRATE } from 'next-redux-wrapper'
 
 const combinedReducer = combineReducers({
-  [roomSlice.name]: roomSlice.reducer
+  [roomSlice.name]: roomSlice.reducer,
 })
 
 const reducer = (state: StateType | undefined, action: AnyAction) => {
   if (action.type === HYDRATE) {
     const nextState = {
       ...state, // use previous state
-      ...action.payload // apply delta from hydration
+      ...action.payload, // apply delta from hydration
     }
     // eslint-disable-next-line no-console
     console.log('------HYDRATE------')

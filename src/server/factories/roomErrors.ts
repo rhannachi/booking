@@ -1,6 +1,9 @@
 import { ApiError, ApiErrorMessageType } from '@/shared/schemas'
 
-type ErrorRoomMessageType = 'Room not found with this ID' | 'Room fields are invalid' | 'ID Room is invalid'
+type ErrorRoomMessageType =
+  | 'Room not found with this ID'
+  | 'Room fields are invalid'
+  | 'ID Room is invalid'
 
 // ************ 500
 export const makeErrorInternalServerError = (): ApiError => {

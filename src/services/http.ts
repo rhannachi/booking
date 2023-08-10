@@ -8,8 +8,8 @@ const api = (baseURL: string) =>
   axios.create({
     baseURL,
     headers: {
-      'Content-type': 'application/json'
-    }
+      'Content-type': 'application/json',
+    },
   })
 
 const okTransform = <T>(response: AxiosResponse<T>): OK<T> => {

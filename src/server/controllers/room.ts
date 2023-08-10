@@ -1,9 +1,14 @@
-import { IApiDeleteRoomResponse, IApiRoomResponse, IApiRoomsResponse, IRoom } from '@/shared/schemas'
+import {
+  IApiDeleteRoomResponse,
+  IApiRoomResponse,
+  IApiRoomsResponse,
+  IRoom,
+} from '@/shared/schemas'
 import {
   makeErrorInternalServerError,
   makeErrorRoomFieldsInvalid,
   makeErrorRoomIdInvalid,
-  makeErrorRoomNotFound
+  makeErrorRoomNotFound,
 } from '@/server/factories'
 import { QueryType, RoomService, ToResearchType } from '@/server/services'
 import { isValidObjectId } from 'mongoose'
@@ -29,7 +34,7 @@ export class RoomController {
 
     return {
       status: 200,
-      room
+      room,
     }
   }
 
@@ -42,7 +47,7 @@ export class RoomController {
         all,
         count: all,
         limit: all,
-        rooms
+        rooms,
       }
     }
 
@@ -61,8 +66,8 @@ export class RoomController {
         ...toResearch,
         address: {
           $regex: toResearch.address,
-          $options: 'i'
-        }
+          $options: 'i',
+        },
       }
     }
 
@@ -76,7 +81,7 @@ export class RoomController {
       all: rooms.length,
       count: roomsSlice?.length,
       limit,
-      rooms: roomsSlice
+      rooms: roomsSlice,
     }
   }
 
@@ -100,7 +105,7 @@ export class RoomController {
 
     return {
       status: 200,
-      room: newRoom
+      room: newRoom,
     }
   }
 
@@ -112,7 +117,6 @@ export class RoomController {
     if (!body || typeof body !== 'object') {
       throw makeErrorRoomFieldsInvalid()
     }
-
     const room = await this.roomService.getRoom(id)
 
     if (!room) {
@@ -129,7 +133,7 @@ export class RoomController {
 
     return {
       status: 200,
-      room: roomUpdated
+      room: roomUpdated,
     }
   }
 
@@ -152,7 +156,7 @@ export class RoomController {
 
     return {
       status: 200,
-      id: roomIdDeleted
+      id: roomIdDeleted,
     }
   }
 

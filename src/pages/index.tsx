@@ -9,24 +9,31 @@ import { ROOM_SLICE_NAME } from '@/helpers'
 import { GetServerSideProps, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
-type getServerSidePropsType = GetServerSideProps<HomeContainerStateType, ParsedUrlQuery, PreviewData>
+type getServerSidePropsType = GetServerSideProps<
+  HomeContainerStateType,
+  ParsedUrlQuery,
+  PreviewData
+>
 
-export const getServerSideProps: getServerSidePropsType = wrapper.getServerSideProps((store) => async ({ req }) => {
-  const { origin: baseUrl } = absoluteUrl(req)
-  await store.dispatch(fetchRooms({ baseUrl }))
+export const getServerSideProps: getServerSidePropsType = wrapper.getServerSideProps(
+  (store) =>
+    async ({ req }) => {
+      const { origin: baseUrl } = absoluteUrl(req)
+      await store.dispatch(fetchRooms({ baseUrl }))
 
-  return {
-    props: {
-      isLoading: false,
-      rooms: [],
-      error: ''
-    }
-  }
-})
+      return {
+        props: {
+          isLoading: false,
+          rooms: [],
+          error: '',
+        },
+      }
+    },
+)
 
 const mapStateToProps = (state: StateType): HomeContainerStateType => ({
   rooms: state[ROOM_SLICE_NAME].rooms,
-  isLoading: state[ROOM_SLICE_NAME].isLoading
+  isLoading: state[ROOM_SLICE_NAME].isLoading,
 })
 
 // const mapDispatchToProps: HomeContainerDispatchType = {

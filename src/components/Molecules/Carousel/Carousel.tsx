@@ -5,7 +5,7 @@ export const CAROUSEL_HEIGHT = ['h-60', 'h-64', 'h-72', 'h-80', 'h-96'] as const
 
 export type CarouselProps = {
   images: string[]
-  imageSize?: typeof CAROUSEL_HEIGHT[number]
+  imageSize?: (typeof CAROUSEL_HEIGHT)[number]
   className?: string
 }
 
@@ -18,7 +18,7 @@ type ButtonProps = {
 const Button = ({ onClick, isDisabled, children }: ButtonProps) => (
   <button
     onClick={onClick}
-    className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed"
+    className='z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed'
     disabled={isDisabled}
   >
     {children}
@@ -37,7 +37,10 @@ export const Carousel = ({ images, imageSize = 'h-96', className = '' }: Carouse
   }
 
   const moveNext = () => {
-    if (carousel.current !== null && carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current) {
+    if (
+      carousel.current !== null &&
+      carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current
+    ) {
       setCurrentIndex((prevState) => prevState + 1)
     }
   }
@@ -61,42 +64,46 @@ export const Carousel = ({ images, imageSize = 'h-96', className = '' }: Carouse
   }, [currentIndex])
 
   useEffect(() => {
-    maxScrollWidth.current = carousel.current ? carousel.current.scrollWidth - carousel.current.offsetWidth : 0
+    maxScrollWidth.current = carousel.current
+      ? carousel.current.scrollWidth - carousel.current.offsetWidth
+      : 0
   }, [])
 
   return (
     <div className={clsx('relative overflow-hidden', className)}>
-      <div className="absolute flex justify-between w-full h-full ">
+      <div className='absolute flex justify-between w-full h-full '>
         {/*  */}
         <Button onClick={movePrev} isDisabled={isDisabled('prev')}>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-20 h-12 -ml-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            xmlns='http://www.w3.org/2000/svg'
+            className='w-20 h-12 -ml-5'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
             strokeWidth={2}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            <path strokeLinecap='round' strokeLinejoin='round' d='M15 19l-7-7 7-7' />
           </svg>
         </Button>
 
         <Button onClick={moveNext} isDisabled={isDisabled('next')}>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-20 h-12 -ml-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            xmlns='http://www.w3.org/2000/svg'
+            className='w-20 h-12 -ml-5'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
             strokeWidth={2}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
           </svg>
         </Button>
       </div>
       <div
         ref={carousel}
-        className={clsx('relative z-0 flex  gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x')}
+        className={clsx(
+          'relative z-0 flex  gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x',
+        )}
       >
         {images.map((url, index) => {
           return (
@@ -104,7 +111,7 @@ export const Carousel = ({ images, imageSize = 'h-96', className = '' }: Carouse
               key={index}
               className={clsx(
                 ' relative z-0 block text-center bg-left-top bg-no-repeat bg-cover carousel-item snap-start aspect-square bg-origin-padding',
-                `${imageSize}`
+                `${imageSize}`,
               )}
               // TODO use next/image
               style={{ backgroundImage: `url(${url})` }}

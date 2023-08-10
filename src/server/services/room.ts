@@ -50,11 +50,14 @@ export class RoomService {
     return this.roomModel.create<IRoom>(room)
   }
 
-  async updateRoom(id: string, roomInput: Partial<Omit<IRoom, '_id' | 'createdAt'>>): Promise<IRoom | undefined> {
+  async updateRoom(
+    id: string,
+    roomInput: Partial<Omit<IRoom, '_id' | 'createdAt'>>,
+  ): Promise<IRoom | undefined> {
     const roomUpdated = await this.roomModel.findByIdAndUpdate<IRoom>(id, roomInput, {
       new: true,
       runValidators: true,
-      useFindAndModify: false
+      useFindAndModify: false,
     })
 
     if (roomUpdated !== null) {

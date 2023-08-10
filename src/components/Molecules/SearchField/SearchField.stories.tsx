@@ -5,8 +5,8 @@ export default {
   title: 'Molecules/SearchField',
   component: SearchField,
   args: {
-    className: ''
-  }
+    className: '',
+  },
 } as Meta<SearchFieldProps>
 
 const Template: Story<SearchFieldProps> = (args) => <SearchField {...args} />

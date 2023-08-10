@@ -20,8 +20,8 @@ export const makeApiError = (e: unknown): ApiError => {
       status: error.status,
       message: error?.message,
       extra: error?.extra,
-      stack: error?.stack
-    }
+      stack: error?.stack,
+    },
   })
   return error
 }
