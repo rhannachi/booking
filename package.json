@@ -44,7 +44,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@next/bundle-analyzer": "^12.3.0",
-    "@rhannachi/eslint-config-prettier": "^1.2.2",
+    "@rhannachi/eslint-config-prettier": "^1.2.3",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",

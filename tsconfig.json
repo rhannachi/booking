@@ -4,9 +4,19 @@
     "baseUrl": "src",
     "rootDir": "src",
     "paths": {
-      "@/*": ["*"]
-    }
+      "@/*": [
+        "*"
+      ]
+    },
+    "incremental": true,
+    "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "src/**/*", "custom.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "src/**/*",
+    "custom.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
