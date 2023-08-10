@@ -12,8 +12,8 @@ import { PayloadAction } from '@reduxjs/toolkit'
 test('Should return initial state', () => {
   expect(
     roomSlice.reducer(undefined, {
-      type: undefined
-    })
+      type: undefined,
+    }),
   ).toEqual(roomInitialState)
 })
 /**
@@ -27,13 +27,20 @@ describe('List all rooms', () => {
 
   it('Should be able to fetch the room list', async () => {
     // TODO remove type casting
-    const fetchRoomsResponse = (await store.dispatch(fetchRooms({ baseUrl: '' }))) as PayloadAction<FetchRoomsType>
+    const fetchRoomsResponse = (await store.dispatch(
+      fetchRooms({ baseUrl: '' }),
+    )) as PayloadAction<FetchRoomsType>
     const {
       payload: { rooms, all, count, limit },
-      type
+      type,
     } = fetchRoomsResponse
 
-    const { rooms: roomsMock, all: allMock, count: countMock, limit: limitMock } = fetchRoomsServiceMock
+    const {
+      rooms: roomsMock,
+      all: allMock,
+      count: countMock,
+      limit: limitMock,
+    } = fetchRoomsServiceMock
 
     expect(type).toBe(`${ROOM_SLICE_NAME}/fetchRooms/fulfilled`)
     // check api result

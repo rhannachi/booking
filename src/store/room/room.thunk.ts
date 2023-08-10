@@ -15,21 +15,22 @@ type FetchRoomsRejectType = {
   rejectValue: FetchRoomsErrorType
 }
 
-export const fetchRooms = createAsyncThunk<FetchRoomsType, FetchRoomsPayloadType, FetchRoomsRejectType>(
-  `${ROOM_SLICE_NAME}/fetchRooms`,
-  async ({ baseUrl }, thunkAPI) => {
-    const result = await fetchRoomsService(baseUrl)
+export const fetchRooms = createAsyncThunk<
+  FetchRoomsType,
+  FetchRoomsPayloadType,
+  FetchRoomsRejectType
+>(`${ROOM_SLICE_NAME}/fetchRooms`, async ({ baseUrl }, thunkAPI) => {
+  const result = await fetchRoomsService(baseUrl)
 
-    if (result.status === 'OK') {
-      const { rooms, all, count, limit } = result.response
-      return {
-        rooms,
-        all,
-        count,
-        limit
-      }
+  if (result.status === 'OK') {
+    const { rooms, all, count, limit } = result.response
+    return {
+      rooms,
+      all,
+      count,
+      limit,
     }
-
-    return thunkAPI.rejectWithValue({ error: result.error.error })
   }
-)
+
+  return thunkAPI.rejectWithValue({ error: result.error.error })
+})

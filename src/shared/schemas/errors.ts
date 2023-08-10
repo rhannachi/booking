@@ -10,10 +10,11 @@ export class ApiError extends Error {
 }
 
 export type ApiErrorStatusType = keyof typeof API_RESPONSE_STATUS_MESSAGE
-export type ApiErrorMessageType = typeof API_RESPONSE_STATUS_MESSAGE[keyof typeof API_RESPONSE_STATUS_MESSAGE]
+export type ApiErrorMessageType =
+  (typeof API_RESPONSE_STATUS_MESSAGE)[keyof typeof API_RESPONSE_STATUS_MESSAGE]
 
 const API_RESPONSE_STATUS_MESSAGE = {
   400: 'HTTP Bad Request',
   404: 'HTTP Not Found',
-  500: 'HTTP Internal Server Error'
+  500: 'HTTP Internal Server Error',
 } as const

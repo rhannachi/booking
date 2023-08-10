@@ -6,18 +6,18 @@ export default {
   title: 'Organisms/CardList',
   component: CardList,
   args: {
-    cardList: cardListBookingFixture
-  }
+    cardList: cardListBookingFixture,
+  },
 } as Meta<CardListProps>
 
-const Template: Story<CardListProps> = ({ cardList }) => (
+const Template: Story<CardListProps> = ({ cardList }: CardListProps) => (
   <CardList>
     {cardList.map(({ images, elements, content }, index) => (
-      <Card key={`${index}-card-booking`} className="h-96">
-        <CardMedia className="rounded-2xl" images={images} />
-        <CardElement className="pt-4" prefix={elements[0].prefix} suffix={elements[0].suffix} />
+      <Card key={`${index}-card-booking`} className='h-96'>
+        <CardMedia className='rounded-2xl' images={images} />
+        <CardElement className='pt-4' prefix={elements[0].prefix} suffix={elements[0].suffix} />
         <CardElement prefix={elements[1].prefix} />
-        <CardContent className="h-12">{content}</CardContent>
+        <CardContent className='h-12'>{content}</CardContent>
       </Card>
     ))}
   </CardList>

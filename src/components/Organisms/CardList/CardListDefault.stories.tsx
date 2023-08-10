@@ -6,18 +6,22 @@ export default {
   title: 'Organisms/CardList',
   component: CardList,
   args: {
-    cardList: cardListDefaultFixture
-  }
+    cardList: cardListDefaultFixture,
+  },
 } as Meta<CardListProps>
 
-const Template: Story<CardListProps> = ({ cardList }) => (
+const Template: Story<CardListProps> = ({ cardList }: CardListProps) => (
   <CardList>
     {cardList.map(({ header, images, elements, content }, index) => (
-      <Card key={`${index}-card-default`} className="shadow-md shadow">
+      <Card key={`${index}-card-default`} className='shadow-md shadow'>
         {header && <CardHeader title={header.title} subTitle={header.subTitle} />}
         <CardMedia images={images} />
-        <CardElement className="px-4 pt-4" prefix={elements[0].prefix} suffix={elements[0].suffix} />
-        <CardContent className="px-4 mb-4 h-16">{content}</CardContent>
+        <CardElement
+          className='px-4 pt-4'
+          prefix={elements[0].prefix}
+          suffix={elements[0].suffix}
+        />
+        <CardContent className='px-4 mb-4 h-16'>{content}</CardContent>
       </Card>
     ))}
   </CardList>

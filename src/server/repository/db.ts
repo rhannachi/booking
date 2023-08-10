@@ -4,8 +4,8 @@ import { getEnv } from '../config'
 export const dbConnect = async () => {
   try {
     const { dbUri } = getEnv()
-    //console.info('===> ENV:', process.env)
-    //console.info('===> DB_URI', dbUri)
+    // console.info('===> ENV:', process.env)
+    // console.info('===> DB_URI', dbUri)
 
     if (mongoose.connection.readyState >= 1) {
       return

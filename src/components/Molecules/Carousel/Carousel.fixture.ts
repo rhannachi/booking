@@ -6,5 +6,5 @@ export const imagesCarouselMock: string[] = [
   'https://a0.muscache.com/im/pictures/4588d88f-0224-42f4-94cb-594f4d362fba.jpg?im_w=720',
   'https://a0.muscache.com/im/pictures/miso/Hosting-5264493/original/bc9fdbba-a126-4357-946b-4d5f5581ca0f.jpeg?im_w=720',
   'https://a0.muscache.com/im/pictures/82c577ee-3422-4fda-ae09-6716d76e8bef.jpg?im_w=720',
-  'https://a0.muscache.com/im/pictures/4568c35b-bb8c-4367-b828-8f17bcea5934.jpg?im_w=720'
+  'https://a0.muscache.com/im/pictures/4568c35b-bb8c-4367-b828-8f17bcea5934.jpg?im_w=720',
 ]

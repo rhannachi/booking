@@ -9,7 +9,7 @@ export const fetchRoomsServiceMock: IApiRoomsResponse = {
   all: 8,
   count: 8,
   limit: 8,
-  rooms: roomsMockResponse
+  rooms: roomsMockResponse,
 }
 
 export const mockApi = () => {

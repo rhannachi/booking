@@ -1,4 +1,4 @@
-import React, { ReactNode, cloneElement, Children, isValidElement } from 'react'
+import { ReactNode, cloneElement, Children, isValidElement } from 'react'
 import { CardProps } from '@/components/Organisms/Card'
 
 export type CardListProps = {
@@ -7,7 +7,7 @@ export type CardListProps = {
 
 export const CardList = ({ children }: { children: ReactNode[] }) => {
   return (
-    <div className="flex flex-wrap flex-row justify-center">
+    <div className='flex flex-wrap flex-row justify-center'>
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
           return cloneElement(child, { className: `m-2 ${child.props.className}` })

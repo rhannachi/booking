@@ -7,6 +7,6 @@ export type LoaderProps = Omit<IconProps, 'className' | 'icon'> & {
 
 export const Loader = ({ className, size, color }: LoaderProps) => (
   <div className={clsx(className, 'inline-flex items-center')}>
-    <Icon icon="loader" size={size} color={color} className="inline-block animate-spin " />
+    <Icon icon='loader' size={size} color={color} className='inline-block animate-spin ' />
   </div>
 )

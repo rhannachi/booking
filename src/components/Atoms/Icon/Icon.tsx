@@ -1,9 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { ReactSVG } from 'react-svg'
 
-export const SIZES_ICON = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'] as const
-type SizeIconType = typeof SIZES_ICON[number]
+export const SIZES_ICON = [
+  'xs',
+  'sm',
+  'base',
+  'lg',
+  'xl',
+  '2xl',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl',
+  '7xl',
+  '8xl',
+] as const
+type SizeIconType = (typeof SIZES_ICON)[number]
 const SIZES_ICON_CUSTOM = [
   'w-3 h-3',
   'w-4 h-4',
@@ -16,9 +29,9 @@ const SIZES_ICON_CUSTOM = [
   'w-11 h-11',
   'w-12 h-12',
   'w-14 h-14',
-  'w-16 h-16'
+  'w-16 h-16',
 ] as const
-type SizeIconCustomType = typeof SIZES_ICON_CUSTOM[number]
+type SizeIconCustomType = (typeof SIZES_ICON_CUSTOM)[number]
 
 // to be able to change the size of the Icon, add  viewBox="0 0 25 25" to svg component
 export const ICONS = [
@@ -29,9 +42,9 @@ export const ICONS = [
   'user',
   'loader',
   'calendar',
-  'chevron-down'
+  'chevron-down',
 ] as const
-type IconType = typeof ICONS[number]
+type IconType = (typeof ICONS)[number]
 
 export const COLORS_ICON = [
   'fill-cyan-400',
@@ -39,9 +52,9 @@ export const COLORS_ICON = [
   'fill-amber-500',
   'fill-blue-500',
   'fill-black',
-  'fill-white'
+  'fill-white',
 ] as const
-export type ColorIconType = typeof COLORS_ICON[number]
+export type ColorIconType = (typeof COLORS_ICON)[number]
 
 export type IconProps = {
   icon: IconType
@@ -79,7 +92,7 @@ export const Icon = ({ icon, size = 'base', color = 'fill-black', className = ''
   return (
     <ReactSVG
       className={clsx(color, getSize(size), className, 'inline')} //
-      wrapper="svg"
+      wrapper='svg'
       // loading={() => <span>is loading ...</span>}
       src={iconSrc}
     />

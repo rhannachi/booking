@@ -8,20 +8,20 @@ export default {
   argTypes: {
     images: {
       control: {
-        type: 'object'
-      }
+        type: 'object',
+      },
     },
     imageSize: {
       control: {
         type: 'select',
-        options: CAROUSEL_HEIGHT
-      }
-    }
+        options: CAROUSEL_HEIGHT,
+      },
+    },
   },
   args: {
     imageSize: 'h-72',
-    images: imagesCarouselMock
-  }
+    images: imagesCarouselMock,
+  },
 } as Meta<CarouselProps>
 
 const Template: Story<CarouselProps> = (args) => <Carousel {...args} />

@@ -8,17 +8,17 @@ export default {
   argTypes: {
     color: {
       options: COLORS_ICON,
-      control: 'select'
+      control: 'select',
     },
     size: {
       options: SIZES_ICON,
-      control: 'select'
-    }
+      control: 'select',
+    },
   },
   args: {
     size: 'base',
-    color: 'fill-cyan-400'
-  }
+    color: 'fill-cyan-400',
+  },
 } as Meta<LoaderProps>
 
 const Template: Story<LoaderProps> = (args) => <Loader {...args} />
