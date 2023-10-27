@@ -21,7 +21,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@storybook/react": "6.5.10",
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "axios-mock-adapter": "^1.21.2",
     "clsx": "^1.2.1",
     "mongoose": "^6.5.2",
